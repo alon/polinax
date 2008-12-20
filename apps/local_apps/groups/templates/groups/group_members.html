@@ -1,0 +1,16 @@
+{% load i18n %}
+<div class="members">
+    <h2>{% trans "Members" %}</h2>
+    <table width="100%">
+        {% for member in members %}
+            {% if forloop.counter0|divisibleby:"3" %}<tr>{% endif %}
+            <td class="{% if member.away %}away{% else %}active{% endif %}-member">
+                <div class="avatar">{# {% avatar member.user 40 %} #}</div>
+                <div class="details"><a href="{% url profile_detail member.user.username %}" title="{{ member.user.username }}">{{ member.user.username }}</a></div>
+            </td>
+            {% if forloop.counter0|add:"1"|divisibleby:"3" %}</tr>{% endif %}
+        {% endfor %}
+        {% if members.all|length|divisibleby:"3" %}{% else %}</tr>{% endif %}
+    </table>
+</div>
+

@@ -1,0 +1,40 @@
+{% load i18n %}
+
+{% if can_admin %}
+    <a href="{% url group_members group.id %}">{% trans "Manage Membership" %}</a>
+{% endif %} 
+
+{% if can_join %}
+    <a id="join-toggle" href="#">{% trans "Join" %}</a>
+    <div class="form-toggle">
+        <form id="join-member" method="POST" action="">
+                <label>{% trans "Optional message:" %}</label>
+                <textarea cols="40" rows="2" name="message"></textarea>
+                <input type="submit" value="{% trans 'join' %}"/>
+        </form>
+    </div>
+    <script type="text/javascript" src="{{ MEDIA_URL }}jquery.js"></script>
+
+<script type="text/javascript">
+        $(document).ready(function() {
+
+            $('#join-member').hide();
+            $('#join-member').submit(function() {
+                alert('we are here');
+                });
+            $('#join-toggle').click(function() {
+                $('#join-member').slideToggle();
+                /* $('#join-member').autoscroll(); */
+                return false;
+            })});
+    </script>
+
+{% endif %} 
+
+{% if can_ask_to_join %}
+    <a href="{% url group_members group.id %}">{% trans "Ask to join" %}</a>
+{% endif %} 
+
+{% if can_leave %}
+    <a href="{% url group_members group.id %}">{% trans "Leave" %}</a>
+{% endif %} 
