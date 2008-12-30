@@ -8,11 +8,11 @@ from groups import models as groups
 def create_common_roles(app, created_models, verbosity, **kwargs):
     print 'creating common roles'
     # TODO: add default_permission
-    r = Role(title='admin', default_importance=1.0)
+    r = Role(title='admin')
     r.save()
-    r = Role(title='guest', default_importance=0.0)
+    r = Role(title='follower')
     r.save()
-    r = Role(title='member', default_importance=0.5)
+    r = Role(title='member')
     r.save()
 signals.post_syncdb.connect(create_common_roles, sender=groups)
 

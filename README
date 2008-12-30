@@ -3,6 +3,9 @@ polinax: a site for network based politics
 Polinax is a web site written in Python and using the Django and Pinax
 projects as a base. 
 
+Import user profile that includes friends, avatars. etc and integrate with 
+account.
+
 This version is a fork from Pinax's new-groups-app svn branch. I've rewrote
 most of it, using design from James Tauber.
 To read about the groups app design and find more polinax URLs go to

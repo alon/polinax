@@ -45,7 +45,7 @@ def create(request, form_class=ProjectForm,
             project_form = form_class(request.POST)
             if project_form.is_valid():
                 project = project_form.save()
-                project.add_member (by=request.user, new_member=request.user, role=Role.objects.get(title='admin'))
+                project.add_member (by=request.user, member=request.user, role=Role.objects.get(title='admin'))
                 return HttpResponseRedirect(project.get_absolute_url())
         else:
             project_form = form_class()
@@ -89,21 +89,21 @@ def project(request, slug, template_name="projects/project.html"):
     
     if request.user.is_authenticated() and request.method == "POST" and request.user == project.creator:
         if request.POST["action"] == "update":
-            adduser_form = AddUserForm(project=project)
+            adduser_form = AddUserForm(group=project)
             project_form = ProjectUpdateForm(request.POST, instance=project)
             if project_form.is_valid():
                 project = project_form.save()
         elif request.POST["action"] == "add":
             project_form = ProjectUpdateForm(instance=project)
-            adduser_form = AddUserForm(project, request.POST)
+            adduser_form = AddUserForm(group=project, data=request.POST)
             if adduser_form.is_valid():
                 adduser_form.save(project, request.user)
-                adduser_form = AddUserForm(project=project) # @@@ is this the right way to clear it?
+                adduser_form = AddUserForm(group=project) # @@@ is this the right way to clear it?
         else:
             project_form = ProjectUpdateForm(instance=project)
-            adduser_form = AddUserForm(project=project)
+            adduser_form = AddUserForm(group=project)
     else:
-        adduser_form = AddUserForm(project=project)
+        adduser_form = AddUserForm(group=project)
         project_form = ProjectUpdateForm(instance=project)
     
     topics = project.topics.all()[:5]

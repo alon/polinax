@@ -51,13 +51,13 @@
             <tr>
                 <th>{% trans "Member" %}</th>
                 <th>{% trans "Role" %}</th>
-                <th>{% trans "Importance" %}</th>
+                <th>{% trans "Karma score" %}</th>
             </tr>
             {% for member in active_members %}
                 <tr class="{% cycle odd,even %}">
                     <td><a href="{% url profile_detail member.user.username %}" title="{{ member.user.username }}">{{ member.user.username }}</a></td>
                     <td>{{member.role}}</td>
-                    <td>{{member.importance}}</td>
+                    <td>{{member.karma_score}}</td>
                 </tr>
             {% endfor %}
         </table>

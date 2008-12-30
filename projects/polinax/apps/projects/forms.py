@@ -1,6 +1,6 @@
 from django import forms
 from django.utils.translation import ugettext_lazy as _
-
+from django.db.models.query import EmptyQuerySet
 from django.contrib.auth.models import User
 try:
     from notification import models as notification
@@ -8,6 +8,7 @@ except ImportError:
     notification = None
 
 from projects.models import Project, Topic, Task
+from groups.models import Role
 
 # @@@ this is based on Tribes -- can we re-use anything?
 
@@ -86,11 +87,15 @@ class StatusForm(forms.ModelForm):
 
 class AddUserForm(forms.Form):
     
-    recipient = forms.CharField(label=_(u"User"))
+    recipient = forms.CharField(label=_("User"))
+    role = forms.ModelChoiceField(Role.objects.filter(group__isnull=True), label=_("Role"))
     
-    def __init__(self, project, *args, **kwargs):
+    def __init__(self, group, *args, **kwargs):
         super(AddUserForm, self).__init__(*args, **kwargs)
-        self.project = project
+        self.group = group
+        qs = group.roles.all()
+        if qs.count():
+            self.fields['role'].queryset = qs
     
     def clean_recipient(self):
         try:
@@ -98,15 +103,14 @@ class AddUserForm(forms.Form):
         except User.DoesNotExist:
             raise forms.ValidationError(_("There is no user with this username."))
             
-        if self.project.has_member(user) > 0:
+        if self.group.has_member(user) > 0:
             raise forms.ValidationError(_("User is already a member of this project."))
         
         return self.cleaned_data['recipient']
     
     def save(self, user):
         new_member = User.objects.get(username__exact=self.cleaned_data['recipient'])
-        self.project.add_member(new_user=new_member, by=user)
-        self.project.save()
+        self.group.add_member(member=new_member, role = self.cleaned_data['role'], by=user)
 
 
 class AwayForm(forms.Form):

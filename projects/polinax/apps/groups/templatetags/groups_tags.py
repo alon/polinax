@@ -12,7 +12,8 @@ register.inclusion_tag("groups/group_members.html")(show_group_members)
 def show_member_actions(group, user):
     try:
         m = groups.Membership.objects.get(group=group, user=user)
-        if m.importance == 1.0:
+        # TODO: check permissions
+        if user==group.creator:
             c = {"can_admin": True}
         else:
             c = {"can_leave": True}

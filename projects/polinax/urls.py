@@ -27,8 +27,7 @@ urlpatterns = patterns('',
     (r'^projects/', include('projects.urls')),
     (r'^avatars/', include('avatar.urls')),
     (r'^microblog/', include('microblogging.urls')),
-    
-    
+
     (r'^admin/(.*)', admin.site.root),
 )
 

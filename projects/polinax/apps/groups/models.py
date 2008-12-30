@@ -41,6 +41,7 @@ class Group(models.Model):
     tags = TagField()
 
     def has_member(self, user):
+        
         if user.is_authenticated():
             #if ProjectMember.objects.filter(project=self, user=user).count() > 0: # @@@ is there a better way?
             if Membership.objects.filter(group=self, user=user):
@@ -59,31 +60,27 @@ class Group(models.Model):
     
     @property
     def creator(self):
-        # returns the oldest, most important user
-        return Membership.objects.filter(group=self, importance=1.0)[0].user
+        # returns the 1st member - the creator
+        return Membership.objects.filter(group=self)[0].user
         
     def membership(self):
         return Membership.objects.filter(group=self)
         
-    def add_member(self, by, new_member, role='member', importance=False):
-        if not self.id: self.save()
+    def add_member(self, member, role, by=False):
+        if not self.id: 
+            self.save()
         m = Membership(group = self, 
-            user = new_member,
-            role= role, 
-            importance = importance or role.default_importance)
-        """ TODO: add default permissions
-        init_perms = m.role.filter(group = self.group) or self.role.filter(in_group__isnull=True)
-        for p in init_perms:
-            self.permissions.add(p)
-        """
+            user = member,
+            role= role)
+        # TODO: add default permissions from role
         m.save()
 
-        self.notify ("groups_new_member", {"new_member": new_member})
-        self.log.create(user=by, 
-            content_type = ContentType.objects.get_for_model(new_member), 
-            object_id = new_member.id, 
+        self.notify ("groups_new_member", {"new_member": member})
+        self.log.create(user=by or member, 
+            content_type = ContentType.objects.get_for_model(member), 
+            object_id = member.id, 
             action_flag = admin_models.ADDITION, 
-            change_message = _("%(by)s added %(user)s as %(role)s") % dict(by=by,user=new_member, role=role),
+            change_message = _("%(by)s added %(user)s as %(role)s") % dict(by=by or member, user=member, role=unicode(role)),
             )
     
     # TODO: untested. By connecting group to content we can get a good log of all content changes.  
@@ -119,9 +116,8 @@ class Role(models.Model):
     '''
     This models holds system wide roles as well as type-specific roles. Basic roles are created in post_syncdb
     '''
-    group = models.ForeignKey(Group, null=True, blank=True)          # use null for global roles - e.g. maker, guest
+    group = models.ForeignKey(Group, null=True, blank=True, related_name='roles')          # use null for global roles - e.g. maker, guest
     title = models.CharField(_('relation'), max_length=30)
-    default_importance = models.FloatField(default=0.0)
     default_permissions = models.ManyToManyField(Permission, verbose_name=_('permissions'), blank=True)
 
     def __unicode__(self):
@@ -132,9 +128,7 @@ class Role(models.Model):
 
 class Membership(models.Model):
     """
-    Setting relationship between users and groups. Notable fields:
-        role - short text describing the relationship  - e.g. 'founder', 'adviser'..
-        importnace - a 0-1 float with 1 for the creator and 0 for the non-member
+    Setting relationship between users and groups.
     """
     # stuff needed by the ManyToMany relationship
     user = models.ForeignKey(User)
@@ -142,7 +136,7 @@ class Membership(models.Model):
     # Membership attributes
     joined = models.DateTimeField(_('joined'), default=datetime.now)
     role = models.ForeignKey(Role, verbose_name=_('role'), max_length=30)
-    importance = models.FloatField(default=0.0)
+    karma_score = models.IntegerField(default=0)
     permissions = models.ManyToManyField(Permission, verbose_name=_('permissions'), blank=True)
     # member away
     away = models.BooleanField(_('away'), default=False)
@@ -150,7 +144,8 @@ class Membership(models.Model):
     away_since = models.DateTimeField(_('away since'), default=datetime.now)
 
     class META:
-        ordering = ['joined']
+        ordering = ('joined')
+        unique_together = ('user', 'group')
 
     def __unicode__(self):
         r = _("%(user)s is %(role)s") % dict(user=self.user, role=unicode(self.role))
