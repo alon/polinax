@@ -19,25 +19,39 @@ POLICY_CHOICES = (
     (APPROVAL_POLICY, _("Approval required")),
 )
 
+class AssociatedContent:
+    pass    
 class Group(models.Model):
-        
+    """
+    >>> g = Group.objects.create(slug='foo_group', name='foo group')
+    >>> x = User.objects.create(username="MrX")
+    >>> g.creator = x
+    >>> g.has_member(x)
+    True
+    >>> g.creator.username
+    u'MrX'
+    >>> from tagging.models import Tag
+    >>> c = Tag.objects.create(name="Foo")
+    >>> g.add_content(by=x, content=c, distinction='my tag')
+    >>> c == g.get_content(distinction='my tag')[0]
+    True
+    >>> [(l.action_flag, l.change_message, l.content_type, l.object_id) for l in g.log.all()]
+    [(1, u'MrX added Foo as my tag', <ContentType: tag>, u'1'), (1, u'MrX added MrX as creator', <ContentType: user>, u'1')]
+
+
+    """
     slug = models.SlugField(_('slug'), unique=True)
     name = models.CharField(_('name'), max_length=80)
     description = models.TextField(_('description'))
     location = models.CharField(_('location'), max_length=80, default="global")
     policy = models.SmallIntegerField(choices=POLICY_CHOICES, default=OPEN_POLICY, help_text=_("Choose the way new members can join this group"))
-
-    # TBD: not used yet, I added it as large groups need to be broken to sub groups
-    parent_group = models.ForeignKey('self', null=True, blank=True)
-
-    created = models.DateTimeField(_('created'), default=datetime.now)
-    modified = models.DateTimeField(_('modified'), default=datetime.now)
-
-    members = models.ManyToManyField(User, through='Membership', verbose_name=_('users')) # tried adding related_name='groups' and failed
-    deleted = models.BooleanField(_('deleted'), default=False)
+    parent = models.ForeignKey('self', null=True, editable=False)
+    created = models.DateTimeField(_('created'), default=datetime.now, editable=False)
+    modified = models.DateTimeField(_('modified'), default=datetime.now, editable=False)
+    members = models.ManyToManyField(User, through='Membership', verbose_name=_('Members'), editable=False) # tried adding related_name='groups' and failed
+    deleted = models.BooleanField(_('deleted'), default=False, editable=False)
     
-    private = models.BooleanField(_('public'), default=True)
-    
+    public = models.BooleanField(_('public'), default=True, editable=False)
     tags = TagField()
 
     def has_member(self, user):
@@ -58,23 +72,28 @@ class Group(models.Model):
         def notify (self, note_type, dict):
             pass
     
-    @property
-    def creator(self):
+    def _get_creator(self):
         # returns the 1st member - the creator
         return Membership.objects.filter(group=self)[0].user
-        
+    def _set_creator(self, user):
+        try:    
+            self.add_member(user, Group.creator_role)
+        except AttributeError:
+            Group.creator_role = Role.objects.get(title='creator')
+            self.add_member(user, Group.creator_role)            
+    creator = property(_get_creator,_set_creator)
+    
     def membership(self):
         return Membership.objects.filter(group=self)
         
     def add_member(self, member, role, by=False):
         if not self.id: 
             self.save()
-        m = Membership(group = self, 
+        m = Membership.objects.create(group = self, 
             user = member,
             role= role)
         # TODO: add default permissions from role
-        m.save()
-
+        m.permissions = role.default_permissions.all();
         self.notify ("groups_new_member", {"new_member": member})
         self.log.create(user=by or member, 
             content_type = ContentType.objects.get_for_model(member), 
@@ -83,31 +102,31 @@ class Group(models.Model):
             change_message = _("%(by)s added %(user)s as %(role)s") % dict(by=by or member, user=member, role=unicode(role)),
             )
     
-    # TODO: untested. By connecting group to content we can get a good log of all content changes.  
-    def add_content (self, by, new_content, distinction='', inheritable=True):
-        if not self.id: self.save()
-        content_type = ContentType.objects.get_for_model(new_content)
-        oid = new_content.id
-        a = AssociatedContent(group = self,  
+    def get_content (self, distinction):
+        # return AssociatedContent.objects.filter(group=self, distinction=distinction).values('content_object')
+        return [a.content_object for a in AssociatedContent.objects.filter(group=self, distinction=distinction)]
+    def add_content (self, by, content, distinction='', inheritable=True):
+        content_type = ContentType.objects.get_for_model(content)
+        oid = content.id
+        AssociatedContent.objects.create(group = self,  
             content_type = content_type,
             object_id = oid,
             distinction = distinction,
-            inhertiable = inheritable,
+            inheritable = inheritable,
         )
-        a.save()
         
-        self.notify ("groups_new_content", {"new_content": new_content})
-        message=_("%(by)s added %(new_content)s") % dict(by=by, content=new_content)
+        self.notify ("groups_new_content", {"new_content": content})
+        message=_("%(by)s added %(content)s") % dict(by=by, content=content)
         if distinction:
-            message += _(" as %(distniction)s") % dict (distinction=distinction)
+            message += _(" as %(distinction)s") % dict (distinction=distinction)
         self.log.create(user=by, 
-            content_type=content_type, 
+            content_type=content_type,
             object_id = oid, 
-            action_flags=admin_models.ADDITION, 
+            action_flag=admin_models.ADDITION, 
             change_message=message)
         
     def create_sub_group(self, *args, **kwargs):
-        return self.objects.create (parent_group=self, *args, **kwargs)
+        return self.objects.create (parent=self, *args, **kwargs)
         
     def __unicode__(self):
         return self.name
@@ -153,7 +172,6 @@ class Membership(models.Model):
             r += _(" in %s") % self.group        
         return r
 
-               
 class AssociatedContent(models.Model):
     """
     conecting groups with content. Notable fields (shamelessly copied from django-schedule):
@@ -166,7 +184,7 @@ class AssociatedContent(models.Model):
     content_object = generic.GenericForeignKey('content_type', 'object_id')
     distinction = models.CharField(_('distinction'), max_length = 20, null=True)
     inheritable = models.BooleanField(_('inheritable'), default=True)
-
+               
 class GroupsLogEntry(admin_models.LogEntry):
     group = models.ForeignKey (Group, related_name='log')
     

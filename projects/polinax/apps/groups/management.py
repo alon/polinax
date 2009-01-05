@@ -1,5 +1,6 @@
 from django.db.models import signals
 from django.utils.translation import ugettext_noop as _
+from django.contrib.auth.models import Permission
 
 from groups.models import Role
 
@@ -8,12 +9,11 @@ from groups import models as groups
 def create_common_roles(app, created_models, verbosity, **kwargs):
     print 'creating common roles'
     # TODO: add default_permission
-    r = Role(title='admin')
-    r.save()
-    r = Role(title='follower')
-    r.save()
-    r = Role(title='member')
-    r.save()
+    r = Role.objects.create(title='creator')
+    for p in Permission.objects.all():
+        r.default_permissions.add(p)
+    Role.objects.create(title='follower')
+    Role.objects.create(title='member')
 signals.post_syncdb.connect(create_common_roles, sender=groups)
 
 try:

@@ -120,7 +120,8 @@ INSTALLED_APPS = (
     'threadedcomments',
     'photologue',
     'microblogging',
-    
+    'voting',
+    'wiki',
     # internal (for now)
     'photos',
     'profiles',
@@ -130,8 +131,7 @@ INSTALLED_APPS = (
     
     'about',
     'groups',
-    'tribes',
-    'projects',
+    'laws',
     
     'tagging',
     'tag_app',

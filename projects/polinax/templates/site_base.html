@@ -26,8 +26,7 @@
     {% if user.is_authenticated %}
         <table>
             <tr>
-                <td class="tab rtab_projects"><div><a href="{% url project_thing_list "" %}">{% trans "Projects" %}</a></div></td>
-                <td class="tab rtab_tribes"><div><a href="{% url tribe_thing_list "" %}">{% trans "Tribes" %}</a></div></td>
+                <td class="tab rtab_projects"><div><a href="{% url laws_list "" %}">{% trans "Laws" %}</a></div></td>
                 <td class="tab rtab_notices"><div><a href="{% url notification.views.notices %}">{% trans "Notices" %}{% if notice_unseen_count %} ({{ notice_unseen_count }}){% endif %}</a></div></td>
             </tr>
         </table>
