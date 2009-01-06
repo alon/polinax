@@ -1,0 +1,5 @@
+{% load i18n %}
+{% url profile_detail username=member.username as member_url %}
+{% blocktrans with group.get_absolute_url as group_url %}
+    User <a href="{{member_url}}">{{member}}</a> joined <a href="{{group_url}}">{{group}}</a> as {{role}}</a>
+{% endblocktrans %}

@@ -1,0 +1,97 @@
+{% extends "laws/base.html" %}
+
+{# {% load microblogging %} #}
+{% load i18n %}
+{# {% load avatar_tags %} #}
+{% load wiki %}
+{% load wikiurl %}
+{% load threadedcommentstags %}
+{% load pagination_tags %}
+{% load shorttimesince_tag %}
+{% load extra_tagging_tags %}
+{% load comments_tag %}
+{% load groups_tags %}
+
+{% block head_title %}{{ object.name }}{% endblock %}
+{% block body %}
+    {% if user.is_authenticated %}
+        <div class="right_panel">
+            {% show_group_members object %}            
+        </div>
+    {% endif %}
+
+    <div style="width: 550px;">
+
+        <h1>{% trans "Law - " %} {{ object.name }}</h1>
+        {% ifequal user object.creator %}
+            
+            <a href="{% url edit_law object.id %}">{% trans "edit Law" %}</a>&nbsp;
+            <a href="{% url delete_law object.id %}">{% trans "delete Law" %}</a>&nbsp;
+            
+        {% endifequal %}
+        
+        {% show_member_actions object user %}
+        <p>
+            Slug: <tt>{{ object.slug }}</tt><br />
+            Creator: <a href="{% url profile_detail object.creator.username %}">{{ object.creator }}</a><br />
+            Created: {{ object.created|date }}
+            <br />
+            {% show_tags_for object %}
+        </p>
+
+        <p>{{ object.description }}</p>
+
+
+        <h2>Documents ({{ object.wiki_articles.count }})</h2>
+        <table>
+        {% for article in object.wiki_articles %}
+            {% show_teaser article %}
+        {% endfor %}
+        </table>
+        <h2>{% trans "Forum" %} </h2>   
+        {% comments object %}
+        
+            {% comment %} {# @@@ #}
+            {% if topics %}
+                <div class="box">
+                    <h2>Discussion Topics{% if project.topics.all.count %} ({{ project.topics.all.count }}){% endif %}</h2>
+                    {% for topic in topics %}
+                        {% show_project_topic topic %}
+                        <a class="more" href="{% url project_topics project.slug %}">more...</a></p>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <a href="{% url project_topics project.slug %}">{% trans "Start a discussion" %}</a></p>
+            {% endif %}
+            
+            {% if photos %}
+                <h2>Project Photo Pool</h2>
+                <div class="thumb-row clearfix">
+                    {% for photo in photos %}
+                    <div class="gallery-photo-thumb">
+                        <a href="/photos/details/{{ photo.photo.id }}/"><img src="{{ photo.photo.get_thumbnail_url }}" alt="{{ photo.photo.title }}"/></a><br />
+                        <img src="{{ MEDIA_URL }}comment.png" border="0" class="noborder" align="absmiddle" /><a href="/photos/details/{{ photo.photo.id }}/">{% get_comment_count for photo.photo as commentcount %} {{ commentcount }} Comments</a>
+                   </div>
+                   {% endfor %}
+               </div>
+            {% endif %}
+            
+            {% endcomment %}
+
+            {% comment %}
+                <h2>{% trans "Tweets" %}</h2>
+
+                {% tweet_listing tweets 1 0 %}
+            {% endcomment %}
+
+    </div>
+
+{% endblock %}
+
+{% block extra_body %}
+    {{ block.super }}
+    <script type="text/javascript">
+        $(document).ready(function() {
+        });
+    </script>
+{% endblock %}

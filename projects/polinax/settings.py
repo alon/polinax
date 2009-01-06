@@ -105,6 +105,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.humanize',
+    'django.contrib.markup',
     
     # external
     'notification', # must be first
@@ -154,6 +155,10 @@ CONTACT_EMAIL = "feedback@example.com"
 SITE_NAME = "Pinax"
 LOGIN_URL = "/account/login"
 LOGIN_REDIRECT_URLNAME = "what_next"
+
+WIKI_MARKUP_CHOICES = (
+        ('rst', u'reStructuredText'),
+    )
 
 # local_settings.py can be used to override environment-specific settings
 # like database and email that differ between development and production.

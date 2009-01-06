@@ -3,7 +3,7 @@
 
 {% if is_me %}
     <div class="friends">
-            <h2>{% trans "Your Friends" %}</h2>
+            <h2>{% trans "Friends" %}</h2>
         {% if other_friends %}
             <table width="100%">
                 {% for friendship in other_friends %}
@@ -20,11 +20,11 @@
             <p><a href="/profiles/">{% trans "Add friends" %}</a></p>
         {% endif %}
     </div>
-    <div class="tribes">
-        <h2>{% trans "Your Tribes" %}</h2>
-        {% if other_user.tribe_set.all %}
-            {% for tribe in other_user.tribe_set.all %}
-                <a href="{% url tribes.views.tribe tribe.slug %}">{{ tribe.name }}</a>
+    <div class="laws">
+        <h2>{% blocktrans %}{{ other_user }}'s Laws{% endblocktrans %}</h2>
+        {% if other_user.law_set.all %}
+            {% for law in other_user.group_set.all %}
+                <a href="{% url view_law law.id %}">{{ law.name }}</a>
             {% endfor %}
         {% else %}
             {% url tribe_thing_list "" as tribe_url %}
@@ -34,14 +34,14 @@
 {% endif %}
 
 {% if is_friend %}
-    <div class="tribes">
-        <h2>{% blocktrans %}{{ other_user }}'s Tribes{% endblocktrans %}</h2>
-        {% if other_user.tribe_set.all %}
+    <div class="laws">
+        <h2>{% blocktrans %}{{ other_user }}'s Laws{% endblocktrans %}</h2>
+        {% if other_user.Law_set.all %}
             {% for tribe in other_user.tribe_set.all %}
-                <a href="{% url tribes.views.tribe tribe.slug %}">{{ tribe.name }}</a>
+                <a href="{% url view_law law.id %}">{{ law.name }}</a>
             {% endfor %}
         {% else %}
-            <p>{% blocktrans %}Not yet a member of any tribes.{% endblocktrans %}</p>
+            <p>{% blocktrans %}Not yet a member of any laws.{% endblocktrans %}</p>
         {% endif %}
     </div>
     <div class="friends">

@@ -1,0 +1,5 @@
+{% load i18n %}
+{% url profile_detail username=by.username as user_url %}
+{% blocktrans with content.get_absolute_url as content_url and group.get_absolute_url as group_url %}
+    <a href="{{content_url}}">{{content}}</a> was added to <a href="{{group_url}}">{{group}}</a> by <a href="{{ user_url }}">{{user}}</a>
+{% endblocktrans %}

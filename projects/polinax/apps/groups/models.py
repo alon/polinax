@@ -32,7 +32,7 @@ class Group(models.Model):
     u'MrX'
     >>> from tagging.models import Tag
     >>> c = Tag.objects.create(name="Foo")
-    >>> g.add_content(by=x, content=c, distinction='my tag')
+    >>> g.add_content(content=c, distinction='my tag')
     >>> c == g.get_content(distinction='my tag')[0]
     True
     >>> [(l.action_flag, l.change_message, l.content_type, l.object_id) for l in g.log.all()]
@@ -48,12 +48,12 @@ class Group(models.Model):
     parent = models.ForeignKey('self', null=True, editable=False)
     created = models.DateTimeField(_('created'), default=datetime.now, editable=False)
     modified = models.DateTimeField(_('modified'), default=datetime.now, editable=False)
-    members = models.ManyToManyField(User, through='Membership', verbose_name=_('Members'), editable=False) # tried adding related_name='groups' and failed
+    members = models.ManyToManyField(User, through='Membership', verbose_name=_('Members'), editable=False)
     deleted = models.BooleanField(_('deleted'), default=False, editable=False)
     
     public = models.BooleanField(_('public'), default=True, editable=False)
     tags = TagField()
-
+    
     def has_member(self, user):
         
         if user.is_authenticated():
@@ -94,7 +94,7 @@ class Group(models.Model):
             role= role)
         # TODO: add default permissions from role
         m.permissions = role.default_permissions.all();
-        self.notify ("groups_new_member", {"new_member": member})
+        self.notify ("groups_new_member", {"group": self, "member": member, "role":role})
         self.log.create(user=by or member, 
             content_type = ContentType.objects.get_for_model(member), 
             object_id = member.id, 
@@ -105,7 +105,8 @@ class Group(models.Model):
     def get_content (self, distinction):
         # return AssociatedContent.objects.filter(group=self, distinction=distinction).values('content_object')
         return [a.content_object for a in AssociatedContent.objects.filter(group=self, distinction=distinction)]
-    def add_content (self, by, content, distinction='', inheritable=True):
+    def add_content (self, content, distinction='', inheritable=True, by=False):
+        by = by or self.creator
         content_type = ContentType.objects.get_for_model(content)
         oid = content.id
         AssociatedContent.objects.create(group = self,  
@@ -115,7 +116,7 @@ class Group(models.Model):
             inheritable = inheritable,
         )
         
-        self.notify ("groups_new_content", {"new_content": content})
+        self.notify ("groups_new_content", {"group":self, "content": content, "by": by})
         message=_("%(by)s added %(content)s") % dict(by=by, content=content)
         if distinction:
             message += _(" as %(distinction)s") % dict (distinction=distinction)
@@ -129,7 +130,7 @@ class Group(models.Model):
         return self.objects.create (parent=self, *args, **kwargs)
         
     def __unicode__(self):
-        return self.name
+        return ",".join((self._meta.verbose_name,self.name))
         
 class Role(models.Model):
     '''
@@ -155,7 +156,7 @@ class Membership(models.Model):
     # Membership attributes
     joined = models.DateTimeField(_('joined'), default=datetime.now)
     role = models.ForeignKey(Role, verbose_name=_('role'), max_length=30)
-    karma_score = models.IntegerField(default=0)
+    merits = models.IntegerField(default=0)
     permissions = models.ManyToManyField(Permission, verbose_name=_('permissions'), blank=True)
     # member away
     away = models.BooleanField(_('away'), default=False)

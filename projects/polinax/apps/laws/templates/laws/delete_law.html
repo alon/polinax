@@ -1,0 +1,22 @@
+{% extends "laws/base.html" %}
+
+{% load i18n %}
+{% load humanize %}
+{% load pagination_tags %}
+
+{% block head_title %}{% blocktrans %}Deleting a Law{% endblocktrans %}{% endblock %}
+
+{% block body %}
+    
+    <h1>{% trans "Deletion of " %} {{law}} {% trans " Can not be undone" %}</h1>
+
+    {% ifequal user law.creator %}    
+        <form method="POST" action="">
+            <input type="hidden" name="action" value="delete" />
+            <input type="submit" value="{% trans 'delete' %}"/>
+        </form>
+    {% else %}
+        <h2>{% trans "Only the law creator can delete a low" %}<h2>
+    {% endifequal %}
+    
+{% endblock %}

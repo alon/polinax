@@ -1,11 +1,11 @@
 {% load i18n %}
 
 {% if can_admin %}
-    <a href="{% url group_members group.id %}">{% trans "Manage Membership" %}</a>
+    <a href="{% url group_members group.id %}">{% trans "Manage Membership" %}</a>&nbsp;
 {% endif %} 
 
 {% if can_join %}
-    <a id="join-toggle" href="#">{% trans "Join" %}</a>
+    <a id="join-toggle" href="#">{% trans "Join" %}</a>&nbsp;
     <div class="form-toggle">
         <form id="join-member" method="POST" action="">
                 <label>{% trans "Optional message:" %}</label>
@@ -32,9 +32,9 @@
 {% endif %} 
 
 {% if can_ask_to_join %}
-    <a href="{% url group_members group.id %}">{% trans "Ask to join" %}</a>
+    <a href="{% url group_members group.id %}">{% trans "Ask to join" %}</a>&nbsp;
 {% endif %} 
 
 {% if can_leave %}
-    <a href="{% url group_members group.id %}">{% trans "Leave" %}</a>
+    <a href="{% url group_members group.id %}">{% trans "Leave" %}</a>&nbsp;
 {% endif %} 
