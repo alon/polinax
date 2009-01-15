@@ -35,7 +35,7 @@ TIME_ZONE = 'US/Eastern'
 # Language code for this installation. All choices can be found here:
 # http://www.w3.org/TR/REC-html40/struct/dirlang.html#langcodes
 # http://blogs.law.harvard.edu/tech/stories/storyReader$15
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = 'he'
 
 SITE_ID = 1
 
@@ -73,6 +73,7 @@ MIDDLEWARE_CLASSES = (
     'django_openid.consumer.SessionConsumer',
     'account.middleware.LocaleMiddleware',
     'django.middleware.doc.XViewMiddleware',
+    'misc.middleware.SortOrderMiddleware',
     'pagination.middleware.PaginationMiddleware',
 )
 
@@ -133,6 +134,7 @@ INSTALLED_APPS = (
     'about',
     'groups',
     'laws',
+    'questions',
     
     'tagging',
     'tag_app',

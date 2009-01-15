@@ -31,7 +31,6 @@ td {
     padding: 0;
 }
 #body {
-    clear: both;
     margin: 0 auto;
     padding: 10px;
     width: 800px;
@@ -194,20 +193,23 @@ div.profile_info p {
 }
 
 #subnav {
-    margin: 0;
-    padding: 0;
+    clear:both;
+    float: left;
+    width: 20%;
+    margin: 10px;
+    padding: 0.1em;
     background: #DEF; /* tab colour */
-    border-bottom: 1px solid #9BC;
+    border: 1px solid #9BC;
 }
 
 #subnav ul {
     margin: 0 20px;
     padding: 0;
+    list-style: none;
 }
 
 #subnav ul li {
-    display: inline;
-    list-style-type: none;
+    display:block;
 }
 
 #subnav ul a:link, #subnav ul a:visited {
@@ -442,6 +444,7 @@ fieldset { padding: 20px; margin: 0 0 1.5em 0; border: 2px solid #ddd; }
 legend { padding: 0 .4em; font-weight: bold; font-size: 1.2em; }
 
 .profile_avatar {
+    width:100px;
     padding:0.4em;
 }
 .left {

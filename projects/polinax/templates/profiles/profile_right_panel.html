@@ -3,7 +3,7 @@
 
 {% if is_me %}
     <div class="friends">
-            <h2>{% trans "Friends" %}</h2>
+            <h2>{% trans "My Friends" %}</h2>
         {% if other_friends %}
             <table width="100%">
                 {% for friendship in other_friends %}
@@ -20,30 +20,9 @@
             <p><a href="/profiles/">{% trans "Add friends" %}</a></p>
         {% endif %}
     </div>
-    <div class="laws">
-        <h2>{% blocktrans %}{{ other_user }}'s Laws{% endblocktrans %}</h2>
-        {% if other_user.law_set.all %}
-            {% for law in other_user.group_set.all %}
-                <a href="{% url view_law law.id %}">{{ law.name }}</a>
-            {% endfor %}
-        {% else %}
-            {% url tribe_thing_list "" as tribe_url %}
-            <p>{% blocktrans %}You are not yet a member of any <a href="{{ tribe_url }}">tribes</a>.{% endblocktrans %}</p>
-        {% endif %}
-    </div>
 {% endif %}
 
 {% if is_friend %}
-    <div class="laws">
-        <h2>{% blocktrans %}{{ other_user }}'s Laws{% endblocktrans %}</h2>
-        {% if other_user.Law_set.all %}
-            {% for tribe in other_user.tribe_set.all %}
-                <a href="{% url view_law law.id %}">{{ law.name }}</a>
-            {% endfor %}
-        {% else %}
-            <p>{% blocktrans %}Not yet a member of any laws.{% endblocktrans %}</p>
-        {% endif %}
-    </div>
     <div class="friends">
         <h2>{% blocktrans %}{{ other_user }}'s Friends{% endblocktrans %}</h2>
         <table width="100%">
@@ -59,3 +38,21 @@
         </table>
     </div>
 {% endif %}
+
+    <div class="questions">
+        <h2>
+    {% if is_me %}
+            {% trans "My Questions" %}
+    {% else %}
+            {% blocktrans %}{{ other_user }}'s Questions{% endblocktrans %}
+    {% endif %}
+        </h2>
+        {% if other_user.law_set.all %}
+            {% for law in other_user.group_set.all %}
+                <a href="{% url view_law law.id %}">{{ law.name }}</a>
+            {% endfor %}
+        {% else %}
+            {% url tribe_thing_list "" as tribe_url %}
+            <p>{% trans "You haven't posted any questions yet." %} <a href="{# % url post_question % #}">{% trans "post a quetion" %}</a>.</p>
+        {% endif %}
+    </div>
