@@ -23,7 +23,7 @@ urlpatterns = patterns('',
     (r'^comments/', include('threadedcomments.urls')),
 
     (r'^groups/', include('groups.urls')),
-    (r'^laws/', include('laws.urls')),
+    (r'^questions/', include('questions.urls')),
     (r'^avatars/', include('avatar.urls')),
     (r'^microblog/', include('microblogging.urls')),
 
