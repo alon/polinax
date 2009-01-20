@@ -1,0 +1,55 @@
+{% extends "questions/base.html" %}
+
+{% load i18n %}
+{% load avatar_tags %}
+{% load voting_tags %}
+{% load pagination_tags %}
+{% load extra_voting_tags %}
+{% load in_filter %}
+{% load tagging_tags %}
+
+{% block head_title %}{% blocktrans %}My Questions{% endblocktrans %}{% endblock %}
+
+{% block extra_head %}
+    <link rel="alternate" type="application/atom+xml" title="Questions Feed" href="/feeds/questions/" />
+{% endblock %}
+
+{% block body %}
+    {% if user_qs %}
+    <h1>{% trans "All My Questions" %}</h1>
+    
+        {% autopaginate user_qs %}
+        
+        {% scores_for_objects user_qs as score_dict %}
+        
+        <table class="questions">
+            <tr><th>Question<th>Category<th>Points<th>Public<th>Flagged<th>Published<th>Actions</tr>
+            {% for question in user_qs %}
+                {% dict_entry_for_item question from score_dict as score %}
+                <tr class="{% cycle odd,even %}">
+                    <td class="questions">
+                        <h3>{{question.text}}</h3>
+                    </td>
+                    <td>
+                        {{question.category_name}}
+                    </td>
+                    <td>{{ score.score|default:0 }}</td>
+                    <td>{% if question.public %}X{% endif %}</td>
+                    <td>{% if question.flagged %}X{% endif %}</td>
+                    <td>{{ question.added|date }}</td>
+                    <td><a href="{% url delete_question question.id %}" >{% trans "Delete" %}</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+        
+        {% paginate %}
+        
+    {% else %}
+        <p>{% trans "You haven't posted any questions yet." %}&nbsp;<a href="{% url add_question %}">{% trans "Click here to post a question" %}</a> </p>
+    {% endif %}
+    
+{% endblock %}
+{% block extra_js_init %}
+            $("#menu_my_qs").addClass("selected");
+{% endblock %}
+

@@ -1,0 +1,18 @@
+{% extends "questions/base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Post a Question" %}{% endblock %}
+
+
+{% block body %}
+    <h1>{% trans "Post a Question" %}</h1>
+    <form method="POST" action="">
+        {{form.as_p}}
+        <h3>{% trans "*Questions must be non-partisan." %} </h3>
+        <input type="submit" value="{% trans 'Post' %}">
+    </form>
+{% endblock %}
+{% block extra_js_init %}
+            $("#menu_add_q").addClass("selected");
+{% endblock %}

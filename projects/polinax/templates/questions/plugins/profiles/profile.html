@@ -1,0 +1,21 @@
+{% load i18n %}
+{% load pagination_tags %}
+{% load questions_tags %}
+
+<h2>{% trans "Questions" %}</h2>
+{% questions_for_user user as user_qs %}
+{% autopaginate user_qs %}
+<table class="questions">
+    <tr><th>Category<th>Question</tr>
+    {% for question in user_qs %}
+        <tr class="{% cycle odd,even %}">
+            <td>
+                {{question.category_name}}
+            </td>
+            <td class="questions">
+                <h3>{{question.text}}</h3>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+{% paginate %}

@@ -1,0 +1,48 @@
+{% extends "site_base.html" %}
+{% load i18n %}
+    {% block extra_style %}
+    {% endblock %}
+
+{% block subnav %}
+        <div class="box">
+            <h1>{% trans "Categories" %}</h1> 
+        <ul>
+            <li id="cat_menu_all"><a href="{% url all_questions %}">{% trans "All" %}</a>
+        {% for c in categories %}
+            <li id="cat_menu_{{c.0}}"><a href="{% url all_questions %}?c={{c.0}}">{{c.1}}</a>
+        {% endfor %}
+        </ul>
+        </div>
+    <div class="box">
+        <FORM id="search_box" action="" method="get">
+            <input type='text' name='q' size="18" />
+            <input type="submit" value='{% trans "Search" %}'/>
+        </form>
+    </div>
+        <div class="box">
+            <h1>{% trans "Mine" %}</h1> 
+    {% if user.is_authenticated %}
+        <ul>
+            <li id="menu_my_qs"><a href="{% url my_questions %}">{% trans "My Questions" %}</a></li>
+            <li id="menu_add_q"><a href="{% url add_question %}">{% trans "Post a Question" %}</a></li>
+        </ul>
+    {% else %}
+            {% url acct_signup as signup_url %}
+            {% url acct_login as login_url %}
+            <p>{% blocktrans %}You can <a href="{{ signup_url }}">Sign up</a> or <a href="{{ login_url }}">Log in</a> to vote and post questions.{% endblocktrans %}</p>
+    {% endif %}
+        </div>
+{% endblock %}
+
+{% block extra_body %}
+    <script src="{{ MEDIA_URL }}js/jquery.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function(){
+            {% block extra_js_init %}
+            {% endblock %}
+        });
+
+    </script>
+    {% block extra_script %}
+    {% endblock %}
+{% endblock %}
