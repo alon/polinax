@@ -142,7 +142,7 @@ class Role(models.Model):
 
     def __unicode__(self):
         if self.group:
-            return _("%s in %s") % (self.title, self.group)
+            return _("%(title)s in %(group)s") % dict(title=self.title, group=self.group)
         else:
             return self.title
 

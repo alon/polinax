@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django-hotclub-0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-06-17 20:15+0300\n"
+"POT-Creation-Date: 2009-01-20 23:37+0200\n"
 "PO-Revision-Date: 2008-06-17 22:27+0200\n"
 "Last-Translator: Gil Klein <gklein@gmail.com>\n"
 "Language-Team: Gil Klein <gklein@gmail.com>\n"
@@ -17,390 +17,1291 @@ msgstr ""
 "X-Poedit-Language: Hebrew\n"
 "X-Poedit-Country: ISRAEL\n"
 
-#: account/forms.py:27
-#: account/forms.py:55
-msgid "Username"
-msgstr "שם משתמש"
-
-#: account/forms.py:28
-#: account/forms.py:56
-msgid "Password"
-msgstr "סיסמא"
-
-#: account/forms.py:40
-msgid "This account is currently inactive."
-msgstr "חשבון זה אינו פעיל כעת"
-
-#: account/forms.py:42
-msgid "The username and/or password you specified are not correct."
-msgstr "שם המשתמש או הסיסמא שגויים"
-
-#: account/forms.py:48
-#: account/views.py:35
-#, python-format
-msgid "Successfully logged in as %(username)s."
-msgstr ".%(username)s התחברת בהצלחה כ"
-
-#: account/forms.py:57
-msgid "Password (again)"
-msgstr "(סיסמא (שוב"
-
-#: account/forms.py:58
-msgid "Email (optional)"
-msgstr "(אימייל (לא חובה"
-
-#: account/forms.py:63
-msgid "Usernames can only contain letters, numbers and underscores."
-msgstr "שם משתמש יכול להכיל רק תווים, מספרים וקו תחתון"
-
-#: account/forms.py:68
-msgid "This username is already taken. Please choose another."
-msgstr "שם המשתמש תפוס. בחר שם אחר."
-
-#: account/forms.py:73
-#: account/forms.py:155
-msgid "You must type the same password each time."
-msgstr "הסיסמאות שהקשת צריכות להיות זהות."
-
-#: account/forms.py:94
-msgid "Your email address has already been verified"
-msgstr "כתובת האימייל שלך כבר אומתה"
-
-#: account/forms.py:100
-#: account/forms.py:107
-#: account/forms.py:137
-#, python-format
-msgid "Confirmation email sent to %(email)s"
-msgstr " %(email)s אימייל אישור נשלח ל "
-
-#: account/forms.py:127
-#: account/forms.py:166
-msgid "Email"
-msgstr "אימייל"
-
-#: account/forms.py:134
-msgid "This email address already associated with this account."
-msgstr "כתובת האימייל משוייכת כבר לחשבון זה"
-
-#: account/forms.py:143
-msgid "Current Password"
-msgstr "סיסמא נוכחית"
-
-#: account/forms.py:144
-msgid "New Password"
-msgstr "סיסמא חדשה"
-
-#: account/forms.py:145
-msgid "New Password (again)"
-msgstr "(סיסמה חדשה (שוב"
-
-#: account/forms.py:149
-msgid "Please type your current password."
-msgstr "אנא הקש את סיסמתך הנוכחית"
-
-#: account/forms.py:161
-msgid "Password successfully changed."
-msgstr ".הסיסמא הוחלפה בהצלחה"
-
-#: account/forms.py:170
-msgid "Email address not verified for any user account"
-msgstr "כתובת האימייל לא אומתה עבור אף חשבון"
-
-#: account/forms.py:178
-msgid "Password reset"
-msgstr "איפוס סיסמא"
-
-#: account/forms.py:188
-#: templates/account/base.html:14
-#: templates/account/timezone_change.html:5
-#: templates/account/timezone_change.html:8
-msgid "Timezone"
-msgstr "איזור זמן"
-
-#: account/forms.py:197
-msgid "Timezone successfully updated."
-msgstr "איזור זמן עודכן בהצלחה."
-
-#: friends_app/views.py:26
+#: apps/friends_app/views.py:25
 #, python-format
 msgid "Accepted friendship request from %(from_user)s"
 msgstr " %(from_user)s התקבלה בקשת חברות מ  "
 
-#: friends_app/views.py:70
+#: apps/friends_app/views.py:70
 #, python-format
 msgid "%(total)s vCards found, %(imported)s contacts imported."
 msgstr "אנשי קשר יובאו %(imported)s  ,נמצאו vCards %(total)s "
 
-#: friends_app/views.py:79
-#: friends_app/views.py:85
+#: apps/friends_app/views.py:79 apps/friends_app/views.py:85
 #, python-format
 msgid "%(total)s people with email found, %(imported)s contacts imported."
-msgstr "אנשי קשר יובאו %(imported)s , אנשי קשר בעלי אימייל נמצאו  %(total)s"
+msgstr "אנשי קשר יובאו %(imported)s , אנשי קשר בעלי דואל נמצאו  %(total)s"
 
-#: profiles/models.py:11
-msgid "user"
-msgstr "משתמש"
+#: apps/groups/forms.py:6 apps/projects/forms.py:118
+#, fuzzy
+msgid "Message"
+msgstr "הצג הודעה"
 
-#: profiles/models.py:12
-#: tribes/models.py:23
+#: apps/groups/management.py:22
+#, fuzzy
+msgid "New Group Member"
+msgstr "חבר שבט חדש"
+
+#: apps/groups/management.py:22
+msgid "A new member has joined a group"
+msgstr ""
+
+#: apps/groups/management.py:23
+msgid "New Content"
+msgstr ""
+
+#: apps/groups/management.py:23
+msgid "A new content was added to a group"
+msgstr ""
+
+#: apps/groups/models.py:18
+msgid "Open"
+msgstr ""
+
+#: apps/groups/models.py:19
+msgid "Approval required"
+msgstr ""
+
+#: apps/groups/models.py:43 apps/photos/models.py:39 apps/tribes/models.py:26
+msgid "slug"
+msgstr "שם מקוצר"
+
+#: apps/groups/models.py:44 apps/photos/models.py:21 apps/tribes/models.py:27
 msgid "name"
 msgstr "שם"
 
-#: profiles/models.py:13
-msgid "about"
+#: apps/groups/models.py:45 apps/photos/models.py:22 apps/tribes/models.py:30
+msgid "description"
 msgstr "תיאור"
 
-#: profiles/models.py:14
+#: apps/groups/models.py:46
 msgid "location"
 msgstr "מיקום"
 
-#: profiles/models.py:15
-msgid "website"
-msgstr "אתר"
+#: apps/groups/models.py:47
+msgid "Choose the way new members can join this group"
+msgstr ""
 
-#: profiles/models.py:16
-msgid "blog rss/atom"
-msgstr "rss/atom בלוג "
+#: apps/groups/models.py:49 apps/projects/models.py:52
+#: apps/projects/models.py:85 apps/questions/models.py:28
+#: apps/tribes/models.py:29 apps/tribes/models.py:60
+msgid "created"
+msgstr "נוצר"
 
-#: profiles/models.py:17
-msgid "timezone"
-msgstr "איזור זמן"
+#: apps/groups/models.py:50 apps/projects/models.py:53
+#: apps/projects/models.py:86 apps/questions/models.py:29
+#: apps/tribes/models.py:61
+msgid "modified"
+msgstr "השתנה"
 
-#: profiles/models.py:27
-msgid "profile"
+#: apps/groups/models.py:51 apps/groups/templates/groups/group_members.html:3
+#: templates/tribes/tribe.html:21
+msgid "Members"
+msgstr "חברים"
+
+#: apps/groups/models.py:52 apps/tribes/models.py:33
+#, fuzzy
+msgid "deleted"
+msgstr "מחק"
+
+#: apps/groups/models.py:54 apps/questions/models.py:31
+msgid "public"
+msgstr ""
+
+#: apps/groups/models.py:102
+#, python-format
+msgid "%(by)s added %(user)s as %(role)s"
+msgstr ""
+
+#: apps/groups/models.py:120
+#, python-format
+msgid "%(by)s added %(content)s"
+msgstr ""
+
+#: apps/groups/models.py:122
+#, python-format
+msgid " as %(distinction)s"
+msgstr ""
+
+#: apps/groups/models.py:140
+#, fuzzy
+msgid "relation"
+msgstr "מיקום"
+
+#: apps/groups/models.py:141 apps/groups/models.py:160
+msgid "permissions"
+msgstr ""
+
+#: apps/groups/models.py:145
+#, python-format
+msgid "%(title)s in %(group)s"
+msgstr ""
+
+#: apps/groups/models.py:157
+#, fuzzy
+msgid "joined"
+msgstr "הצטרף לשבט"
+
+#: apps/groups/models.py:158
+#, fuzzy
+msgid "role"
 msgstr "פרופיל"
 
-#: profiles/models.py:28
-msgid "profiles"
-msgstr "פרופילים"
+#: apps/groups/models.py:162
+msgid "away"
+msgstr ""
 
-#: profiles/views.py:49
+#: apps/groups/models.py:163
+#, fuzzy
+msgid "away_message"
+msgstr "שלח הודעה"
+
+#: apps/groups/models.py:164
+msgid "away since"
+msgstr ""
+
+#: apps/groups/models.py:171
+#, fuzzy, python-format
+msgid "%(user)s is %(role)s"
+msgstr "%(other_user)s השבטים של"
+
+#: apps/groups/models.py:173
 #, python-format
-msgid "You are now following %(other_user)s"
-msgstr "%(other_user)s את/ה עוקב כעת אחר "
+msgid " in %s"
+msgstr ""
 
-#: profiles/views.py:55
+#: apps/groups/models.py:186
+#, fuzzy
+msgid "distinction"
+msgstr "תיאור"
+
+#: apps/groups/models.py:187
+msgid "inheritable"
+msgstr ""
+
+#: apps/groups/templates/groups/member_actions.html:4
+msgid "Manage Membership"
+msgstr ""
+
+#: apps/groups/templates/groups/member_actions.html:8
+#, fuzzy
+msgid "Join"
+msgstr "התחבר"
+
+#: apps/groups/templates/groups/member_actions.html:11
+#, fuzzy
+msgid "Optional message:"
+msgstr "שלח הודעה"
+
+#: apps/groups/templates/groups/member_actions.html:13
+#, fuzzy
+msgid "join"
+msgstr "התחבר"
+
+#: apps/groups/templates/groups/member_actions.html:35
+msgid "Ask to join"
+msgstr ""
+
+#: apps/groups/templates/groups/member_actions.html:39
+#, fuzzy
+msgid "Leave"
+msgstr "עזוב"
+
+#: apps/groups/templates/groups/members.html:9
+#: templates/projects/members_status.html:9
+#, fuzzy
+msgid "Members' Status"
+msgstr "חברים"
+
+#: apps/groups/templates/groups/members.html:12
+#: templates/projects/members_status.html:12
+msgid "Set Away"
+msgstr ""
+
+#: apps/groups/templates/groups/members.html:17
+#: templates/projects/members_status.html:17
+msgid "set away"
+msgstr ""
+
+#: apps/groups/templates/groups/members.html:21
+#: templates/projects/members_status.html:21
+msgid "Set Back"
+msgstr ""
+
+#: apps/groups/templates/groups/members.html:24
+#: templates/projects/members_status.html:24
+msgid "set back"
+msgstr ""
+
+#: apps/groups/templates/groups/members.html:52
+#, fuzzy
+msgid "Member"
+msgstr "חברים"
+
+#: apps/groups/templates/groups/members.html:53 apps/projects/forms.py:91
+msgid "Role"
+msgstr ""
+
+#: apps/groups/templates/groups/members.html:54
+msgid "Karma score"
+msgstr ""
+
+#: apps/groups/templates/notification/groups_new_content/notice.html:3
 #, python-format
-msgid "You have stopped following %(other_user)s"
-msgstr "%(other_user)s הפסקת לעקוב אחר "
+msgid ""
+"\n"
+"    <a href=\"%(content_url)s\">%(content)s</a> was added to <a href=\"%"
+"(group_url)s\">%(group)s</a> by <a href=\"%(user_url)s\">%(user)s</a>\n"
+msgstr ""
 
-#: profiles/views.py:70
-#: profiles/views.py:86
-msgid "Let's be friends!"
-msgstr "בוא/י נהיה חברים"
-
-#: profiles/views.py:78
+#: apps/groups/templates/notification/groups_new_member/notice.html:3
 #, python-format
-msgid "You have accepted the friendship request from %(from_user)s"
-msgstr "%(from_user)s קיבלת בקשת חברות מ "
+msgid ""
+"\n"
+"    User <a href=\"%(member_url)s\">%(member)s</a> joined <a href=\"%"
+"(group_url)s\">%(group)s</a> as %(role)s</a>\n"
+msgstr ""
 
-#: templates/404.html:5
-msgid "Not Found"
-msgstr "לא נמצא"
+#: apps/laws/management.py:9
+msgid "New Comment on a Law"
+msgstr ""
 
-#: templates/404.html:8
-msgid "We're sorry but that page could not be found."
-msgstr "מצטערים, דף זה לא נמצא."
+#: apps/laws/management.py:9
+msgid "a new comment has been made on a law you are interested in."
+msgstr ""
 
-#: templates/500.html:5
-msgid "Server Error"
-msgstr "שגיאת שרת"
+#: apps/laws/models.py:31
+msgid "Law"
+msgstr ""
 
-#: templates/500.html:8
-msgid "We're sorry but a server error has occurred. We've been notified and will look into it as soon as possible."
-msgstr "מצטערים, אירעה שגיאה. "
+#: apps/laws/models.py:32
+msgid "Laws"
+msgstr ""
 
-#: templates/base.html:23
-#: templates/announcements/announcement_list.html:15
+#: apps/laws/thing.py:15
+msgid "ABC"
+msgstr ""
+
+#: apps/laws/thing.py:16
+msgid "ZYX"
+msgstr ""
+
+#: apps/laws/views.py:41
+msgid "The draft of the proposed law."
+msgstr ""
+
+#: apps/laws/views.py:49
+msgid "first version"
+msgstr ""
+
+#: apps/laws/templates/laws/base.html:10 templates/wiki/base.html:10
+#, fuzzy
+msgid "Your Laws"
+msgstr "השבטים שלך"
+
+#: apps/laws/templates/laws/base.html:11 templates/wiki/base.html:11
+#, fuzzy
+msgid "All Laws"
+msgstr "כל הטוויטים"
+
+#: apps/laws/templates/laws/create_law.html:7
+msgid "Propose a New Law"
+msgstr ""
+
+#: apps/laws/templates/laws/create_law.html:11
+#: apps/laws/templates/laws/laws.html:15
+msgid "Propose a new law"
+msgstr ""
+
+#: apps/laws/templates/laws/create_law.html:17
+#: apps/laws/templates/laws/edit_law.html:14 templates/projects/create.html:20
+#: templates/projects/projects.html:25 templates/tribes/create.html:20
+#: templates/tribes/tribes.html:24
+msgid "create"
+msgstr "צור"
+
+#: apps/laws/templates/laws/create_law.html:22
+#, fuzzy, python-format
+msgid ""
+"<a href=\"%(signup_url)s\">Sign up</a> or <a href=\"%(login_url)s\">log in </"
+"a> to propose laws."
+msgstr ""
+"<a href=\"%(signup_url)s\">הירשם</a> <a href=\"%(login_url)s\">התחבר </a> "
+"להצטרפות לשבט"
+
+#: apps/laws/templates/laws/delete_law.html:7
+msgid "Deleting a Law"
+msgstr ""
+
+#: apps/laws/templates/laws/delete_law.html:11
+#, fuzzy
+msgid "Deletion of "
+msgstr "מחק מאמר"
+
+#: apps/laws/templates/laws/delete_law.html:11
+msgid " Can not be undone"
+msgstr ""
+
+#: apps/laws/templates/laws/delete_law.html:16
+msgid "delete"
+msgstr "מחק"
+
+#: apps/laws/templates/laws/delete_law.html:19
+msgid "Only the law creator can delete a low"
+msgstr ""
+
+#: apps/laws/templates/laws/edit_law.html:7
+#, fuzzy
+msgid "Edit Law"
+msgstr "ערוך פרטים"
+
+#: apps/laws/templates/laws/law_detail.html:25
+msgid "Law - "
+msgstr ""
+
+#: apps/laws/templates/laws/law_detail.html:28
+msgid "edit Law"
+msgstr ""
+
+#: apps/laws/templates/laws/law_detail.html:29
+#, fuzzy
+msgid "delete Law"
+msgstr "מחק"
+
+#: apps/laws/templates/laws/law_detail.html:51
+msgid "Forum"
+msgstr ""
+
+#: apps/laws/templates/laws/law_detail.html:64
+#: templates/projects/project.html:119
+msgid "Start a discussion"
+msgstr ""
+
+#: apps/laws/templates/laws/law_detail.html:82
+#: templates/microblogging/personal.html:6
+#: templates/microblogging/personal.html:14
+#: templates/projects/project.html:161 templates/tribes/tribe.html:132
+msgid "Tweets"
+msgstr "טוויטס"
+
+#: apps/laws/templates/laws/laws.html:8 apps/laws/templates/laws/laws.html:12
+msgid "Proposed Laws"
+msgstr ""
+
+#: apps/laws/templates/laws/laws.html:19
+#, fuzzy, python-format
+msgid ""
+"<a href=\"%(signup_url)s\">Sign up</a> and <a href=\"%(login_url)s\">log in "
+"</a> to propose laws or support prposed laws."
+msgstr ""
+"<a href=\"%(signup_url)s\">הירשם</a> <a href=\"%(login_url)s\">התחבר </a> "
+"להצטרפות לשבט"
+
+#: apps/photos/models.py:13
+#: apps/questions/templates/questions/my_questions.html:26
+msgid "Public"
+msgstr "ציבורי"
+
+#: apps/photos/models.py:14
+msgid "Private"
+msgstr "פרטי"
+
+#: apps/photos/models.py:23
+msgid "publish_type"
+msgstr ""
+
+#: apps/photos/models.py:27 apps/photos/models.py:45
+#, fuzzy
+msgid "photo set"
+msgstr "שלח"
+
+#: apps/photos/models.py:28
+msgid "photo sets"
+msgstr ""
+
+#: apps/photos/models.py:35
+msgid "Safe"
+msgstr ""
+
+#: apps/photos/models.py:36
+#, fuzzy
+msgid "Not Safe"
+msgstr "הודעה"
+
+#: apps/photos/models.py:38 apps/projects/models.py:50
+#: apps/tribes/models.py:58
+msgid "title"
+msgstr "כותרת"
+
+#: apps/photos/models.py:40
+#, fuzzy
+msgid "caption"
+msgstr "מיקום"
+
+#: apps/photos/models.py:41
+#, fuzzy
+msgid "date added"
+msgstr "הוסף"
+
+#: apps/photos/models.py:42
+msgid "is public"
+msgstr ""
+
+#: apps/photos/models.py:42
+msgid "Public photographs will be displayed in the default views."
+msgstr ""
+
+#: apps/photos/models.py:44
+msgid "safetylevel"
+msgstr ""
+
+#: apps/photos/models.py:64
+#, fuzzy
+msgid "created_at"
+msgstr "נוצר"
+
+#: apps/photos/models.py:69
+msgid "pool"
+msgstr ""
+
+#: apps/photos/models.py:70
+#, fuzzy
+msgid "pools"
+msgstr "שלח"
+
+#: apps/photos/views.py:28
+#, python-format
+msgid "Successfully uploaded photo '%s'"
+msgstr ""
+
+#: apps/photos/views.py:100 apps/photos/views.py:137
+#, python-format
+msgid "Successfully add photo '%s' to project"
+msgstr ""
+
+#: apps/photos/views.py:103 apps/photos/views.py:140
+#, python-format
+msgid "Did not add photo '%s' to project because it already exists."
+msgstr ""
+
+#: apps/photos/views.py:113
+#, python-format
+msgid "Successfully add photo '%s' to tribe"
+msgstr ""
+
+#: apps/photos/views.py:116
+#, python-format
+msgid "Did not add photo '%s' to tribe because it already exists."
+msgstr ""
+
+#: apps/photos/views.py:125
+#, python-format
+msgid "Successfully removed photo '%s' from tribe"
+msgstr ""
+
+#: apps/photos/views.py:128
+#, python-format
+msgid "Did not remove photo '%s' from tribe."
+msgstr ""
+
+#: apps/photos/views.py:149
+#, python-format
+msgid "Successfully removed photo '%s' from project"
+msgstr ""
+
+#: apps/photos/views.py:152
+#, python-format
+msgid "Did not remove photo '%s' from project."
+msgstr ""
+
+#: apps/photos/views.py:192
+#, fuzzy, python-format
+msgid "Successfully updated photo '%s'"
+msgstr "איזור זמן עודכן בהצלחה."
+
+#: apps/photos/views.py:217
+#, python-format
+msgid "Successfully deleted photo '%s'"
+msgstr ""
+
+#: apps/projects/forms.py:18
+#, fuzzy
+msgid ""
+"a short version of the name consisting only of letters, numbers, underscores "
+"or hyphens."
+msgstr "גירסה מקוצרת של השם המכילה רק מספרים אותיות וקו תחתון"
+
+#: apps/projects/forms.py:19 apps/tribes/forms.py:10
+#, fuzzy
+msgid "This value must contain only letters, numbers, underscores and hyphens."
+msgstr "שדה זה חייב להכיל רק מספרים אותיות וקו תחתון"
+
+#: apps/projects/forms.py:23
+#, fuzzy
+msgid "A project already exists with that slug."
+msgstr "קיים כבר שבט בשם קצר זה"
+
+#: apps/projects/forms.py:28 apps/projects/forms.py:45
+#, fuzzy
+msgid "A project already exists with that name."
+msgstr "קיים כבר שבט בשם זה"
+
+#: apps/projects/forms.py:90
+#, fuzzy
+msgid "User"
+msgstr "משתמש"
+
+#: apps/projects/forms.py:104
+msgid "There is no user with this username."
+msgstr ""
+
+#: apps/projects/forms.py:107
+msgid "User is already a member of this project."
+msgstr ""
+
+#: apps/projects/management.py:9
+#, fuzzy
+msgid "New Project Member"
+msgstr "חבר שבט חדש"
+
+#: apps/projects/management.py:9
+#, fuzzy
+msgid "a project you are a member of has a new member"
+msgstr "שבט שאת/ה חבר בו צרף חבר חדש"
+
+#: apps/projects/management.py:10
+msgid "Added to Project"
+msgstr ""
+
+#: apps/projects/management.py:10
+msgid "you have been added to a project"
+msgstr ""
+
+#: apps/projects/management.py:12
+msgid "Project Deleted"
+msgstr ""
+
+#: apps/projects/management.py:12
+#, fuzzy
+msgid "a project you are a member of has been deleted"
+msgstr "שבט שאת/ה חבר בו צרף חבר חדש"
+
+#: apps/projects/management.py:14
+#, fuzzy
+msgid "New Project Topic Started"
+msgstr "דיון חדש החל"
+
+#: apps/projects/management.py:14
+#, fuzzy
+msgid "a new topic has started in a project you're a member of"
+msgstr "דיון חדש החל בשבט שאתה חבר בו"
+
+#: apps/projects/management.py:15
+#, fuzzy
+msgid "Response To Your Project Topic"
+msgstr "תגובה לדיון שלך"
+
+#: apps/projects/management.py:15
+#, fuzzy
+msgid "someone has responded on a project topic you started"
+msgstr "מישהו הגיב לדיון שיצרת"
+
+#: apps/projects/management.py:17
+msgid "New Project Task"
+msgstr ""
+
+#: apps/projects/management.py:17
+#, fuzzy
+msgid "a new task been created in a project you're a member of"
+msgstr "דיון חדש החל בשבט שאתה חבר בו"
+
+#: apps/projects/management.py:18
+msgid "Comment on Project Task"
+msgstr ""
+
+#: apps/projects/management.py:18
+#, fuzzy
+msgid "a new comment has been made on a task in a project you're a member of"
+msgstr "דיון חדש החל בשבט שאתה חבר בו"
+
+#: apps/projects/management.py:19 apps/projects/management.py:20
+#: apps/projects/management.py:21
+msgid "Change to Project Task"
+msgstr ""
+
+#: apps/projects/management.py:19
+#, fuzzy
+msgid ""
+"there has been a change in the state of a task in a project you're a member "
+"of"
+msgstr "דיון חדש החל בשבט שאתה חבר בו"
+
+#: apps/projects/management.py:20
+#, fuzzy
+msgid "a task has been (re)assigned in a project you're a member of"
+msgstr "דיון חדש החל בשבט שאתה חבר בו"
+
+#: apps/projects/management.py:21
+#, fuzzy
+msgid ""
+"there has been a status update to a task in a project you're a member of"
+msgstr "דיון חדש החל בשבט שאתה חבר בו"
+
+#: apps/projects/models.py:48 apps/projects/models.py:80
+msgid "project"
+msgstr ""
+
+#: apps/projects/models.py:51 apps/projects/models.py:84
+#: apps/tribes/models.py:28 apps/tribes/models.py:59
+msgid "creator"
+msgstr "יצר"
+
+#: apps/projects/models.py:54 apps/tribes/models.py:62
+msgid "body"
+msgstr "גוף"
+
+#: apps/projects/models.py:82
+msgid "summary"
+msgstr ""
+
+#: apps/projects/models.py:83
+#, fuzzy
+msgid "detail"
+msgstr "ערוך פרטים"
+
+#: apps/projects/models.py:87
+msgid "assignee"
+msgstr ""
+
+#: apps/projects/models.py:92
+msgid "status"
+msgstr ""
+
+#: apps/projects/models.py:93
+#, fuzzy
+msgid "state"
+msgstr "תאריך"
+
+#: apps/projects/templates/notification/projects_added_as_member/notice.html:2
+#, python-format
+msgid ""
+"You have been added to project '<a href=\"%(project_url)s\">%(project)s</a>' "
+"by <a href=\"%(adder_url)s\">%(adder)s</a>."
+msgstr ""
+
+#: apps/projects/templates/notification/projects_deleted/notice.html:1
+#, python-format
+msgid "Project %(project)s has been deleted."
+msgstr ""
+
+#: apps/projects/templates/notification/projects_new_member/notice.html:2
+#, python-format
+msgid ""
+"<a href=\"%(new_member_url)s\">%(new_member)s</a> has been added to project "
+"'<a href=\"%(project_url)s\">%(project)s</a>'."
+msgstr ""
+
+#: apps/projects/templates/notification/projects_new_task/notice.html:2
+#, python-format
+msgid ""
+"<a href=\"%(creator_url)s\">%(creator)s</a> has added a task '<a href=\"%"
+"(task_url)s\">%(task)s</a>' in project '<a href=\"%(project_url)s\">%"
+"(project)s</a>'."
+msgstr ""
+
+#: apps/projects/templates/notification/projects_new_topic/notice.html:2
+#, python-format
+msgid ""
+"<a href=\"%(creator_url)s\">%(creator)s</a> has started a topic '<a href=\"%"
+"(topic_url)s\">%(topic)s</a>' in project <a href=\"%(project_url)s\">%"
+"(project)s</a>."
+msgstr ""
+
+#: apps/projects/templates/notification/projects_task_assignment/notice.html:2
+#, python-format
+msgid ""
+"<a href=\"%(user_url)s\">%(user)s</a> has assigned task '<a href=\"%"
+"(task_url)s\">%(task)s</a>' in project <a href=\"%(project_url)s\">%(project)"
+"s</a> to <a href=\"%(assignee_url)s\">%(assignee)s</a>."
+msgstr ""
+
+#: apps/projects/templates/notification/projects_task_change/notice.html:2
+#, python-format
+msgid ""
+"<a href=\"%(user_url)s\">%(user)s</a> has marked task '<a href=\"%(task_url)s"
+"\">%(task)s</a>' in project <a href=\"%(project_url)s\">%(project)s</a> as %"
+"(new_state)s."
+msgstr ""
+
+#: apps/projects/templates/notification/projects_task_comment/notice.html:2
+#, python-format
+msgid ""
+"<a href=\"%(user_url)s\">%(user)s</a> has commented on task '<a href=\"%"
+"(task_url)s\">%(task)s</a>' in project <a href=\"%(project_url)s\">%(project)"
+"s</a>."
+msgstr ""
+
+#: apps/projects/templates/notification/projects_task_status/notice.html:2
+#, python-format
+msgid ""
+"<a href=\"%(user_url)s\">%(user)s</a> has updated the status of task '<a "
+"href=\"%(task_url)s\">%(task)s</a>' in project <a href=\"%(project_url)s\">%"
+"(project)s</a>."
+msgstr ""
+
+#: apps/projects/templates/notification/projects_topic_response/notice.html:2
+#: apps/tribes/templates/notification/tribes_topic_response/notice.html:2
+#, python-format
+msgid ""
+"<a href=\"%(user_url)s\">%(user)s</a> has responded to your topic '<a href="
+"\"%(topic_url)s\">%(topic)s</a>'."
+msgstr ""
+
+#: apps/projects/templates/projects/project_item.html:8
+#: apps/tribes/templates/tribes/tribe_item.html:7
+#, fuzzy
+msgid "Members:"
+msgstr "חברים"
+
+#: apps/projects/templates/projects/project_item.html:9
+msgid "Tasks:"
+msgstr ""
+
+#: apps/projects/templates/projects/project_item.html:10
+#: apps/tribes/templates/tribes/tribe_item.html:8
+msgid "Topics:"
+msgstr ""
+
+#: apps/projects/templates/projects/project_item.html:11
+msgid "Wiki Pages:"
+msgstr ""
+
+#: apps/projects/templates/projects/task_item.html:11
+#: templates/projects/task_item.html:11
+msgid "Assignee"
+msgstr ""
+
+#: apps/projects/templates/projects/task_item.html:13
+#: templates/projects/task_item.html:13
+msgid "Unassigned"
+msgstr ""
+
+#: apps/projects/templates/projects/task_item.html:15
+#: templates/projects/task_item.html:15
+#, fuzzy
+msgid "State"
+msgstr "תאריך"
+
+#: apps/projects/templates/projects/task_item.html:16
+#: templates/projects/task_item.html:16
+#, fuzzy
+msgid "Creator"
+msgstr "יצר"
+
+#: apps/projects/templates/projects/task_item.html:17
+#: templates/projects/task_item.html:17
+#, fuzzy
+msgid "Created"
+msgstr "נוצר"
+
+#: apps/projects/templates/projects/task_item.html:18
+#: templates/projects/task_item.html:18
+#, fuzzy
+msgid "Modified"
+msgstr "השתנה"
+
+#: apps/projects/templates/projects/task_item.html:28
+#: templates/projects/task_item.html:28
+msgid "Status"
+msgstr ""
+
+#: apps/projects/templates/projects/task_item.html:32
+#: templates/projects/task_item.html:32
+#, fuzzy
+msgid "none"
+msgstr "ללא"
+
+#: apps/projects/templates/projects/topic_item.html:19
+#: apps/tribes/templates/tribes/topic_item.html:19
+#: templates/projects/topic_item.html:19 templates/tribes/topic_item.html:19
+#, python-format
+msgid ""
+"\n"
+"                (most recent: %(topic_modified)s)\n"
+"                "
+msgstr ""
+
+#: apps/questions/models.py:12
+msgid "Constitution"
+msgstr "שלטון, חוק וחוקה"
+
+#: apps/questions/models.py:13
+msgid "Economy & Taxes"
+msgstr "כלכלה ומיסים"
+
+#: apps/questions/models.py:14
+msgid "Security"
+msgstr "בטחון אישי וציבורי"
+
+#: apps/questions/models.py:15
+msgid "Education"
+msgstr "חינוך"
+
+#: apps/questions/models.py:16
+msgid "Immigration"
+msgstr "עלייה והגירה"
+
+#: apps/questions/models.py:17
+msgid "Jobs"
+msgstr "מסחר ותעסוקה"
+
+#: apps/questions/models.py:18
+msgid "Civil Rights"
+msgstr "זכויות הפרט"
+
+#: apps/questions/models.py:19
+msgid "Foreign Policy"
+msgstr "מדיניות חוץ"
+
+#: apps/questions/models.py:20
+msgid "Health & Welfare"
+msgstr "סעד ובריאות"
+
+#: apps/questions/models.py:21
+msgid "Environment"
+msgstr "הגנת הסביבה, החי והצומח"
+
+#: apps/questions/models.py:30
+msgid "Q:"
+msgstr "ש:"
+
+#: apps/questions/models.py:32
+msgid "flagged as inappropriate"
+msgstr "סומן בכעייתי"
+
+#: apps/questions/models.py:33
+#: apps/questions/templates/questions/my_questions.html:26
+#: templates/profiles/profile.html:50
+msgid "Category"
+msgstr "תחום"
+
+#: apps/questions/models.py:41
+#, python-format
+msgid "by %(user)s: %(text)s%(more)s"
+msgstr "מאת %(user)s: %(text)s%(more)s"
+
+#: apps/questions/views.py:55
+msgid "Question Deleted"
+msgstr "שאלה נמחקה"
+
+#: apps/questions/templates/questions/add_q.html:5
+#: apps/questions/templates/questions/add_q.html:9
+#: apps/questions/templates/questions/base.html:27
+msgid "Post a Question"
+msgstr "הפנה שאלה"
+
+#: apps/questions/templates/questions/add_q.html:12
+msgid "*Questions must be non-partisan."
+msgstr "*אנא, שמור על על-מפלגתיות"
+
+#: apps/questions/templates/questions/add_q.html:13
+#, fuzzy
+msgid "Post"
+msgstr "פרסם"
+
+#: apps/questions/templates/questions/base.html:8
+#: templates/account/base.html:28
+msgid "Categories"
+msgstr "תחומים"
+
+#: apps/questions/templates/questions/base.html:10
+#: templates/account/base.html:30
+msgid "All"
+msgstr "הכל"
+
+#: apps/questions/templates/questions/base.html:19
+#: templates/account/base.html:39
+msgid "Search"
+msgstr "חיפוש"
+
+#: apps/questions/templates/questions/base.html:23
+msgid "Mine"
+msgstr "שלי"
+
+#: apps/questions/templates/questions/base.html:26
+#: apps/questions/templates/questions/my_questions.html:11
+#: templates/profiles/profile_right_panel.html:45
+msgid "My Questions"
+msgstr "השאלות שלי"
+
+#: apps/questions/templates/questions/base.html:32
+#, python-format
+msgid ""
+"You can <a href=\"%(signup_url)s\">Sign up</a> or <a href=\"%(login_url)s"
+"\">Log in</a> to vote and post questions."
+msgstr ""
+"<a href=\"%(signup_url)s\">הרשם</a> או <a href=\"%(login_url)s\">התחבר</a> "
+"כדי להצביע ולהפנות שאלות."
+
+#: apps/questions/templates/questions/my_questions.html:19
+msgid "All My Questions"
+msgstr "השאלות שלי"
+
+#: apps/questions/templates/questions/my_questions.html:26
+#: templates/profiles/profile.html:50
+msgid "Question"
+msgstr "שאלה"
+
+#: apps/questions/templates/questions/my_questions.html:26
+msgid "Points"
+msgstr "נקודות"
+
+#: apps/questions/templates/questions/my_questions.html:26
+msgid "Flagged"
+msgstr "הוסר"
+
+#: apps/questions/templates/questions/my_questions.html:26
+msgid "Published"
+msgstr "פורסם"
+
+#: apps/questions/templates/questions/my_questions.html:26
+#: templates/wiki/view.html:16
+msgid "Actions"
+msgstr "פעולות"
+
+#: apps/questions/templates/questions/my_questions.html:40
+msgid "Delete"
+msgstr "מחק"
+
+#: apps/questions/templates/questions/my_questions.html:48
+#: templates/profiles/profile_right_panel.html:56
+msgid "You haven't posted any questions yet."
+msgstr "עדיין לא הפנת שאלות"
+
+#: apps/questions/templates/questions/my_questions.html:48
+msgid "Click here to post a question"
+msgstr "לחץ כאן להפנות שאלה"
+
+#: apps/questions/templates/questions/questions.html:11
+msgid "All Questions"
+msgstr "כל השאלות"
+
+#: apps/questions/templates/questions/questions.html:32
+msgid "Sort by:"
+msgstr "סדר לפי:"
+
+#: apps/questions/templates/questions/questions.html:34
+#: apps/questions/templates/questions/questions.html:42
+#: apps/questions/templates/questions/questions.html:49
+msgid "hot"
+msgstr "חמים"
+
+#: apps/questions/templates/questions/questions.html:35
+#: apps/questions/templates/questions/questions.html:37
+#: apps/questions/templates/questions/questions.html:43
+#: apps/questions/templates/questions/questions.html:45
+#: apps/questions/templates/questions/questions.html:50
+#: apps/questions/templates/questions/questions.html:52
+#: templates/site_base.html:9
+msgid "or"
+msgstr "או"
+
+#: apps/questions/templates/questions/questions.html:36
+#: apps/questions/templates/questions/questions.html:44
+#: apps/questions/templates/questions/questions.html:51
+msgid "points"
+msgstr "נקודות"
+
+#: apps/questions/templates/questions/questions.html:38
+#: apps/questions/templates/questions/questions.html:46
+#: apps/questions/templates/questions/questions.html:53
+msgid "date"
+msgstr "תאריך"
+
+#: apps/questions/templates/questions/questions.html:88
+msgid "by:"
+msgstr "מאת:"
+
+#: apps/questions/templates/questions/questions.html:98
+msgid "No questions yet."
+msgstr "אין עדיין שאלות."
+
+#: apps/questions/templatetags/questions_tags.py:17
+#, python-format
+msgid "questions_for_user tag was given an invalid user: %s"
+msgstr ""
+
+#: apps/questions/templatetags/questions_tags.py:34
+#, python-format
+msgid "%s tag requires threearguments"
+msgstr ""
+
+#: apps/questions/templatetags/questions_tags.py:36
+#, python-format
+msgid "second argument to %s tag must be 'as'"
+msgstr ""
+
+#: apps/tribes/forms.py:9
+#, fuzzy
+msgid ""
+"a short version of the name consisting only of letters, numbers, underscores "
+"and hyphens."
+msgstr "גירסה מקוצרת של השם המכילה רק מספרים אותיות וקו תחתון"
+
+#: apps/tribes/forms.py:15
+msgid "The slug you've chosen is reserved for internal use."
+msgstr ""
+
+#: apps/tribes/forms.py:17
+msgid "A tribe already exists with that slug."
+msgstr "קיים כבר שבט בשם קצר זה"
+
+#: apps/tribes/forms.py:22 apps/tribes/forms.py:39
+msgid "A tribe already exists with that name."
+msgstr "קיים כבר שבט בשם זה"
+
+#: apps/tribes/management.py:9
+msgid "Friend Joined Tribe"
+msgstr "חבר הצטרף לשבט"
+
+#: apps/tribes/management.py:9
+msgid "a friend of yours joined a tribe"
+msgstr "חבר שלך הצטרף לשבט"
+
+#: apps/tribes/management.py:10
+msgid "New Tribe Member"
+msgstr "חבר שבט חדש"
+
+#: apps/tribes/management.py:10
+msgid "a tribe you are a member of has a new member"
+msgstr "שבט שאת/ה חבר בו צרף חבר חדש"
+
+#: apps/tribes/management.py:11
+msgid "New Member Of Tribe You Created"
+msgstr "חבר חדש בשבט שיצרת"
+
+#: apps/tribes/management.py:11
+msgid "a tribe you created has a new member"
+msgstr "שבט שיצרת צירף חבר חדש"
+
+#: apps/tribes/management.py:12
+msgid "New Tribe Created"
+msgstr "שבט חדש נוצר"
+
+#: apps/tribes/management.py:12
+msgid "a new tribe has been created"
+msgstr "שבט חדש נוצר"
+
+#: apps/tribes/management.py:13
+msgid "Friend Created Tribe"
+msgstr "חברך יצר שבט"
+
+#: apps/tribes/management.py:13
+msgid "a friend has created a new tribe"
+msgstr "חברך יצר שבט"
+
+#: apps/tribes/management.py:15
+msgid "New Topic Started"
+msgstr "דיון חדש החל"
+
+#: apps/tribes/management.py:15
+msgid "a new topic has started in a tribe you're a member of"
+msgstr "דיון חדש החל בשבט שאתה חבר בו"
+
+#: apps/tribes/management.py:16
+msgid "Response To Your Topic"
+msgstr "תגובה לדיון שלך"
+
+#: apps/tribes/management.py:16
+msgid "someone has responded on a topic you started"
+msgstr "מישהו הגיב לדיון שיצרת"
+
+#: apps/tribes/models.py:31
+msgid "members"
+msgstr "חברים"
+
+#: apps/tribes/models.py:56
+msgid "tribe"
+msgstr "שבט"
+
+#: apps/tribes/templates/notification/tribes_created_new_member/notice.html:2
+#: apps/tribes/templates/notification/tribes_friend_joined/notice.html:2
+#: apps/tribes/templates/notification/tribes_new_member/notice.html:2
+#, python-format
+msgid ""
+"<a href=\"%(user_url)s\">%(user)s</a> has joined the tribe <a href=\"%"
+"(tribe_url)s\">%(tribe)s</a>."
+msgstr ""
+
+#: apps/tribes/templates/notification/tribes_friend_tribe/notice.html:2
+#, python-format
+msgid ""
+"<a href=\"%(user_url)s\">%(tribe_creator)s</a> has created a new tribe <a "
+"href=\"%(tribe_url)s\">%(tribe)s</a>."
+msgstr ""
+
+#: apps/tribes/templates/notification/tribes_new_topic/notice.html:2
+#, python-format
+msgid ""
+"<a href=\"%(user_url)s\">%(topic_creator)s</a> has started a topic '<a href="
+"\"%(topic_url)s\">%(topic)s</a>' in tribe <a href=\"%(tribe_url)s\">%"
+"(topic_tribe)s</a>."
+msgstr ""
+
+#: apps/tribes/templates/notification/tribes_new_tribe/notice.html:2
+#, fuzzy, python-format
+msgid "A new tribe <a href=\"%(tribe_url)s\">%(tribe)s</a> has been created."
+msgstr "את/ה עדיין לא חבר באף <a href=\"%(tribe_url)s\">שבט</a>."
+
+#: templates/base.html:35 templates/announcements/announcement_list.html:15
 msgid "Hide announcement"
 msgstr "הסתר הודעות"
 
 #: templates/base.html:42
+msgid "Questions for..."
+msgstr "צפים 2009"
+
+#: templates/base.html:53
 msgid "clear"
 msgstr "מחק"
 
-#: templates/homepage.html:11
-msgid ""
-"\n"
-"        <p><b>Pinax</b> is a <a href=\"http://djangoproject.com/\">Django</a> project intended to provide a starting point for websites. By integrating numerous reusable Django apps to take care of the things that many sites have in common, it lets you focus on what makes your site different.</p>\n"
-"        \n"
-"        <p>This site is just a running example of Pinax. The source code is available as part of the <a href=\"http://code.google.com/p/django-hotclub/\">Hot Club of France</a> project.</p>\n"
-"        \n"
-"        <p>If you have any questions about this site or the <b>Pinax</b> project, please <a href=\"mailto:jtauber@jtauber.com\">contact James Tauber</a>.</p>\n"
-"    "
-msgstr ""
-"\n"
-"        <p><b>Pinax</b> is a <a href=\"http://djangoproject.com/\">Django</a> project intended to provide a starting point for websites. By integrating numerous reusable Django apps to take care of the things that many sites have in common, it lets you focus on what makes your site different.</p>\n"
-"        \n"
-"        <p>This site is just a running example of Pinax. The source code is available as part of the <a href=\"http://code.google.com/p/django-hotclub/\">Hot Club of France</a> project.</p>\n"
-"        \n"
-"        <p>If you have any questions about this site or the <b>Pinax</b> project, please <a href=\"mailto:jtauber@jtauber.com\">contact James Tauber</a>.</p>\n"
-"    "
+#: templates/homepage.html:5
+msgid "Welcome"
+msgstr "ברוך הבא"
 
-#: templates/homepage.html:24
-#, python-format
-msgid "You can <a href=\"%(signup_url)s\">Sign up</a> and <a href=\"%(login_url)s\">Log in</a> to try out the site."
-msgstr " לנסות את האתר. <a href=\"%(login_url)s\">להתחבר</a> או <a href=\"%(signup_url)s\">להירשם</a> את/ה יכול "
-
-#: templates/homepage.html:26
-msgid "At this stage, there is openid support, email verification, password management, site announcements, user-to-user messaging, friend invitation (both internal and external to the site), a basic twitter clone, interest groups (called tribes), per-tribe threaded discussions, per-tribe wikis, blog aggregation, bookmarks, contact import from vCard, Google or Yahoo and a notification framework."
-msgstr "At this stage, there is openid support, email verification, password management, site announcements, user-to-user messaging, friend invitation (both internal and external to the site), a basic twitter clone, interest groups (called tribes), per-tribe threaded discussions, per-tribe wikis, blog aggregation, bookmarks, contact import from vCard, Google or Yahoo and a notification framework."
-
-#: templates/site_base.html:8
-#: templates/account/email.html:5
+#: templates/site_base.html:7 templates/account/email.html:5
 #: templates/account/email.html.py:8
 msgid "Account"
 msgstr "חשבון"
 
-#: templates/site_base.html:8
-#: templates/account/logout.html:5
+#: templates/site_base.html:7
+msgid "Admin"
+msgstr "מנהל"
+
+#: templates/site_base.html:7 templates/account/logout.html:5
 msgid "Logout"
 msgstr "התנתק"
 
-#: templates/site_base.html:10
-#: templates/account/login.html:6
+#: templates/site_base.html:9 templates/account/login.html:5
 msgid "Login"
 msgstr "התחבר"
 
-#: templates/site_base.html:10
+#: templates/site_base.html:9
 msgid "Sign up"
 msgstr "הירשם"
 
-#: templates/site_base.html:29
-msgid "Home"
-msgstr "דף הבית"
+#: templates/site_base.html:18
+#: templates/questions/plugins/profiles/profile.html:5
+#, fuzzy
+msgid "Questions"
+msgstr "פעולות"
 
-#: templates/site_base.html:30
-msgid "Apps"
-msgstr "אפליקציות"
+#: templates/site_base.html:19 templates/notification/notices.html:7
+#: templates/notification/notices.html:15
+msgid "Notices"
+msgstr "הודעות"
 
-#: templates/site_base.html:31
-msgid "Sites"
-msgstr "אתרים"
+#: templates/site_base.html:27 templates/about/about.html:5
+#: templates/basic_profiles/profile.html:25 templates/profiles/profile.html:24
+msgid "About"
+msgstr "תיאור"
 
-#: templates/site_base.html:32
-msgid "Team"
-msgstr "הצוות"
-
-#: templates/site_base.html:41
-#: templates/about/what_next.html:42
-msgid "Profile"
-msgstr "פרופיל"
-
-#: templates/site_base.html:42
-#: templates/tribes/tribes.html:9
-#: templates/tribes/tribes.html.py:15
-msgid "Tribes"
-msgstr "שבטים"
-
-#: templates/site_base.html:43
-#: templates/tribes/tribe.html:137
-#: templates/microblogging/personal.html:6
-#: templates/microblogging/personal.html:13
-#: templates/microblogging/plugins/profiles/profile.html:4
-msgid "Tweets"
-msgstr "טוויטס"
-
-#: templates/site_base.html:44
-#: templates/bookmarks/plugins/profiles/profile.html:4
-msgid "Bookmarks"
-msgstr "מעודפים"
-
-#: templates/site_base.html:45
-#: templates/messages/base.html:12
-#: templates/messages/inbox.html:7
-msgid "Inbox"
-msgstr "דואר נכנס"
-
-#: templates/site_base.html:53
-msgid "&copy; 2008 &lt;your company here&gt;"
-msgstr "&copy; 2008 &lt;החברה שלך כאן&gt;"
-
-#: templates/site_base.html:54
-msgid "About Pinax"
-msgstr "Pinax עלינו"
-
-#: templates/site_base.html:55
-msgid "Pinax Blog"
-msgstr "Pinax הבלוג של"
-
-#: templates/site_base.html:56
-#: templates/about/terms.html:5
+#: templates/site_base.html:28 templates/about/terms.html:5
 msgid "Terms of Service"
 msgstr "תנאי שימוש"
 
-#: templates/site_base.html:57
-#: templates/about/privacy.html:5
+#: templates/site_base.html:29 templates/about/privacy.html:5
 msgid "Privacy Policy"
 msgstr "הצהרת פרטיות"
-
-#: templates/about/about.html:5
-#: templates/profiles/profile.html:22
-msgid "About"
-msgstr "תיאור"
 
 #: templates/about/about.html:8
 msgid ""
 "\n"
-"        <p>Your <b>About Page</b> would normally go here, be here's a temporary one...</p>\n"
-"        \n"
-"        <p><b>Pinax</b> is a <a href=\"http://djangoproject.com/\">Django</a> project intended to provide a starting point for websites. By integrating numerous reusable Django apps to take care of the things that many sites have in common, it lets you focus on what makes your site different.</p>\n"
-"        \n"
-"        <p>This site is just a running example of Pinax. The source code is available as part of the <a href=\"http://code.google.com/p/django-hotclub/\">Hot Club of France</a> project.</p>\n"
-"        \n"
-"        <p>If you have any questions about this site or the <b>Pinax</b> project, please <a href=\"mailto:jtauber@jtauber.com\">contact James Tauber</a>.</p>\n"
+"        <p>Your <b>About Page</b> would normally go here...</p>\n"
 "    "
 msgstr ""
 "\n"
-"        <p>שלך <b>דף האודות</b>כאן יופיע</p>\n"
-"        \n"
-"        <p><b>Pinax</b> is a <a href=\"http://djangoproject.com/\">Django</a> project intended to provide a starting point for websites. By integrating numerous reusable Django apps to take care of the things that many sites have in common, it lets you focus on what makes your site different.</p>\n"
-"        \n"
-"        <p>This site is just a running example of Pinax. The source code is available as part of the <a href=\"http://code.google.com/p/django-hotclub/\">Hot Club of France</a> project.</p>\n"
-"        \n"
-"        <p>If you have any questions about this site or the <b>Pinax</b> project, please <a href=\"mailto:jtauber@jtauber.com\">contact James Tauber</a>.</p>\n"
-"    "
+"<p>אתר צפים מיועד לתת במה לשאלות שלנו ולתשובות של המועמדים לכנסת.האתר עדיין "
+"בבניה - התשובות עדיין לא כאן, זה יקח עוד יומיים שלושה. בכל מקרה השאלות "
+"חשובות, אז אנא הצבע על השאלות החשובות ופרסם את השאלות שחשובות לך.</p><p>תודה."
+"</p><p>בני דאון וקהילת <a href='http://groups.google.com/group/"
+"polinax'>פולינקס</a>.</p>"
+
+#: templates/about/dmca.html:5
+msgid "Digital Millennium Copyright Act Notice"
+msgstr ""
+
+#: templates/about/dmca.html:8
+#, fuzzy
+msgid ""
+"<p>Your <b>Digital Millennium Copyright Act Notice</b> would normally go "
+"here...</p>"
+msgstr "<p>שלך<b>תנאי השימוש</b> כאן</p>"
 
 #: templates/about/privacy.html:8
 msgid "<p>Your <b>Privacy Policy</b> would normally go here...</p>"
-msgstr "<p>שלך <b>הצהרת פרטיות</b>כאן.</p>"
+msgstr "<p>צפים שומרים על פרטיות הגולשים ולא חולקים את כתובות הדואל.</p>"
 
 #: templates/about/terms.html:8
 msgid "<p>Your <b>Terms of Service</b> would normally go here...</p>"
-msgstr "<p>שלך<b>תנאי השימוש</b> כאן</p>"
+msgstr ""
+"<p>כל התכנים הנתרמים לאתר הינם על פי <a href='http://creativecommons.org/"
+"licenses/by-nc-sa/2.5/il/'>רשיון ייחוס-שימוש לא מסחרי-שיתוף זהה</a></p>"
 
-#: templates/about/what_next.html:6
-#: templates/about/what_next.html.py:9
+#: templates/about/what_next.html:5 templates/about/what_next.html.py:8
 msgid "What Next?"
 msgstr "מה חדש?"
 
-#: templates/about/what_next.html:37
+#: templates/about/what_next.html:32
 #, fuzzy, python-format
-msgid "Start by <a href=\"%(signup_url)s\">signing up</a> and <a href=\"%(login_url)s\">logging in</a>."
-msgstr "<a href=\"%(signup_url)s\">הירשם</a> <a href=\"%(login_url)s\">התחבר </a> להצטרפות לשבט"
+msgid ""
+"Start by <a href=\"%(signup_url)s\">signing up</a> and <a href=\"%(login_url)"
+"s\">logging in</a>."
+msgstr ""
+"<a href=\"%(signup_url)s\">הירשם</a> <a href=\"%(login_url)s\">התחבר </a> "
+"להצטרפות לשבט"
 
 #: templates/account/base.html:10
-msgid "E-Mail Addresses"
-msgstr "כתובות אימייל"
+msgid "Personal Info"
+msgstr ""
 
-#: templates/account/base.html:11
-#: templates/openid/associations.html:5
+#: templates/account/base.html:12
+msgid "Profile"
+msgstr "פרופיל"
+
+#: templates/account/base.html:13
+msgid "E-Mail Addresses"
+msgstr "כתובות דואל"
+
+#: templates/account/base.html:14 templates/django_openid/associations.html:5
 msgid "OpenID Associations"
 msgstr "OpenID שיוך"
 
-#: templates/account/base.html:12
-#: templates/account/password_change.html:5
+#: templates/account/base.html:16 templates/account/password_change.html:5
 #: templates/account/password_change.html:8
 msgid "Change Password"
 msgstr "החלף סיסמא"
 
-#: templates/account/base.html:13
-msgid "Reset Password"
+#: templates/account/base.html:18 templates/account/password_set.html:5
+#: templates/account/password_set.html:8
+#, fuzzy
+msgid "Set Password"
 msgstr "אפס סיסמא"
+
+#: templates/account/base.html:21 templates/account/password_delete.html:5
+#: templates/account/password_delete.html:8
+#, fuzzy
+msgid "Delete Password"
+msgstr "אפס סיסמא"
+
+#: templates/account/base.html:23 templates/account/timezone_change.html:5
+#: templates/account/timezone_change.html:8
+msgid "Timezone"
+msgstr "איזור זמן"
 
 #: templates/account/email.html:10
 msgid "Email Addresses"
-msgstr "כתובות אימייל"
+msgstr "כתובות דואל"
 
 #: templates/account/email.html:19
 msgid "verified"
@@ -420,7 +1321,7 @@ msgstr "לא אומת"
 
 #: templates/account/email.html:39
 msgid "re-send verification email"
-msgstr "שלח אימייל לאימות"
+msgstr "שלח דואל לאימות"
 
 #: templates/account/email.html:49
 msgid "remove"
@@ -431,62 +1332,86 @@ msgid "None"
 msgstr "ללא"
 
 #: templates/account/email.html:56
-msgid "You should really add one so you can receive notifications, reset your password if you forget it, etc."
+msgid ""
+"You should really add one so you can receive notifications, reset your "
+"password if you forget it, etc."
 msgstr "מומלץ להוסיף כדי לקבל עידכונים , לאפס סיסמא וכו"
 
 #: templates/account/email.html:59
 msgid "Add Email Address"
-msgstr "הוסף כתובות אימייל"
+msgstr "הוסף כתובות דואל"
 
-#: templates/account/email.html:64
+#: templates/account/email.html:64 templates/projects/project.html:65
 msgid "add"
 msgstr "הוסף"
 
-#: templates/account/login.html:9
-#: templates/account/signup.html:14
+#: templates/account/language_change.html:5
+#: templates/account/language_change.html:8
+msgid "Language"
+msgstr ""
+
+#: templates/account/language_change.html:10
+msgid "Pinax can be used in your preferred language."
+msgstr ""
+
+#: templates/account/language_change.html:15
+#, fuzzy
+msgid "Change my language"
+msgstr "החלף איזור זמן"
+
+#: templates/account/login.html:11 templates/account/signup.html:16
 msgid "Log In"
 msgstr "התחבר"
 
-#: templates/account/login.html:12
-#: templates/account/password_reset.html:11
-#: templates/account/password_reset_done.html:12
-#: templates/notification/notices.html:55
+#: templates/account/login.html:14 templates/account/password_reset.html:11
+#: templates/account/password_reset_done.html:11
+#: templates/notification/notices.html:60
 msgid "Note"
 msgstr "הודעה"
 
-#: templates/account/login.html:12
-#: templates/account/password_reset.html:11
-#: templates/account/password_reset_done.html:12
+#: templates/account/login.html:14 templates/account/password_reset.html:11
+#: templates/account/password_reset_done.html:11
 #, python-format
 msgid "you are already logged in as %(user)s."
 msgstr ".%(user)s את/ה מוחבר כבר כ "
 
-#: templates/account/login.html:15
+#: templates/account/login.html:17
 #, python-format
 msgid "Don't have an account? <a href=\"%(signup_url)s\">Sign up</a>!"
 msgstr "?אין לך חשבון<a href=\"%(signup_url)s\">הירשם</a>!"
 
-#: templates/account/login.html:21
-msgid "Forgot password?"
-msgstr "שכחת סיסמא?"
-
-#: templates/account/login.html:22
-#: templates/account/login.html.py:31
+#: templates/account/login.html:28 templates/account/login.html.py:43
 msgid "Log in &raquo;"
 msgstr "התחבר &raquo;"
 
-#: templates/account/login.html:27
+#: templates/account/login.html:30
+msgid "Forgot password?"
+msgstr "שכחת סיסמא?"
+
+#: templates/account/login.html:39
 msgid "Or sign in with your OpenID"
 msgstr "OpenID או התחבר בעזרת "
 
-#: templates/account/login.html:30
+#: templates/account/login.html:42
 msgid "OpenID Identifier"
 msgstr "OpenID מזהה "
 
-#: templates/account/login.html:35
+#: templates/account/login.html:45
+msgid ""
+"Not OpenID enabled?  <a href=\"http://openid.net/get/\" target=\"_blank"
+"\">Get started now.</a>"
+msgstr ""
+"לחץ <a href=\"http://openid.net/get/\" target=\"_blank\">כאן</a> ללמוד עוד "
+"על OpenID."
+
+#: templates/account/login.html:48
 #, python-format
-msgid "If you have any trouble logging in to your account, contact us at <a href=\"mailto:%(contact_email)s\">%(contact_email)s</a>."
-msgstr "<a href=\"mailto:%(contact_email)s\">%(contact_email)s</a> אם קיימת בעיה בחיבור לחשבונך, צור עימנו קשר ב"
+msgid ""
+"If you have any trouble logging in to your account, contact us at <a href="
+"\"mailto:%(contact_email)s\">%(contact_email)s</a>."
+msgstr ""
+"<a href=\"mailto:%(contact_email)s\">%(contact_email)s</a> אם קיימת בעיה "
+"בחיבור לחשבונך, צור עימנו קשר ב"
 
 #: templates/account/logout.html:8
 msgid "You've been logged out."
@@ -496,16 +1421,38 @@ msgstr "נותקת בהצלחה"
 msgid "change password"
 msgstr "החלף סיסמא"
 
+#: templates/account/password_delete.html:9
+msgid ""
+"You may delete your password since you are currently logged in using OpenID."
+msgstr ""
+
+#: templates/account/password_delete.html:11
+#, fuzzy
+msgid "delete my password"
+msgstr "אפס את הסיסמא שלי"
+
+#: templates/account/password_delete_done.html:5
+#: templates/account/password_delete_done.html:8
+#, fuzzy
+msgid "Password Deleted"
+msgstr "איפוס סיסמא"
+
+#: templates/account/password_delete_done.html:9
+msgid "Your password has been deleted."
+msgstr ""
+
 #: templates/account/password_reset.html:5
 #: templates/account/password_reset.html:8
-#: templates/account/password_reset_done.html:6
-#: templates/account/password_reset_done.html:9
+#: templates/account/password_reset_done.html:5
+#: templates/account/password_reset_done.html:8
 msgid "Password Reset"
 msgstr "אפס סיסמא"
 
 #: templates/account/password_reset.html:14
-msgid "Forgotten your password? Enter your e-mail address below, and we'll reset your password and e-mail the new one to you."
-msgstr "שכחת סיסמא? הקש את כתובת האימייל שלך ואנו נאפס ונשלח אותה אליך"
+msgid ""
+"Forgotten your password? Enter your e-mail address below, and we'll reset "
+"your password and e-mail the new one to you."
+msgstr "שכחת סיסמא? הקש את כתובת הדואל שלך ואנו נאפס ונשלח אותה אליך"
 
 #: templates/account/password_reset.html:19
 msgid "Reset my password"
@@ -513,53 +1460,80 @@ msgstr "אפס את הסיסמא שלי"
 
 #: templates/account/password_reset.html:23
 #, python-format
-msgid "If you have any trouble resetting your password, contact us at <a href=\"mailto:%(contact_email)s\">%(contact_email)s</a>."
-msgstr "<a href=\"mailto:%(contact_email)s\">%(contact_email)s</a>אם קיימת בעיה באיפוס סיסמתך, צור עימנו קשר ב"
+msgid ""
+"If you have any trouble resetting your password, contact us at <a href="
+"\"mailto:%(contact_email)s\">%(contact_email)s</a>."
+msgstr ""
+"<a href=\"mailto:%(contact_email)s\">%(contact_email)s</a>אם קיימת בעיה "
+"באיפוס סיסמתך, צור עימנו קשר ב"
 
-#: templates/account/password_reset_done.html:15
+#: templates/account/password_reset_done.html:14
 #, python-format
-msgid "A new password has been sent to <b>%(email)s</b>. If you do not receive it within a few minutes, contact us at <a href=\"mailto:%(contact_email)s\">%(contact_email)s</a>."
-msgstr ".<a href=\"mailto:%(contact_email)s\">%(contact_email)s</a> אם לא תקבל אותה בדקות הקרובות צור עימנו קשר ב   .<b>%(email)s</b>סיסמא חדשה נשלחה ל"
+msgid ""
+"A new password has been sent to <b>%(email)s</b>. If you do not receive it "
+"within a few minutes, contact us at <a href=\"mailto:%(contact_email)s\">%"
+"(contact_email)s</a>."
+msgstr ""
+".<a href=\"mailto:%(contact_email)s\">%(contact_email)s</a> אם לא תקבל אותה "
+"בדקות הקרובות צור עימנו קשר ב   .<b>%(email)s</b>סיסמא חדשה נשלחה ל"
 
-#: templates/account/password_reset_done.html:18
+#: templates/account/password_reset_done.html:17
 #, python-format
-msgid "When you receive the new password, you should <a href=\"%(login_url)s\">log in</a> and change it as soon as possible."
-msgstr "ולשנות אותה בהקדם האפשרי <a href=\"%(login_url)s\">להתחבר</a> כשתקבל סיסמא חדשה עליך "
+msgid ""
+"When you receive the new password, you should <a href=\"%(login_url)s\">log "
+"in</a> and change it as soon as possible."
+msgstr ""
+"ולשנות אותה בהקדם האפשרי <a href=\"%(login_url)s\">להתחבר</a> כשתקבל סיסמא "
+"חדשה עליך "
 
-#: templates/account/signup.html:6
+#: templates/account/password_set.html:13
+#, fuzzy
+msgid "set password"
+msgstr "אפס סיסמא"
+
+#: templates/account/signup.html:5
 msgid "Signup"
 msgstr "הירשם"
 
-#: templates/account/signup.html:9
+#: templates/account/signup.html:11
 msgid "Sign Up"
 msgstr "הירשם"
 
-#: templates/account/signup.html:12
+#: templates/account/signup.html:14
 msgid "You are already logged in."
 msgstr "את/ה מוחבר כבר."
 
-#: templates/account/signup.html:14
+#: templates/account/signup.html:16
 msgid "Already have an account?"
 msgstr "יש לך חשבון ?"
 
-#: templates/account/signup.html:19
-#: templates/openid/signup.html:17
+#: templates/account/signup.html:21 templates/django_openid/register.html:17
 msgid "Sign Up &raquo;"
 msgstr "הירשם &raquo;"
 
-#: templates/account/signup.html:25
+#: templates/account/signup.html:28
 #, python-format
-msgid "By clicking \"Sign Up\", you are indicating that you have read and agree to the <a href=\"%(terms_url)s\">Terms of Use</a> and <a href=\"%(privacy_url)s\">Privacy Policy</a>."
-msgstr ".<a href=\"%(privacy_url)s\">להצהרת הפרטיות</a> ו  <a href=\"%(terms_url)s\">תנאי השימוש</a> בלחיצה על הירשם , את/ה מאשר/ת שקראת והסכמת ל"
+msgid ""
+"By clicking \"Sign Up\", you are indicating that you have read and agree to "
+"the <a href=\"%(terms_url)s\">Terms of Use</a> and <a href=\"%(privacy_url)s"
+"\">Privacy Policy</a>."
+msgstr ""
+".<a href=\"%(privacy_url)s\">להצהרת הפרטיות</a> ו  <a href=\"%(terms_url)s"
+"\">תנאי השימוש</a> בלחיצה על הירשם , את/ה מאשר/ת שקראת והסכמת ל"
 
-#: templates/account/signup.html:27
-#: templates/openid/signup.html:23
+#: templates/account/signup.html:30 templates/django_openid/register.html:23
 #, python-format
-msgid "If you have any trouble creating your account, contact us at <a href=\"mailto:%(contact_email)s\">%(contact_email)s</a>."
-msgstr "<a href=\"mailto:%(contact_email)s\">%(contact_email)s</a>אם קיימת בעיה ביצירת חשבון חדש, צור עימנו קשר ב"
+msgid ""
+"If you have any trouble creating your account, contact us at <a href="
+"\"mailto:%(contact_email)s\">%(contact_email)s</a>."
+msgstr ""
+"<a href=\"mailto:%(contact_email)s\">%(contact_email)s</a>אם קיימת בעיה "
+"ביצירת חשבון חדש, צור עימנו קשר ב"
 
 #: templates/account/timezone_change.html:10
-msgid "Pinax can localize all times into your preferred timezone. Change your timezone below."
+msgid ""
+"Pinax can localize all times into your preferred timezone. Change your "
+"timezone below."
 msgstr "התאם את איזור הזמן שלך כאן."
 
 #: templates/account/timezone_change.html:15
@@ -580,643 +1554,367 @@ msgstr "הודעות"
 msgid "There are no announcements for you."
 msgstr "אין לך הודעות"
 
-#: templates/bookmarks/add.html:5
-#: templates/bookmarks/add.html.py:9
-#: templates/bookmarks/base.html:9
-msgid "Add Bookmark"
-msgstr "הוסף למעודפים"
-
-#: templates/bookmarks/add.html:18
-msgid "add bookmark"
-msgstr "הוסף למעודפים"
-
-#: templates/bookmarks/base.html:10
-#: templates/bookmarks/bookmarks.html:7
-#: templates/bookmarks/bookmarks.html:14
-msgid "All Bookmarks"
-msgstr "כל המעודפים"
-
-#: templates/bookmarks/bookmarks.html:19
-msgid "These are bookmarks from everyone:"
-msgstr "מעודפים של כולם:"
-
-#: templates/bookmarks/bookmarks.html:49
-msgid "No bookmarks yet."
-msgstr "אין מעודפים"
-
-#: templates/bookmarks/plugins/profiles/profile.html:22
-#, python-format
-msgid "You haven't added any <a href=\"%(add_bookmark_url)s\">bookmarks</a> yet."
-msgstr "עדיין <a href=\"%(add_bookmark_url)s\">bookmarks</a> לא הוספת כל  "
-
-#: templates/emailconfirmation/confirm_email.html:5
-msgid "Confirm Email"
-msgstr "אשר אימייל"
-
-#: templates/emailconfirmation/confirm_email.html:9
-msgid "Email Confirmed"
-msgstr "אימייל אושר"
-
-#: templates/emailconfirmation/confirm_email.html:11
-#, python-format
-msgid "You have confirmed that %(email)s is an email address for user '%(user)s'."
-msgstr "'%(user)s היא כתובת אימייל של המשתמש %(email)s אישרת ש "
-
-#: templates/emailconfirmation/confirm_email.html:13
-msgid "Invalid confirmation key."
-msgstr "מפתח אישור אינו חוקי."
-
-#: templates/feedutil/feed.html:8
-#, python-format
-msgid "%(post_age)s ago"
-msgstr "%(post_age)s לפני"
-
-#: templates/feedutil/plugins/profiles/profile.html:6
-msgid "Recent Blog Posts"
-msgstr "מאמרי בלוג אחרונים"
-
-#: templates/friends_app/contacts.html:6
-#: templates/friends_app/contacts.html:9
-#: templates/messages/base.html:17
-msgid "Contacts"
-msgstr "אנשי קשר"
-
-#: templates/friends_app/contacts.html:23
-msgid "upload"
-msgstr "שלח קובץ"
-
-#: templates/friends_app/contacts.html:32
-msgid "Import Google Contacts"
-msgstr "Google יבוא ספר כתובות מ "
-
-#: templates/friends_app/contacts.html:48
-msgid "Import Yahoo Address Book"
-msgstr "Yahoo יבוא ספר כתובות מ "
-
-#: templates/friends_app/contacts.html:78
-msgid "No contacts."
-msgstr "אין אנשי קשר"
-
-#: templates/friends_app/invitations.html:5
-#: templates/friends_app/invitations.html:8
-#: templates/messages/base.html:16
-msgid "Invitations"
-msgstr "הזמנות"
-
-#: templates/friends_app/invitations.html:10
-msgid "Invite someone new to join"
-msgstr "הזמן/י חבר חדש להצטרף."
-
-#: templates/friends_app/invitations.html:13
-msgid "If you'd like to invite someone to join Pinax, you can enter their email address and a message for them below:"
-msgstr ":הקש את כתובת האימייל וההודעתך כאן Pinaxאם ברצונך להזמין חבר להצטרף ל"
-
-#: templates/friends_app/invitations.html:20
-msgid "Someone with this email address has already joined:"
-msgstr "מישהו הצטרף כבר באמצעות כתובות אימייל זאת"
-
-#: templates/friends_app/invitations.html:35
-#: templates/profiles/profile.html:79
-msgid "invite"
-msgstr "הזמן"
-
-#: templates/friends_app/invitations.html:40
-msgid "Friendship Requests Received"
-msgstr "בקשות חברות שהתקבלו"
-
-#: templates/friends_app/invitations.html:54
-#: templates/profiles/profile.html:63
-msgid "accept"
-msgstr "אשר"
-
-#: templates/friends_app/invitations.html:68
-msgid "No friendship requests received."
-msgstr "לא התקבלו בקשות חברות"
-
-#: templates/friends_app/invitations.html:72
-msgid "Friendship Requests Sent"
-msgstr "בקשות חברות שנשלחו"
-
-#: templates/friends_app/invitations.html:85
-msgid "No friendship requests sent."
-msgstr "לא נשלחו בקשות חברות"
-
-#: templates/friends_app/invitations.html:89
-msgid "Join Requests Sent"
-msgstr "בקשות הצטרפות שנשלחו"
-
-#: templates/friends_app/invitations.html:102
-msgid "No join requests sent."
-msgstr "לא נשלחו בקשות הצטרפות"
-
-#: templates/messages/base.html:11
-msgid "Compose"
-msgstr "הודעה חדשה"
-
-#: templates/messages/base.html:13
-#: templates/messages/outbox.html:11
-msgid "Sent"
-msgstr "נשלח"
-
-#: templates/messages/base.html:14
-msgid "Trash"
-msgstr "סל מיחזור"
-
-#: templates/messages/base.html:15
-#: templates/notification/notices.html:8
-#: templates/notification/notices.html:12
-msgid "Notices"
-msgstr "הודעות"
-
-#: templates/messages/compose.html:6
-msgid "Compose Message"
-msgstr "הודעה חדשה"
-
-#: templates/messages/compose.html:11
-msgid "Send"
-msgstr "שלח"
-
-#: templates/messages/inbox.html:11
-#: templates/messages/trash.html:11
-#: templates/messages/view.html:11
-msgid "Sender"
-msgstr "שולח"
-
-#: templates/messages/inbox.html:11
-#: templates/messages/outbox.html:11
-#: templates/messages/trash.html:11
-#: templates/messages/view.html:13
-msgid "Subject"
-msgstr "נושא"
-
-#: templates/messages/inbox.html:11
-msgid "Received"
-msgstr "התקבל"
-
-#: templates/messages/inbox.html:11
-#: templates/messages/outbox.html:11
-#: templates/messages/trash.html:11
-msgid "Action"
-msgstr "פעולה"
-
-#: templates/messages/inbox.html:23
-#: templates/messages/outbox.html:20
-#: templates/messages/trash.html:20
-#: templates/messages/view.html:16
-#: templates/wiki/history.html:25
-msgid "DATETIME_FORMAT"
-msgstr "פורמט תאריך/שעה"
-
-#: templates/messages/inbox.html:24
-#: templates/messages/outbox.html:21
-msgid "delete"
-msgstr "מחק"
-
-#: templates/messages/new_messages.html:4
-#, python-format
-msgid "Sent from %(site_url)s"
-msgstr "%(site_url)s נשלח מ"
-
-#: templates/messages/outbox.html:7
-msgid "Sent Messages"
-msgstr "הודעות שנשלחו"
-
-#: templates/messages/outbox.html:11
-#: templates/messages/view.html:17
-msgid "Recipient"
-msgstr "אל"
-
-#: templates/messages/trash.html:7
-msgid "Deleted Messages"
-msgstr "הודעות שנמחקו"
-
-#: templates/messages/trash.html:11
-#: templates/messages/view.html:15
-#: templates/wiki/history.html:16
-msgid "Date"
-msgstr "תאריך"
-
-#: templates/messages/trash.html:21
-msgid "undelete"
-msgstr "שחזר"
-
-#: templates/messages/trash.html:27
-msgid "Deleted Messages are removed from the trash at irregular intervals, don't rely on this feature for long-time storage."
-msgstr "הודעות שנמחקו מוסרות בזמנים לא קבועים, על כן אין להניח שהן ישמרו לטווח ארוך"
-
-#: templates/messages/view.html:8
-msgid "View Message"
-msgstr "הצג הודעה"
-
-#: templates/messages/view.html:24
-msgid "Reply"
-msgstr "השב"
-
-#: templates/messages/view.html:27
-msgid "Delete"
-msgstr "מחק"
-
-#: templates/notification/notices.html:21
-#: templates/profiles/profiles.html:18
-#: templates/tribes/tribes.html:39
-#: templates/wiki/index.html:22
-msgid "MONTH_DAY_FORMAT"
-msgstr ""
-
-#: templates/notification/notices.html:39
-msgid "No notices."
-msgstr "אין הודעות."
-
-#: templates/notification/notices.html:44
-msgid "Settings"
-msgstr "הגדרות"
-
-#: templates/notification/notices.html:49
-msgid "Primary email"
-msgstr "אימייל ראשי"
-
-#: templates/notification/notices.html:51
-#, python-format
-msgid "change under <a href=\"%(email_url)s\">Account</a>"
-msgstr "שנה ב <a href=\"%(email_url)s\">חשבון</a>"
-
-#: templates/notification/notices.html:56
-#, python-format
-msgid "You do not have a verified email address to which notices can be sent. You can add one by going to <a href=\"%(email_url)s\">Account</a>."
-msgstr "אין לך כתובת אימייל מאומתת אליה ניתן לשלוח הודעות. תוכל להוסיף כתובת בכניסה ל <a href=\"%(email_url)s\">חשבון</a>."
-
-#: templates/notification/notices.html:63
-msgid "Notification Type"
-msgstr "סוג הודעה"
-
-#: templates/notification/notices.html:81
-msgid "Change"
-msgstr "שנה"
-
-#: templates/openid/associations.html:8
-msgid "Manage OpenID Associations"
-msgstr "OpenID נהל שיוך "
-
-#: templates/openid/associations.html:12
-#, python-format
-msgid "Your account is currently associated with the following OpenID %(buttons)s:"
-msgstr "%(buttons)s OpenID חשבונך משוייך  "
-
-#: templates/openid/associations.html:15
-msgid "Remove association"
-msgstr "הסר שיוך"
-
-#: templates/openid/associations.html:24
-msgid "Associate"
-msgstr "שייך"
-
-#: templates/openid/associations.html:30
-msgid "To associate a new OpenID with this account, sign in with it here:"
-msgstr "התחבר כאן  ,לחשבון זה  חדש  OpenID לשיוך "
-
-#: templates/openid/associations.html:35
-msgid "Authenticate and associate with this account"
-msgstr "מחובר ומשויך לחשבון זה"
-
-#: templates/openid/signup.html:5
-#: templates/openid/signup.html.py:8
-msgid "Sign Up with OpenID"
-msgstr "OpenID התחבר באמצעות "
-
-#: templates/openid/signup.html:11
-msgid "Please correct the errors below:"
-msgstr "אנא תקן/י את השגיאות הבאות:"
-
-#: templates/openid/signup.html:21
-msgid "Already have an account? <a href=\"/account/login/?next=/openid/associations/\">Login here</a> to associate your OpenID with your existing account."
-msgstr "יש לך כבר חשבון? <a href=\"/account/login/?next=/openid/associations/\">התחבר כאן</a> לחשבון שלך OpenID לשיוך ה "
-
-#: templates/openid/signup.html:22
-msgid "By clicking \"Sign Up\", you are indicating that you have read and agree to the <a href=\"/about/terms\">Terms of Use</a> and <a href=\"/about/privacy\">Privacy Policy</a>."
-msgstr ".<a href=\"/about/privacy\">להצהרת הפרטיות</a> ו  <a href=\"/about/terms\">תנאי השימוש</a> בלחיצה על הירשם , את/ה מאשר/ת שקראת והסכמת ל"
-
-#: templates/profiles/base.html:10
+#: templates/basic_profiles/base.html:10
 msgid "Your Profile"
 msgstr "הפרופיל שלך"
 
-#: templates/profiles/base.html:11
-#: templates/profiles/profiles.html:8
+#: templates/basic_profiles/base.html:11
+#: templates/basic_profiles/profiles.html:8 templates/profiles/profiles.html:8
 msgid "All Profiles"
 msgstr "כל הפרופילים"
 
-#: templates/profiles/profile.html:8
-#: templates/profiles/profile.html.py:18
+#: templates/basic_profiles/profile.html:7
+#: templates/basic_profiles/profile.html:21 templates/profiles/profile.html:9
+#: templates/profiles/profile.html.py:13
 #, python-format
 msgid "Profile for %(other_user)s"
 msgstr "%(other_user)s פרופיל של"
 
-#: templates/profiles/profile.html:21
+#: templates/basic_profiles/profile.html:24 templates/profiles/profile.html:23
 msgid "Name"
 msgstr "שם"
 
-#: templates/profiles/profile.html:23
+#: templates/basic_profiles/profile.html:26 templates/profiles/profile.html:25
 msgid "Location"
 msgstr "מיקום"
 
-#: templates/profiles/profile.html:24
+#: templates/basic_profiles/profile.html:27 templates/profiles/profile.html:26
 msgid "Website"
 msgstr "אתר"
 
-#: templates/profiles/profile.html:27
+#: templates/basic_profiles/profile.html:33
 msgid "Followers"
 msgstr "עוקבים אחריך"
 
-#: templates/profiles/profile.html:28
+#: templates/basic_profiles/profile.html:34
 msgid "Following"
 msgstr "עוקב/ת אחרי"
 
-#: templates/profiles/profile.html:32
+#: templates/basic_profiles/profile.html:39 templates/profiles/profile.html:34
 msgid "Edit profile"
 msgstr "ערוך פרופיל"
 
-#: templates/profiles/profile.html:37
-#: templates/tribes/tribe.html:52
+#: templates/basic_profiles/profile.html:43 templates/profiles/profile.html:38
+#: templates/projects/project.html:44 templates/tribes/tribe.html:58
 msgid "update"
 msgstr "עדכן"
 
-#: templates/profiles/profile.html:44
+#: templates/basic_profiles/profile.html:51
 msgid "unfollow"
 msgstr "בטל מעקב"
 
-#: templates/profiles/profile.html:46
+#: templates/basic_profiles/profile.html:53
 msgid "follow tweets"
 msgstr "עקוב אחר טוויטס"
 
-#: templates/profiles/profile.html:52
+#: templates/basic_profiles/profile.html:59
 #, python-format
 msgid "You are friends with %(other_user)s."
 msgstr "%(other_user)s את/ה חבר של"
 
-#: templates/profiles/profile.html:52
+#: templates/basic_profiles/profile.html:59
 msgid "Send a message"
 msgstr "שלח הודעה"
 
-#: templates/profiles/profile.html:55
+#: templates/basic_profiles/profile.html:62
 #, python-format
 msgid "%(other_user)s has requested friendship."
 msgstr "ביקש להיות חבר %(other_user)s"
 
-#: templates/profiles/profile.html:69
+#: templates/basic_profiles/profile.html:70
+msgid "accept"
+msgstr "אשר"
+
+#: templates/basic_profiles/profile.html:76
 msgid "Friendship request sent."
 msgstr "בקשת חברות נשלחה."
 
-#: templates/profiles/profile.html:71
+#: templates/basic_profiles/profile.html:78
 msgid "Add As Friend"
 msgstr "הוסף/י כחבר/ה"
 
-#: templates/profiles/profile.html:80
+#: templates/basic_profiles/profile.html:86
+msgid "invite"
+msgstr "הזמן"
+
+#: templates/basic_profiles/profile.html:87
 #, python-format
 msgid "%(other_user)s to be a friend."
 msgstr "נעשה חבר %(other_user)s"
 
-#: templates/profiles/profile.html:96
+#: templates/basic_profiles/profile.html:104
 #, python-format
-msgid "<a href=\"%(signup_url)s\">Sign up</a> and <a href=\"%(login_url)s\">log in </a> to add this person as a friend and see their tweets and blog posts."
-msgstr "<a href=\"%(signup_url)s\">הירשם</a> <a href=\"%(login_url)s\">התחבר</a> להוספתו כחבר וצפייה בטוויטס ובבלוג שלו"
+msgid ""
+"<a href=\"%(signup_url)s\">Sign up</a> and <a href=\"%(login_url)s\">log in "
+"</a> to add this person as a friend and see their tweets and blog posts."
+msgstr ""
+"<a href=\"%(signup_url)s\">הירשם</a> <a href=\"%(login_url)s\">התחבר</a> "
+"להוספתו כחבר וצפייה בטוויטס ובבלוג שלו"
 
-#: templates/profiles/profile_right_panel.html:7
+#: templates/basic_profiles/profile_right_panel.html:6
+#: templates/tribes/base.html:10 templates/tribes/your_tribes.html:7
+#: templates/tribes/your_tribes.html:11
 msgid "Your Tribes"
 msgstr "השבטים שלך"
 
-#: templates/profiles/profile_right_panel.html:14
+#: templates/basic_profiles/profile_right_panel.html:13
 #, python-format
 msgid "You are not yet a member of any <a href=\"%(tribe_url)s\">tribes</a>."
 msgstr "את/ה עדיין לא חבר באף <a href=\"%(tribe_url)s\">שבט</a>."
 
-#: templates/profiles/profile_right_panel.html:18
+#: templates/basic_profiles/profile_right_panel.html:17
 msgid "Your Friends"
 msgstr "החברים שלך"
 
-#: templates/profiles/profile_right_panel.html:32
-msgid "None. You should look at the list of <a href=\"/profiles/\">profiles</a> and see if there's anyone you know."
-msgstr "האם קיים מישהו שאתה מכיר <a href=\"/profiles/\">הפרופילים</a> ריק.  בדוק ברשימת "
+#: templates/basic_profiles/profile_right_panel.html:31
+msgid ""
+"None. You should look at the list of <a href=\"/profiles/\">profiles</a> and "
+"see if there's anyone you know."
+msgstr ""
+"האם קיים מישהו שאתה מכיר <a href=\"/profiles/\">הפרופילים</a> ריק.  בדוק "
+"ברשימת "
 
-#: templates/profiles/profile_right_panel.html:39
+#: templates/basic_profiles/profile_right_panel.html:38
 #, python-format
 msgid "%(other_user)s's Tribes"
 msgstr "%(other_user)s השבטים של"
 
-#: templates/profiles/profile_right_panel.html:45
+#: templates/basic_profiles/profile_right_panel.html:44
 msgid "Not yet a member of any tribes."
 msgstr "אינך חבר בשבט באף שבט"
 
-#: templates/profiles/profile_right_panel.html:49
+#: templates/basic_profiles/profile_right_panel.html:48
+#: templates/profiles/profile_right_panel.html:27
 #, python-format
 msgid "%(other_user)s's Friends"
 msgstr "%(other_user)s החברים של"
 
+#: templates/basic_profiles/profiles.html:11
 #: templates/profiles/profiles.html:11
 msgid "Profiles"
 msgstr "פרופילים"
 
-#: templates/tribes/base.html:10
-msgid "All Tribes"
-msgstr "כל השבטים"
+#: templates/basic_profiles/profiles.html:18
+#: templates/notification/notices.html:26 templates/profiles/profiles.html:18
+#: templates/projects/tasks.html:57
+msgid "MONTH_DAY_FORMAT"
+msgstr ""
 
-#: templates/tribes/topic.html:11
-msgid "Back to Topic List for Tribe "
-msgstr "חזרה לרשימת הדיונים בשבט"
+#: templates/django_openid/associations.html:8
+msgid "Manage OpenID Associations"
+msgstr "OpenID נהל שיוך "
 
-#: templates/tribes/topic.html:29
-msgid "Delete Topic"
-msgstr "מחק דיון"
-
-#: templates/tribes/topic.html:46
-msgid "Delete Post"
-msgstr "מחק מאמר"
-
-#: templates/tribes/topic.html:53
-#: templates/tribes/topic.html.py:64
-msgid "Post Response"
-msgstr "שלח תגובה"
-
-#: templates/tribes/topics.html:11
-msgid "Discussion Topics for Tribe"
-msgstr "רשימת דיון בשבט"
-
-#: templates/tribes/topics.html:46
-msgid "Create New Topic"
-msgstr "צור דיון חדש"
-
-#: templates/tribes/tribe.html:17
-msgid "Members"
-msgstr "חברים"
-
-#: templates/tribes/tribe.html:36
-msgid "Tribe"
-msgstr "שבט"
-
-#: templates/tribes/tribe.html:47
-msgid "Edit details"
-msgstr "ערוך פרטים"
-
-#: templates/tribes/tribe.html:65
-msgid "leave"
-msgstr "עזוב"
-
-#: templates/tribes/tribe.html:69
-msgid "join tribe"
-msgstr "הצטרף לשבט"
-
-#: templates/tribes/tribe.html:76
+#: templates/django_openid/associations.html:11
 #, python-format
-msgid "<a href=\"%(signup_url)s\">Sign up</a> and <a href=\"%(login_url)s\">log in </a> to join this tribe."
-msgstr "<a href=\"%(signup_url)s\">הירשם</a> <a href=\"%(login_url)s\">התחבר </a> להצטרפות לשבט"
+msgid ""
+"You have not set a password for this user account. You are unable to remove "
+"OpenID associations until you <a href=\"%(acct_passwd_set_url)s\">set a "
+"password</a>."
+msgstr ""
 
-#: templates/tribes/tribes.html:20
-msgid "Start your own"
-msgstr "צור שבט  חדש"
-
-#: templates/tribes/tribes.html:25
-msgid "create"
-msgstr "צור"
-
-#: templates/tribes/tribes.html:31
+#: templates/django_openid/associations.html:14
 #, python-format
-msgid "<a href=\"%(signup_url)s\">Sign up</a> and <a href=\"%(login_url)s\">log in </a> to create your own tribe or join an existing one."
-msgstr "<a href=\"%(signup_url)s\">הירשם</a> <a href=\"%(login_url)s\">התחבר </a> להצטרפות לשבט קיים או יצירת שבט חדש"
+msgid ""
+"Your account is currently associated with the following OpenID %(buttons)s:"
+msgstr "%(buttons)s OpenID חשבונך משוייך  "
 
-#: templates/wiki/base.html:9
-msgid "All Articles"
-msgstr "כל המאמרים"
+#: templates/django_openid/associations.html:21
+msgid "Remove association"
+msgstr "הסר שיוך"
 
-#: templates/wiki/changeset.html:8
-#: templates/wiki/edit.html:8
-#: templates/wiki/history.html:9
-#: templates/wiki/index.html:12
-#: templates/wiki/view.html:25
-msgid "Wiki for Tribe"
-msgstr "וויקי לשבטים"
+#: templates/django_openid/associations.html:28
+msgid "To associate a new OpenID with this account, sign in with it here:"
+msgstr "התחבר כאן  ,לחשבון זה  חדש  OpenID לשיוך "
 
-#: templates/wiki/changeset.html:17
-msgid "Markup:"
-msgstr "סימול"
+#: templates/django_openid/associations.html:34
+msgid "Authenticate and associate with this account"
+msgstr "מחובר ומשויך לחשבון זה"
 
-#: templates/wiki/changeset.html:21
-msgid "Plain Text."
-msgstr "טקסט רגיל"
+#: templates/django_openid/register.html:5
+#: templates/django_openid/register.html:8
+msgid "Sign Up with OpenID"
+msgstr "OpenID התחבר באמצעות "
 
-#: templates/wiki/edit.html:9
-msgid "Edit Article"
-msgstr "ערוך מאמר"
+#: templates/django_openid/register.html:11
+msgid "Please correct the errors below:"
+msgstr "אנא תקן/י את השגיאות הבאות:"
 
-#: templates/wiki/edit.html:14
-msgid "Save Article"
-msgstr "שמור מאמר"
+#: templates/django_openid/register.html:21
+msgid ""
+"Already have an account? <a href=\"/account/login/?next=/openid/associations/"
+"\">Login here</a> to associate your OpenID with your existing account."
+msgstr ""
+"יש לך כבר חשבון? <a href=\"/account/login/?next=/openid/associations/"
+"\">התחבר כאן</a> לחשבון שלך OpenID לשיוך ה "
 
-#: templates/wiki/history.html:11
-msgid "History for article"
-msgstr "היסטוריה למאמר זה"
+#: templates/django_openid/register.html:22
+msgid ""
+"By clicking \"Sign Up\", you are indicating that you have read and agree to "
+"the <a href=\"/about/terms\">Terms of Use</a> and <a href=\"/about/privacy"
+"\">Privacy Policy</a>."
+msgstr ""
+".<a href=\"/about/privacy\">להצהרת הפרטיות</a> ו  <a href=\"/about/terms"
+"\">תנאי השימוש</a> בלחיצה על הירשם , את/ה מאשר/ת שקראת והסכמת ל"
 
-#: templates/wiki/history.html:17
-msgid "Editor"
-msgstr "עורך"
+#: templates/emailconfirmation/confirm_email.html:5
+msgid "Confirm Email"
+msgstr "אשר דואל"
 
-#: templates/wiki/history.html:18
-msgid "Comment"
-msgstr "הערה"
+#: templates/emailconfirmation/confirm_email.html:9
+msgid "Email Confirmed"
+msgstr "דואל אושר"
 
-#: templates/wiki/history.html:19
-msgid "Revert"
-msgstr "בטל"
+#: templates/emailconfirmation/confirm_email.html:11
+#, python-format
+msgid ""
+"You have confirmed that %(email)s is an email address for user '%(user)s'."
+msgstr "'%(user)s היא כתובת דואל של המשתמש %(email)s אישרת ש "
 
-#: templates/wiki/history.html:42
-msgid "Revert Last Change"
-msgstr "בטל שינוי אחרון"
-
-#: templates/wiki/history.html:52
-msgid "No changes in this article"
-msgstr "אין שינויים במאמר זה"
-
-#: templates/wiki/searchbox.html:8
-msgid "Go"
-msgstr "אשר"
-
-#: templates/wiki/view.html:15
-msgid "Actions"
-msgstr "פעולות"
-
-#: templates/wiki/view.html:17
-msgid "Edit this article"
-msgstr "ערוך מאמר זה"
-
-#: templates/wiki/view.html:18
-msgid "Editing history"
-msgstr "ערוך היסטוריה"
-
-#: templates/wiki/view.html:20
-msgid "Create this article"
-msgstr "צור מאמר זה"
-
-#: templates/wiki/view.html:31
-msgid "This article does not exist."
-msgstr "מאמר זה אינו קיים."
-
-#: templates/wiki/view.html:32
-msgid ">Create it now</a>?"
-msgstr ">צור עכשיו</a>?"
-
-#: templates/wiki/plugins/profiles/profile.html:3
-msgid "Wiki Articles"
-msgstr "מאמרים בוויקי"
-
-#: templates/wiki/plugins/profiles/profile.html:20
-msgid "No wiki articles yet."
-msgstr "אין מאמרים בוויקי עדיין"
+#: templates/emailconfirmation/confirm_email.html:13
+msgid "Invalid confirmation key."
+msgstr "מפתח אישור אינו חוקי."
 
 #: templates/microblogging/base.html:9
 msgid "Tweets You Follow"
 msgstr "טוויטים במעקב"
 
 #: templates/microblogging/base.html:10
-#: templates/microblogging/public.html:14
+#: templates/microblogging/friends_tweets.html:7
+#: templates/microblogging/friends_tweets.html:10
+#, fuzzy
+msgid "Friends' Tweets"
+msgstr "בקשות חברות שנשלחו"
+
+#: templates/microblogging/base.html:11 templates/microblogging/public.html:14
 msgid "All Tweets"
 msgstr "כל הטוויטים"
 
-#: templates/microblogging/listing.html:14
+#: templates/microblogging/base.html:12
+#, fuzzy
+msgid "Your Followers"
+msgstr "עוקבים אחריך"
+
+#: templates/microblogging/base.html:13
+#, fuzzy
+msgid "Who You Are Following"
+msgstr "עוקב/ת אחרי"
+
+#: templates/microblogging/followers.html:6
+#: templates/microblogging/followers.html:9
+#, fuzzy, python-format
+msgid "Followers of %(other_user)s"
+msgstr "%(other_user)s פרופיל של"
+
+#: templates/microblogging/followers.html:13
+#, python-format
+msgid ""
+"Followers of <a href=\"%(other_user_url)s\">%(other_user)s</a>'s tweets:"
+msgstr ""
+
+#: templates/microblogging/followers.html:25
+#, fuzzy
+msgid "No followers."
+msgstr "עוקב אחריך"
+
+#: templates/microblogging/followers.html:29
+#, python-format
+msgid ""
+"Also see <a href=\"%(tweet_following_url)s\">who %(other_user)s is "
+"following</a>."
+msgstr ""
+
+#: templates/microblogging/following.html:6
+#: templates/microblogging/following.html:9
+#, fuzzy, python-format
+msgid "%(other_user)s is Following"
+msgstr "%(other_user)s החברים של"
+
+#: templates/microblogging/following.html:12
+#, python-format
+msgid ""
+"Users whose tweets <a href=\"%(other_user_url)s\">%(other_user)s</a> is "
+"following:"
+msgstr ""
+
+#: templates/microblogging/following.html:24
+msgid "Not following anyone."
+msgstr ""
+
+#: templates/microblogging/following.html:28
+#, python-format
+msgid ""
+"Also see <a href=\"%(tweet_followers_url)s\">who is following</a> %"
+"(other_user)s."
+msgstr ""
+
+#: templates/microblogging/friends_tweets.html:12
+#, fuzzy
+msgid "These are tweets from your friends:"
+msgstr "טוויטים מכולם:"
+
+#: templates/microblogging/friends_tweets.html:23
+#: templates/microblogging/listing.html:12
 #, python-format
 msgid "%(tweet_age)s ago"
 msgstr "%(tweet_age)s לפני"
 
-#: templates/microblogging/listing.html:15
+#: templates/microblogging/friends_tweets.html:24
+#: templates/microblogging/listing.html:13
 msgid "reply"
 msgstr "השב"
 
-#: templates/microblogging/listing.html:21
+#: templates/microblogging/friends_tweets.html:28
+#, fuzzy
+msgid "No tweets yet."
+msgstr "אין מאמרים בוויקי עדיין"
+
+#: templates/microblogging/listing.html:19
 #, python-format
 msgid "You haven't posted any <a href=\"%(tweets_url)s\">tweets</a> yet."
 msgstr "עדיין <a href=\"%(tweets_url)s\">tweets</a> לא שלחת "
 
-#: templates/microblogging/listing.html:23
+#: templates/microblogging/listing.html:21
 msgid "There are currently no tweets to be listed."
 msgstr "אין טוויטס כעת"
 
-#: templates/microblogging/personal.html:16
+#: templates/microblogging/personal.html:17
 msgid "What are you doing?"
 msgstr "?מה אתה עושה "
 
-#: templates/microblogging/personal.html:18
+#: templates/microblogging/personal.html:20
+msgid "You have authorized a twitter account."
+msgstr ""
+
+#: templates/microblogging/personal.html:22
+msgid "Publish to Twitter?"
+msgstr ""
+
+#: templates/microblogging/personal.html:26
+msgid "You have authorized a pownce account."
+msgstr ""
+
+#: templates/microblogging/personal.html:28
+msgid "Publish to Pownce?"
+msgstr ""
+
+#: templates/microblogging/personal.html:32
 msgid "chars left."
 msgstr "תווים נותרו."
 
-#: templates/microblogging/personal.html:18
+#: templates/microblogging/personal.html:33
 msgid "post"
 msgstr "שלח"
 
-#: templates/microblogging/personal.html:23
+#: templates/microblogging/personal.html:37
 msgid "person,people"
 msgstr "חבר,חברים"
 
-#: templates/microblogging/personal.html:23
+#: templates/microblogging/personal.html:37
 #, python-format
 msgid ""
 "\n"
-"        These are tweets from the %(follow_count)s %(follow_name)s you are following (plus your own)"
+"        These are tweets from the %(follow_count)s %(follow_name)s you are "
+"following (plus your own)"
 msgstr ""
 "\n"
 " טוויטס מ %(follow_count)s %(follow_name)s שאתה עוקב אחריהם"
@@ -1229,153 +1927,782 @@ msgstr "טוויטים"
 msgid "These are tweets from everyone:"
 msgstr "טוויטים מכולם:"
 
-#: templates/microblogging/single.html:6
-#: templates/microblogging/single.html.py:9
+#: templates/microblogging/single.html:6 templates/microblogging/single.html:9
 msgid "Single Tweet"
 msgstr "טוויט בודד"
 
-#: tribes/forms.py:9
-msgid "a short version of the name consisting only of letters, numbers and underscores."
-msgstr "גירסה מקוצרת של השם המכילה רק מספרים אותיות וקו תחתון"
+#: templates/notification/notices.html:20
+msgid "Mark all unseen notices seen"
+msgstr ""
 
-#: tribes/forms.py:10
-msgid "This value must contain only letters, numbers and underscores."
-msgstr "שדה זה חייב להכיל רק מספרים אותיות וקו תחתון"
+#: templates/notification/notices.html:44
+msgid "No notices."
+msgstr "אין הודעות."
 
-#: tribes/forms.py:14
-msgid "A tribe already exists with that slug."
-msgstr "קיים כבר שבט בשם קצר זה"
+#: templates/notification/notices.html:49
+msgid "Settings"
+msgstr "הגדרות"
 
-#: tribes/forms.py:19
-#: tribes/forms.py:36
-msgid "A tribe already exists with that name."
-msgstr "קיים כבר שבט בשם זה"
+#: templates/notification/notices.html:54
+msgid "Primary email"
+msgstr "דואל ראשי"
 
-#: tribes/management.py:10
-msgid "Friend Joined Tribe"
-msgstr "חבר הצטרף לשבט"
+#: templates/notification/notices.html:56
+#, python-format
+msgid "change under <a href=\"%(email_url)s\">Account</a>"
+msgstr "שנה ב <a href=\"%(email_url)s\">חשבון</a>"
 
-#: tribes/management.py:10
-msgid "a friend of yours joined a tribe"
-msgstr "חבר שלך הצטרף לשבט"
+#: templates/notification/notices.html:61
+#, python-format
+msgid ""
+"You do not have a verified email address to which notices can be sent. You "
+"can add one by going to <a href=\"%(email_url)s\">Account</a>."
+msgstr ""
+"אין לך כתובת דואל מאומתת אליה ניתן לשלוח הודעות. תוכל להוסיף כתובת בכניסה ל "
+"<a href=\"%(email_url)s\">חשבון</a>."
 
-#: tribes/management.py:11
-msgid "New Tribe Member"
-msgstr "חבר שבט חדש"
+#: templates/notification/notices.html:68
+msgid "Notification Type"
+msgstr "סוג הודעה"
 
-#: tribes/management.py:11
-msgid "a tribe you are a member of has a new member"
-msgstr "שבט שאת/ה חבר בו צרף חבר חדש"
+#: templates/notification/notices.html:86
+msgid "Change"
+msgstr "שנה"
 
-#: tribes/management.py:12
-msgid "New Member Of Tribe You Created"
-msgstr "חבר חדש בשבט שיצרת"
+#: templates/profiles/profile_right_panel.html:6
+#, fuzzy
+msgid "My Friends"
+msgstr "החברים שלך"
 
-#: tribes/management.py:12
-msgid "a tribe you created has a new member"
-msgstr "שבט שיצרת צירף חבר חדש"
+#: templates/profiles/profile_right_panel.html:20
+#, fuzzy
+msgid "Add friends"
+msgstr "הוסף/י כחבר/ה"
 
-#: tribes/management.py:13
-msgid "New Tribe Created"
-msgstr "שבט חדש נוצר"
+#: templates/profiles/profile_right_panel.html:47
+#, fuzzy, python-format
+msgid "%(other_user)s's Questions"
+msgstr "%(other_user)s החברים של"
 
-#: tribes/management.py:13
-msgid "a new tribe has been created"
-msgstr "שבט חדש נוצר"
+#: templates/profiles/profile_right_panel.html:56
+msgid "post a quetion"
+msgstr ""
 
-#: tribes/management.py:14
-msgid "Friend Created Tribe"
+#: templates/projects/base.html:10
+#, fuzzy
+msgid "Your Tasks"
+msgstr "השבטים שלך"
+
+#: templates/projects/base.html:11 templates/projects/your_projects.html:7
+#: templates/projects/your_projects.html:11
+#, fuzzy
+msgid "Your Projects"
+msgstr "הפרופיל שלך"
+
+#: templates/projects/base.html:12
+#, fuzzy
+msgid "All Projects"
+msgstr "כל הפרופילים"
+
+#: templates/projects/create.html:8 templates/projects/create.html.py:12
+#, fuzzy
+msgid "Create Project"
+msgstr "צור דיון חדש"
+
+#: templates/projects/create.html:26 templates/projects/projects.html:32
+#, fuzzy, python-format
+msgid ""
+"<a href=\"%(signup_url)s\">Sign up</a> and <a href=\"%(login_url)s\">log in "
+"</a> to create your own project or join an existing one."
+msgstr ""
+"<a href=\"%(signup_url)s\">הירשם</a> <a href=\"%(login_url)s\">התחבר </a> "
+"להצטרפות לשבט קיים או יצירת שבט חדש"
+
+#: templates/projects/project.html:25
+msgid "Project"
+msgstr ""
+
+#: templates/projects/project.html:40 templates/tribes/tribe.html:53
+msgid "Edit details"
+msgstr "ערוך פרטים"
+
+#: templates/projects/project.html:61
+msgid "Add new member"
+msgstr ""
+
+#: templates/projects/project.html:70
+#, fuzzy
+msgid "Delete project"
+msgstr "מחק מאמר"
+
+#: templates/projects/project.html:72
+#, fuzzy
+msgid "Delete Project"
+msgstr "מחק מאמר"
+
+#: templates/projects/project.html:105 templates/tribes/tribe.html:104
+#: templates/tribes/tribe.html.py:120
+msgid "more..."
+msgstr ""
+
+#: templates/projects/project.html:108
+msgid "Create a task"
+msgstr ""
+
+#: templates/projects/project.html:136 templates/tribes/tribe.html:124
+#, python-format
+msgid ""
+"\n"
+"                        None yet. Go to the <a href=\"%(wiki_url)s\" title="
+"\"wiki\">wiki</a> to start a new article.\n"
+"                    "
+msgstr ""
+
+#: templates/projects/projects.html:9 templates/projects/projects.html:13
+#, fuzzy
+msgid "Projects"
+msgstr "פרופילים"
+
+#: templates/projects/projects.html:19
+#, fuzzy
+msgid "Start your own project"
+msgstr "צור שבט  חדש"
+
+#: templates/projects/task.html:10
+#, fuzzy
+msgid "Back to Task List for Project "
+msgstr "חזרה לרשימת הדיונים בשבט"
+
+#: templates/projects/task.html:18
+msgid "Update Status"
+msgstr ""
+
+#: templates/projects/task.html:31
+msgid "Reassign"
+msgstr ""
+
+#: templates/projects/task.html:33
+msgid "Assign"
+msgstr ""
+
+#: templates/projects/task.html:44
+msgid "Mark Resolved"
+msgstr ""
+
+#: templates/projects/task.html:52
+msgid "Mark Closed"
+msgstr ""
+
+#: templates/projects/task.html:58 templates/projects/task.html.py:65
+#, fuzzy
+msgid "Reopen"
+msgstr "אל"
+
+#: templates/projects/tasks.html:12
+msgid "Tasks for Project"
+msgstr ""
+
+#: templates/projects/tasks.html:74
+#, fuzzy
+msgid "add task"
+msgstr "הוסף למעודפים"
+
+#: templates/projects/topic.html:10
+#, fuzzy
+msgid "Back to Topic List for Project "
+msgstr "חזרה לרשימת הדיונים בשבט"
+
+#: templates/projects/topics.html:11
+#, fuzzy
+msgid "Discussion Topics for Project"
+msgstr "רשימת דיון בשבט"
+
+#: templates/projects/topics.html:27 templates/tribes/topics.html:26
+msgid "Create New Topic"
+msgstr "צור דיון חדש"
+
+#: templates/projects/user_tasks.html:9
+#, fuzzy, python-format
+msgid "Tasks for %(other_user)s"
+msgstr "%(other_user)s פרופיל של"
+
+#: templates/projects/user_tasks.html:23
+msgid "You have no tasks right now."
+msgstr ""
+
+#: templates/projects/your_projects.html:13
+msgid "These are the projects you participate in."
+msgstr ""
+
+#: templates/threadedcomments/comments.html:19
+msgid "Delete Post"
+msgstr "מחק מאמר"
+
+#: templates/threadedcomments/comments.html:23
+msgid "Reply to This Post"
+msgstr ""
+
+#: templates/threadedcomments/comments.html:26
+#: templates/threadedcomments/comments.html:38
+msgid "Post Response"
+msgstr "שלח תגובה"
+
+#: templates/tribes/base.html:12
+msgid "All Tribes"
+msgstr "כל השבטים"
+
+#: templates/tribes/create.html:10 templates/tribes/create.html.py:13
+#, fuzzy
+msgid "Create Tribe"
 msgstr "חברך יצר שבט"
 
-#: tribes/management.py:14
-msgid "a friend has created a new tribe"
-msgstr "חברך יצר שבט"
+#: templates/tribes/create.html:15 templates/tribes/tribes.html:16
+msgid "A <b>tribe</b> is a group of people with some common interest."
+msgstr ""
 
-#: tribes/management.py:16
-msgid "New Topic Started"
-msgstr "דיון חדש החל"
+#: templates/tribes/create.html:26 templates/tribes/tribes.html:31
+#, python-format
+msgid ""
+"<a href=\"%(signup_url)s\">Sign up</a> and <a href=\"%(login_url)s\">log in "
+"</a> to create your own tribe or join an existing one."
+msgstr ""
+"<a href=\"%(signup_url)s\">הירשם</a> <a href=\"%(login_url)s\">התחבר </a> "
+"להצטרפות לשבט קיים או יצירת שבט חדש"
 
-#: tribes/management.py:16
-msgid "a new topic has started in a tribe you're a member of"
-msgstr "דיון חדש החל בשבט שאתה חבר בו"
+#: templates/tribes/topic.html:12
+msgid "Back to Topic List for Tribe "
+msgstr "חזרה לרשימת הדיונים בשבט"
 
-#: tribes/management.py:17
-msgid "Response To Your Topic"
-msgstr "תגובה לדיון שלך"
+#: templates/tribes/topic.html:27
+msgid "Delete Topic"
+msgstr "מחק דיון"
 
-#: tribes/management.py:17
-msgid "someone has responded on a topic you started"
-msgstr "מישהו הגיב לדיון שיצרת"
+#: templates/tribes/topics.html:7
+#, python-format
+msgid "Topics for %(tribe_name)s"
+msgstr ""
 
-#: tribes/models.py:22
-msgid "slug"
-msgstr "שם מקוצר"
+#: templates/tribes/topics.html:10
+msgid "Discussion Topics for Tribe"
+msgstr "רשימת דיון בשבט"
 
-#: tribes/models.py:24
-#: tribes/models.py:48
-msgid "creator"
-msgstr "יצר"
+#: templates/tribes/topics.html:21
+#, fuzzy
+msgid "New Topic"
+msgstr "צור דיון חדש"
 
-#: tribes/models.py:25
-#: tribes/models.py:49
-msgid "created"
-msgstr "נוצר"
-
-#: tribes/models.py:26
-msgid "description"
-msgstr "תיאור"
-
-#: tribes/models.py:27
-msgid "members"
-msgstr "חברים"
-
-#: tribes/models.py:45
-msgid "tribe"
+#: templates/tribes/tribe.html:39
+msgid "Tribe"
 msgstr "שבט"
 
-#: tribes/models.py:47
-msgid "title"
-msgstr "כותרת"
+#: templates/tribes/tribe.html:42
+#, fuzzy
+msgid "Slug:"
+msgstr "שם מקוצר"
 
-#: tribes/models.py:50
-msgid "modified"
-msgstr "השתנה"
+#: templates/tribes/tribe.html:43
+#, fuzzy
+msgid "Creator:"
+msgstr "יצר"
 
-#: tribes/models.py:51
-msgid "body"
-msgstr "גוף"
+#: templates/tribes/tribe.html:44
+#, fuzzy
+msgid "Created:"
+msgstr "נוצר"
 
-#: microblogging/models.py:43
-#: microblogging/models.py:71
-msgid "text"
-msgstr "טקסט"
+#: templates/tribes/tribe.html:64
+#, fuzzy
+msgid "Delete tribe"
+msgstr "מחק מאמר"
 
-#: microblogging/models.py:44
-#: microblogging/models.py:72
-msgid "sender"
-msgstr "שולח"
+#: templates/tribes/tribe.html:66
+#, fuzzy
+msgid "Delete Tribe"
+msgstr "מחק דיון"
 
-#: microblogging/models.py:45
-#: microblogging/models.py:73
-msgid "sent"
-msgstr "נשלח"
+#: templates/tribes/tribe.html:79
+msgid "You are the creator of this tribe so can't leave (yet)."
+msgstr ""
 
-#: microblogging/models.py:152
-msgid "follower"
-msgstr "עוקב אחריך"
+#: templates/tribes/tribe.html:82
+msgid "leave"
+msgstr "עזוב"
 
-#: microblogging/models.py:153
-msgid "followed"
-msgstr "עוקב אחרי"
+#: templates/tribes/tribe.html:86
+msgid "join tribe"
+msgstr "הצטרף לשבט"
+
+#: templates/tribes/tribe.html:93
+#, python-format
+msgid ""
+"<a href=\"%(signup_url)s\">Sign up</a> and <a href=\"%(login_url)s\">log in "
+"</a> to join this tribe."
+msgstr ""
+"<a href=\"%(signup_url)s\">הירשם</a> <a href=\"%(login_url)s\">התחבר </a> "
+"להצטרפות לשבט"
+
+#: templates/tribes/tribe.html:98
+#, fuzzy
+msgid "Discussion Topics"
+msgstr "רשימת דיון בשבט"
+
+#: templates/tribes/tribe.html:107
+#, fuzzy, python-format
+msgid "None yet. <a href=\"%(new_tribe_url)s\">Start one...</a>"
+msgstr "את/ה עדיין לא חבר באף <a href=\"%(tribe_url)s\">שבט</a>."
+
+#: templates/tribes/tribe.html:112
+msgid "Wiki Articles"
+msgstr "מאמרים בוויקי"
+
+#: templates/tribes/tribe.html:138
+msgid "Upcoming Events"
+msgstr ""
+
+#: templates/tribes/tribes.html:11 templates/tribes/tribes.html.py:14
+msgid "Tribes"
+msgstr "שבטים"
+
+#: templates/tribes/tribes.html:19
+#, fuzzy
+msgid "Start your own tribe"
+msgstr "צור שבט  חדש"
+
+#: templates/tribes/your_tribes.html:13
+msgid "These are the tribes you participate in."
+msgstr ""
+
+#: templates/wiki/changeset.html:20
+msgid "Markup:"
+msgstr "סימול"
+
+#: templates/wiki/changeset.html:24
+msgid "Plain Text."
+msgstr "טקסט רגיל"
+
+#: templates/wiki/edit.html:13
+msgid "Edit Article"
+msgstr "ערוך מאמר"
+
+#: templates/wiki/edit.html:18
+msgid "Save Article"
+msgstr "שמור מאמר"
+
+#: templates/wiki/history.html:13
+msgid "History for article"
+msgstr "היסטוריה למאמר זה"
+
+#: templates/wiki/history.html:19
+msgid "Date"
+msgstr "תאריך"
+
+#: templates/wiki/history.html:20
+msgid "Editor"
+msgstr "עורך"
+
+#: templates/wiki/history.html:21
+msgid "Comment"
+msgstr "הערה"
+
+#: templates/wiki/history.html:22
+#, fuzzy
+msgid "Revert to..."
+msgstr "בטל"
+
+#: templates/wiki/history.html:28
+msgid "DATETIME_FORMAT"
+msgstr "פורמט תאריך/שעה"
+
+#: templates/wiki/history.html:42
+#, fuzzy
+msgid "Current Revision"
+msgstr "סיסמא נוכחית"
+
+#: templates/wiki/history.html:52
+msgid "Revert"
+msgstr "בטל"
+
+#: templates/wiki/history.html:55
+msgid "No changes in this article"
+msgstr "אין שינויים במאמר זה"
+
+#: templates/wiki/view.html:19
+msgid "Edit this article"
+msgstr "ערוך מאמר זה"
+
+#: templates/wiki/view.html:21
+msgid "Editing history"
+msgstr "ערוך היסטוריה"
+
+#: templates/wiki/view.html:25
+msgid "Create this article"
+msgstr "צור מאמר זה"
+
+#: templates/wiki/view.html:38
+msgid "This article does not exist."
+msgstr "מאמר זה אינו קיים."
+
+#: templates/wiki/view.html:39
+msgid ">Create it now</a>?"
+msgstr ">צור עכשיו</a>?"
+
+#~ msgid "Username"
+#~ msgstr "שם משתמש"
+
+#~ msgid "Password"
+#~ msgstr "סיסמא"
+
+#~ msgid "This account is currently inactive."
+#~ msgstr "חשבון זה אינו פעיל כעת"
+
+#~ msgid "The username and/or password you specified are not correct."
+#~ msgstr "שם המשתמש או הסיסמא שגויים"
+
+#~ msgid "Successfully logged in as %(username)s."
+#~ msgstr ".%(username)s התחברת בהצלחה כ"
+
+#~ msgid "Password (again)"
+#~ msgstr "(סיסמא (שוב"
+
+#~ msgid "Email (optional)"
+#~ msgstr "(דואל (לא חובה"
+
+#~ msgid "Usernames can only contain letters, numbers and underscores."
+#~ msgstr "שם משתמש יכול להכיל רק תווים, מספרים וקו תחתון"
+
+#~ msgid "This username is already taken. Please choose another."
+#~ msgstr "שם המשתמש תפוס. בחר שם אחר."
+
+#~ msgid "You must type the same password each time."
+#~ msgstr "הסיסמאות שהקשת צריכות להיות זהות."
+
+#~ msgid "Your email address has already been verified"
+#~ msgstr "כתובת הדואל שלך כבר אומתה"
+
+#~ msgid "Confirmation email sent to %(email)s"
+#~ msgstr " %(email)s דואל אישור נשלח ל "
+
+#~ msgid "Email"
+#~ msgstr "דואל"
+
+#~ msgid "This email address already associated with this account."
+#~ msgstr "כתובת הדואל משוייכת כבר לחשבון זה"
+
+#~ msgid "New Password"
+#~ msgstr "סיסמא חדשה"
+
+#~ msgid "New Password (again)"
+#~ msgstr "(סיסמה חדשה (שוב"
+
+#~ msgid "Please type your current password."
+#~ msgstr "אנא הקש את סיסמתך הנוכחית"
+
+#~ msgid "Password successfully changed."
+#~ msgstr ".הסיסמא הוחלפה בהצלחה"
+
+#~ msgid "Email address not verified for any user account"
+#~ msgstr "כתובת הדואל לא אומתה עבור אף חשבון"
+
+#~ msgid "about"
+#~ msgstr "תיאור"
+
+#~ msgid "website"
+#~ msgstr "אתר"
+
+#~ msgid "blog rss/atom"
+#~ msgstr "rss/atom בלוג "
+
+#~ msgid "timezone"
+#~ msgstr "איזור זמן"
+
+#~ msgid "profiles"
+#~ msgstr "פרופילים"
+
+#~ msgid "You are now following %(other_user)s"
+#~ msgstr "%(other_user)s את/ה עוקב כעת אחר "
+
+#~ msgid "You have stopped following %(other_user)s"
+#~ msgstr "%(other_user)s הפסקת לעקוב אחר "
+
+#~ msgid "Let's be friends!"
+#~ msgstr "בוא/י נהיה חברים"
+
+#~ msgid "You have accepted the friendship request from %(from_user)s"
+#~ msgstr "%(from_user)s קיבלת בקשת חברות מ "
+
+#~ msgid "Not Found"
+#~ msgstr "לא נמצא"
+
+#~ msgid "We're sorry but that page could not be found."
+#~ msgstr "מצטערים, דף זה לא נמצא."
+
+#~ msgid "Server Error"
+#~ msgstr "שגיאת שרת"
+
+#~ msgid ""
+#~ "We're sorry but a server error has occurred. We've been notified and will "
+#~ "look into it as soon as possible."
+#~ msgstr "מצטערים, אירעה שגיאה. "
+
+#~ msgid ""
+#~ "\n"
+#~ "        <p><b>Pinax</b> is a <a href=\"http://djangoproject.com/"
+#~ "\">Django</a> project intended to provide a starting point for websites. "
+#~ "By integrating numerous reusable Django apps to take care of the things "
+#~ "that many sites have in common, it lets you focus on what makes your site "
+#~ "different.</p>\n"
+#~ "        \n"
+#~ "        <p>This site is just a running example of Pinax. The source code "
+#~ "is available as part of the <a href=\"http://code.google.com/p/django-"
+#~ "hotclub/\">Hot Club of France</a> project.</p>\n"
+#~ "        \n"
+#~ "        <p>If you have any questions about this site or the <b>Pinax</b> "
+#~ "project, please <a href=\"mailto:jtauber@jtauber.com\">contact James "
+#~ "Tauber</a>.</p>\n"
+#~ "    "
+#~ msgstr ""
+#~ "\n"
+#~ "        <p><b>Pinax</b> is a <a href=\"http://djangoproject.com/"
+#~ "\">Django</a> project intended to provide a starting point for websites. "
+#~ "By integrating numerous reusable Django apps to take care of the things "
+#~ "that many sites have in common, it lets you focus on what makes your site "
+#~ "different.</p>\n"
+#~ "        \n"
+#~ "        <p>This site is just a running example of Pinax. The source code "
+#~ "is available as part of the <a href=\"http://code.google.com/p/django-"
+#~ "hotclub/\">Hot Club of France</a> project.</p>\n"
+#~ "        \n"
+#~ "        <p>If you have any questions about this site or the <b>Pinax</b> "
+#~ "project, please <a href=\"mailto:jtauber@jtauber.com\">contact James "
+#~ "Tauber</a>.</p>\n"
+#~ "    "
+
+#~ msgid ""
+#~ "At this stage, there is openid support, email verification, password "
+#~ "management, site announcements, user-to-user messaging, friend invitation "
+#~ "(both internal and external to the site), a basic twitter clone, interest "
+#~ "groups (called tribes), per-tribe threaded discussions, per-tribe wikis, "
+#~ "blog aggregation, bookmarks, contact import from vCard, Google or Yahoo "
+#~ "and a notification framework."
+#~ msgstr ""
+#~ "At this stage, there is openid support, email verification, password "
+#~ "management, site announcements, user-to-user messaging, friend invitation "
+#~ "(both internal and external to the site), a basic twitter clone, interest "
+#~ "groups (called tribes), per-tribe threaded discussions, per-tribe wikis, "
+#~ "blog aggregation, bookmarks, contact import from vCard, Google or Yahoo "
+#~ "and a notification framework."
+
+#~ msgid "Home"
+#~ msgstr "דף הבית"
+
+#~ msgid "Apps"
+#~ msgstr "אפליקציות"
+
+#~ msgid "Sites"
+#~ msgstr "אתרים"
+
+#~ msgid "Team"
+#~ msgstr "הצוות"
+
+#~ msgid "Bookmarks"
+#~ msgstr "מעודפים"
+
+#~ msgid "Inbox"
+#~ msgstr "דואר נכנס"
+
+#~ msgid "&copy; 2008 &lt;your company here&gt;"
+#~ msgstr "&copy; 2008 &lt;החברה שלך כאן&gt;"
+
+#~ msgid "About Pinax"
+#~ msgstr "Pinax עלינו"
+
+#~ msgid "Pinax Blog"
+#~ msgstr "Pinax הבלוג של"
+
+#~ msgid ""
+#~ "\n"
+#~ "        <p>Your <b>About Page</b> would normally go here, be here's a "
+#~ "temporary one...</p>\n"
+#~ "        \n"
+#~ "        <p><b>Pinax</b> is a <a href=\"http://djangoproject.com/"
+#~ "\">Django</a> project intended to provide a starting point for websites. "
+#~ "By integrating numerous reusable Django apps to take care of the things "
+#~ "that many sites have in common, it lets you focus on what makes your site "
+#~ "different.</p>\n"
+#~ "        \n"
+#~ "        <p>This site is just a running example of Pinax. The source code "
+#~ "is available as part of the <a href=\"http://code.google.com/p/django-"
+#~ "hotclub/\">Hot Club of France</a> project.</p>\n"
+#~ "        \n"
+#~ "        <p>If you have any questions about this site or the <b>Pinax</b> "
+#~ "project, please <a href=\"mailto:jtauber@jtauber.com\">contact James "
+#~ "Tauber</a>.</p>\n"
+#~ "    "
+#~ msgstr ""
+#~ "\n"
+#~ "        <p>שלך <b>דף האודות</b>כאן יופיע</p>\n"
+#~ "        \n"
+#~ "        <p><b>Pinax</b> is a <a href=\"http://djangoproject.com/"
+#~ "\">Django</a> project intended to provide a starting point for websites. "
+#~ "By integrating numerous reusable Django apps to take care of the things "
+#~ "that many sites have in common, it lets you focus on what makes your site "
+#~ "different.</p>\n"
+#~ "        \n"
+#~ "        <p>This site is just a running example of Pinax. The source code "
+#~ "is available as part of the <a href=\"http://code.google.com/p/django-"
+#~ "hotclub/\">Hot Club of France</a> project.</p>\n"
+#~ "        \n"
+#~ "        <p>If you have any questions about this site or the <b>Pinax</b> "
+#~ "project, please <a href=\"mailto:jtauber@jtauber.com\">contact James "
+#~ "Tauber</a>.</p>\n"
+#~ "    "
+
+#~ msgid "Add Bookmark"
+#~ msgstr "הוסף למעודפים"
+
+#~ msgid "All Bookmarks"
+#~ msgstr "כל המעודפים"
+
+#~ msgid "These are bookmarks from everyone:"
+#~ msgstr "מעודפים של כולם:"
+
+#~ msgid "No bookmarks yet."
+#~ msgstr "אין מעודפים"
+
+#~ msgid ""
+#~ "You haven't added any <a href=\"%(add_bookmark_url)s\">bookmarks</a> yet."
+#~ msgstr "עדיין <a href=\"%(add_bookmark_url)s\">bookmarks</a> לא הוספת כל  "
+
+#~ msgid "%(post_age)s ago"
+#~ msgstr "%(post_age)s לפני"
+
+#~ msgid "Recent Blog Posts"
+#~ msgstr "מאמרי בלוג אחרונים"
+
+#~ msgid "Contacts"
+#~ msgstr "אנשי קשר"
+
+#~ msgid "upload"
+#~ msgstr "שלח קובץ"
+
+#~ msgid "Import Google Contacts"
+#~ msgstr "Google יבוא ספר כתובות מ "
+
+#~ msgid "Import Yahoo Address Book"
+#~ msgstr "Yahoo יבוא ספר כתובות מ "
+
+#~ msgid "No contacts."
+#~ msgstr "אין אנשי קשר"
+
+#~ msgid "Invite someone new to join"
+#~ msgstr "הזמן/י חבר חדש להצטרף."
+
+#~ msgid ""
+#~ "If you'd like to invite someone to join Pinax, you can enter their email "
+#~ "address and a message for them below:"
+#~ msgstr ":הקש את כתובת הדואל וההודעתך כאן Pinaxאם ברצונך להזמין חבר להצטרף ל"
+
+#~ msgid "Someone with this email address has already joined:"
+#~ msgstr "מישהו הצטרף כבר באמצעות כתובות דואל זאת"
+
+#~ msgid "Friendship Requests Received"
+#~ msgstr "בקשות חברות שהתקבלו"
+
+#~ msgid "No friendship requests received."
+#~ msgstr "לא התקבלו בקשות חברות"
+
+#~ msgid "No friendship requests sent."
+#~ msgstr "לא נשלחו בקשות חברות"
+
+#~ msgid "Join Requests Sent"
+#~ msgstr "בקשות הצטרפות שנשלחו"
+
+#~ msgid "Compose"
+#~ msgstr "הודעה חדשה"
+
+#~ msgid "Sent"
+#~ msgstr "נשלח"
+
+#~ msgid "Trash"
+#~ msgstr "סל מיחזור"
+
+#~ msgid "Compose Message"
+#~ msgstr "הודעה חדשה"
+
+#~ msgid "Send"
+#~ msgstr "שלח"
+
+#~ msgid "Sender"
+#~ msgstr "שולח"
+
+#~ msgid "Subject"
+#~ msgstr "נושא"
+
+#~ msgid "Received"
+#~ msgstr "התקבל"
+
+#~ msgid "Action"
+#~ msgstr "פעולה"
+
+#~ msgid "Sent from %(site_url)s"
+#~ msgstr "%(site_url)s נשלח מ"
+
+#~ msgid "Sent Messages"
+#~ msgstr "הודעות שנשלחו"
+
+#~ msgid "Deleted Messages"
+#~ msgstr "הודעות שנמחקו"
+
+#~ msgid "undelete"
+#~ msgstr "שחזר"
+
+#~ msgid ""
+#~ "Deleted Messages are removed from the trash at irregular intervals, don't "
+#~ "rely on this feature for long-time storage."
+#~ msgstr ""
+#~ "הודעות שנמחקו מוסרות בזמנים לא קבועים, על כן אין להניח שהן ישמרו לטווח "
+#~ "ארוך"
+
+#~ msgid "Reply"
+#~ msgstr "השב"
+
+#~ msgid "Associate"
+#~ msgstr "שייך"
+
+#~ msgid "All Articles"
+#~ msgstr "כל המאמרים"
+
+#~ msgid "Wiki for Tribe"
+#~ msgstr "וויקי לשבטים"
+
+#~ msgid "Revert Last Change"
+#~ msgstr "בטל שינוי אחרון"
+
+#~ msgid "Go"
+#~ msgstr "אשר"
+
+#~ msgid "text"
+#~ msgstr "טקסט"
+
+#~ msgid "sender"
+#~ msgstr "שולח"
+
+#~ msgid "sent"
+#~ msgstr "נשלח"
+
+#~ msgid "followed"
+#~ msgstr "עוקב אחרי"
 
 #~ msgid ""
 #~ "That url has already been submitted and Pinax does not yet support "
 #~ "multiple bookmarking of a URL"
 #~ msgstr "כתובת האתר כבר קיימת"
+
 #~ msgid "note"
 #~ msgstr "הודעה"
+
 #~ msgid "adder"
 #~ msgstr "המוסיף"
-#~ msgid "added"
-#~ msgstr "הוסף"
 
+#~ msgid "Remember Me"
+#~ msgstr "זכור אותי"

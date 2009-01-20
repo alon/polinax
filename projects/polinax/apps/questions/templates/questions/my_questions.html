@@ -23,15 +23,15 @@
         {% scores_for_objects user_qs as score_dict %}
         
         <table class="questions">
-            <tr><th>Question<th>Category<th>Points<th>Public<th>Flagged<th>Published<th>Actions</tr>
+            <tr><th>{% trans "Category" %}<th>{% trans "Question" %}<th>{% trans "Points" %}<th>{% trans "Public" %}<th>{% trans "Flagged" %}<th>{% trans "Published" %}<th>{% trans "Actions" %}</tr>
             {% for question in user_qs %}
                 {% dict_entry_for_item question from score_dict as score %}
                 <tr class="{% cycle odd,even %}">
-                    <td class="questions">
-                        <h3>{{question.text}}</h3>
-                    </td>
                     <td>
                         {{question.category_name}}
+                    </td>
+                    <td class="questions">
+                        <h3>{{question.text}}</h3>
                     </td>
                     <td>{{ score.score|default:0 }}</td>
                     <td>{% if question.public %}X{% endif %}</td>

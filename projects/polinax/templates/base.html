@@ -3,6 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" dir="{% if LANGUAGE_BIDI %}rtl{% else %}ltr{% endif %}" xml:lang="{{ LANGUAGE_CODE }}" lang="{{ LANGUAGE_CODE }}">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <link rel="stylesheet" href="{{ MEDIA_URL }}css/base.css" />
         <title>{% if site_name %}{{ site_name }} : {% endif %}{% block head_title %}{% endblock %}</title>
         <!--[if IE]><style>
             div {
@@ -15,71 +16,6 @@
         <link rel="stylesheet" href="{{ MEDIA_URL }}960.css" />
         {% endif %}
         <style type="text/css" media="screen">
-        body {
-            background-color: #001537;
-            color: #001537;
-        }
-        a, a:visited {
-            color: #65A8D3;
-        }
-        #search_box {
-            padding: 0.5em 0;
-        }
-
-
-        #body {
-            background-color: white;
-            padding: 0.5em 0;
-        }
-        #login {
-            float: left;
-        }
-        .selected {
-            font-weight:bold;
-        }
-        a:visited { text-decoration:none; }
-        a:hover { text-decoration:underline; }
-        img {border: none; }
-        #footer {
-            clear:both;
-            padding-top: 1em;
-            text-align: center;
-        }
-        .box {
-            margin:0.5em;
-            border:1px solid;
-        }
-        .box h1 {
-            margin:0;
-            padding:4px;
-            background-color:#001537;
-            color: #65A8D3;
-
-            font-size:14px;
-        }
-            
-        .box ul {
-            padding:0 1em;
-            list-style: none;
-        }
-        ul#messages {
-            margin: 0 0 10px 0;
-            padding: 0;
-            list-style: none;
-        }
-        ul#messages li {
-            padding: 5px 10px;
-            background: #EFD;
-            margin: 3px;
-            border: 1px solid #BC9;
-        }
-        ul#messages li a {
-            float: right;
-            color: #693;
-        }
-        .content {
-            padding-left:1em;
-        }
         {% block extra_style %}
         {% endblock %}
 

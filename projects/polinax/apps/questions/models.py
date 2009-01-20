@@ -18,6 +18,7 @@ CATEGORY_CHOICES =(
     (7, _("Civil Rights")),
     (8, _("Foreign Policy")),
     (9, _("Health & Welfare")),
+    (10, _("Environment")),
 )
 class Question(models.Model):
     """
