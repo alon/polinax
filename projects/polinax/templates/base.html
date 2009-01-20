@@ -17,11 +17,15 @@
         <style type="text/css" media="screen">
         body {
             background-color: #001537;
+            color: #001537;
+        }
+        a, a:visited {
             color: #65A8D3;
         }
-        a {
-            color: #65A8D3;
+        #search_box {
+            padding: 0.5em 0;
         }
+
 
         #body {
             background-color: white;
@@ -33,7 +37,6 @@
         .selected {
             font-weight:bold;
         }
-        #body a { text-decoration:bold; color:#001537;}
         a:visited { text-decoration:none; }
         a:hover { text-decoration:underline; }
         img {border: none; }
@@ -44,13 +47,14 @@
         }
         .box {
             margin:0.5em;
-            background-color:#B3D0D8;
-            border:1px dashed;
+            border:1px solid;
         }
         .box h1 {
             margin:0;
             padding:4px;
             background-color:#001537;
+            color: #65A8D3;
+
             font-size:14px;
         }
             
@@ -72,6 +76,9 @@
         ul#messages li a {
             float: right;
             color: #693;
+        }
+        .content {
+            padding-left:1em;
         }
         {% block extra_style %}
         {% endblock %}

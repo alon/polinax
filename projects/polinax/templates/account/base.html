@@ -24,6 +24,20 @@
         </ul>
     </div>
     {% else %}
-        &nbsp; {# need this to give subnav some height when empty #}
+            <div class="box">
+            <h1>{% trans "Categories" %}</h1> 
+        <ul>
+            <li id="cat_menu_all"><a href="{% url all_questions %}">{% trans "All" %}</a>
+        {% for c in categories %}
+            <li id="cat_menu_{{c.0}}"><a href="{% url all_questions %}?c={{c.0}}">{{c.1}}</a>
+        {% endfor %}
+        </ul>
+        </div>
+    <div class="box">
+        <FORM id="search_box" action="" method="get">
+            <input type='text' name='q' size="18" />
+            <input type="submit" value='{% trans "Search" %}'/>
+        </form>
+    </div>
     {% endif %}
 {% endblock %}

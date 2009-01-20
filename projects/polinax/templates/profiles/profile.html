@@ -3,20 +3,19 @@
 {% load i18n %}
 {% load avatar_tags %}
 {% load app_plugins %}
+{% load pagination_tags %}
+{% load questions_tags %}
 
 {% block head_title %}{% blocktrans %}Profile for {{ other_user }}{% endblocktrans %}{% endblock %}
 
 {% block body %}
     
-    <div class="right_panel">
-        {% include "profiles/profile_right_panel.html" %}
-    </div>
-    
-    <div class="left_panel">
         <h1>{% blocktrans %}Profile for {{ other_user }}{% endblocktrans %}</h1>
         <div class="profile_avatar">
             <div>{% avatar other_user 40 %}</div>
+            {% if is_me %}
             <a href="{% url avatar_change %}" id="avatar_replace">(replace)</a>
+            {% endif %}
         </div>
     
     
@@ -29,11 +28,6 @@
     
     
         {% if user.is_authenticated %}
-            <p >
-                <a href="{% url tweet_followers other_user %}">{% trans "Followers" %}</a>: {{ other_user.followers.count }}
-                <br/>
-                <a href="{% url tweet_following other_user %}">{% trans "Following" %}</a>: {{ other_user.followed.count }}
-            </p>
         
             {% if is_me %}
                 <div class="form-toggle">
@@ -45,66 +39,28 @@
                         </table>
                     </form>
                 </div>
-            {% else %}
-                <div>
-                    <form method="POST" action="">
-                        {% if is_following %}
-                            <input type="hidden" name="action" value="unfollow" /><input type="submit" value="{% trans "unfollow" %}"/>
-                        {% else %}
-                            <input type="hidden" name="action" value="follow" /><input type="submit" value="{% trans "follow tweets" %}"/>
-                        {% endif %}
-                    </form>
-                </div>
-            
-                {% if is_friend %}
-                    <p>{% blocktrans %}You are friends with {{ other_user }}.{% endblocktrans %} <a href="{% url messages_compose %}{{ other_user }}/">{% trans "Send a message" %}</a>.</p>
-                {% else %}
-                    {% if previous_invitations_from %}
-                        <p>{% blocktrans %}{{ other_user }} has requested friendship.{% endblocktrans %}</p>
-                        {% for invitation in previous_invitations_from %}
-                            <div class="friendship_request">
-                                <p>From <a href="{% url profiles.views.profile invitation.from_user.username %}">{{ invitation.from_user }}</a> ({{ invitation.sent }}):</p>
-                                <p class="invitation_message">{{ invitation.message }}</p>
-                                <form method="post" action="">
-                                    <input type="hidden" name="invitation" value="{{ invitation.id }}"/>
-                                    <input type="hidden" name="action" value="accept"/>
-                                    <input type="submit" value="{% trans 'accept' %}" />
-                                </form>
-                            </div>
-                        {% endfor %}
-                    {% else %}
-                        {% if previous_invitations_to %}
-                            <p>{% trans "Friendship request sent." %}</p>
-                        {% else %}
-                            <h2>{% trans "Add As Friend" %}</h2>
-                            <form method="POST" action="">
-                                <table>
-                                    {{ invite_form.as_table }}
-                                    <tr>
-                                        <td></td>
-                                        <td>
-                                            <input type="hidden" name="action" value="invite" />
-                                            <input type="submit" value="{% trans "invite" %}"/>
-                                            {% blocktrans %}{{ other_user }} to be a friend.{%  endblocktrans %}
-                                        </td>
-                                    </tr>
-                                </table>
-                            </form>
-                        {% endif %} {# previous_invitations_to #}
-                    {% endif %} {# previous_invitations_from #}
-                {% endif %} {# is_friend #}
-        
             {% endif %} {# is me #}
         
-        
-            {% plugin_point "profiles.profile" user=other_user owner=other_user viewer=user %}
-    
-        {% else %} {# not user.is_authenticated #}
-            {% url acct_signup as signup_url %}
-            {% url acct_login as login_url %}
-            <p>{% blocktrans %}<a href="{{ signup_url }}">Sign up</a> and <a href="{{ login_url }}">log in </a> to add this person as a friend and see their tweets and blog posts.{% endblocktrans %}</p>
         {% endif %}
-    </div>
+        {# % plugin_point "profiles.profile" user=other_user owner=other_user viewer=user % #}
+{% questions_for_user other_user as user_qs %}
+{% if user_qs %}
+    {% autopaginate user_qs %}
+    <table class="questions">
+        <tr><th>{% trans "Category" %}<th>{% trans "Question" %}</tr>
+        {% for question in user_qs %}
+            <tr class="{% cycle odd,even %}">
+                <td>
+                    {{question.category_name}}
+                </td>
+                <td class="questions">
+                    <h3>{{question.text}}</h3>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% paginate %}
+{% endif %}
 {% endblock %}
 
 {% block extra_body %}

@@ -12,7 +12,7 @@ import os
 
 urlpatterns = patterns('',
     # url(r'^$', direct_to_template, {"template": "homepage.html"}, name="home"),
-    url(r'^$', redirect_to, {"url": "questions/"}, name="home"),
+    url(r'^$', 'about.views.home', { "guests_template": "homepage.html", "users_url": "questions/"}, name="home"),
     
     (r'^about/', include('about.urls')),
     (r'^account/', include('account.urls')),

@@ -9,21 +9,21 @@ from tagging.fields import TagField
 from voting.models import Vote
 
 CATEGORY_CHOICES =(
-    (1, _("Civil Rights")),
-    (2, _("Security")),
-    (3, _("Economy")), 
+    (1, _("Constitution")),
+    (2, _("Economy & Taxes")),
+    (3, _("Security")), 
     (4, _("Education")),
-    (5, _("Nature")),
-    (6, _("Communications")),
-    (7, _("Energy")),
+    (5, _("Immigration")),
+    (6, _("Jobs")),
+    (7, _("Civil Rights")),
     (8, _("Foreign Policy")),
-    (9, _("Health Care")),
+    (9, _("Health & Welfare")),
 )
 class Question(models.Model):
     """
     A questions posted by a User.
     """
-    adder        = models.ForeignKey(User)
+    adder        = models.ForeignKey(User, related_name='questions')
     added        = models.DateTimeField(_('created'), default=datetime.now)
     modified     = models.DateTimeField(_('modified'), default=datetime.now)
     text         = models.CharField(_('Q:'), max_length=256)
