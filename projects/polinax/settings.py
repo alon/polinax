@@ -30,12 +30,12 @@ DATABASE_PORT = ''             # Set to empty string for default. Not used with 
 # although not all variations may be possible on all operating systems.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = 'US/Eastern'
+TIME_ZONE = 'Israel'
 
 # Language code for this installation. All choices can be found here:
 # http://www.w3.org/TR/REC-html40/struct/dirlang.html#langcodes
 # http://blogs.law.harvard.edu/tech/stories/storyReader$15
-LANGUAGE_CODE = 'he'
+LANGUAGE_CODE = 'he_IL.UTF-8'
 
 SITE_ID = 1
 
@@ -58,7 +58,7 @@ MEDIA_URL = '/site_media/'
 ADMIN_MEDIA_PREFIX = '/media/'
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = 'bk-e2zv3humar79nm=j*bwc=-ymeit(8a20whp3goq4dh71t)s'
+SECRET_KEY = 'bk-e2zkjh0987-97-9ujlkjng7tgkhgq4dh71t)s'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -71,7 +71,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django_openid.consumer.SessionConsumer',
-    'account.middleware.LocaleMiddleware',
+    # 'account.middleware.LocaleMiddleware',
     'django.middleware.doc.XViewMiddleware',
     'misc.middleware.SortOrderMiddleware',
     'pagination.middleware.PaginationMiddleware',
@@ -97,6 +97,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "misc.context_processors.contact_email",
     "misc.context_processors.site_name",
     "friends_app.context_processors.invitations",
+    "questions.context_processors.questions"
 )
 
 INSTALLED_APPS = (
@@ -153,11 +154,11 @@ NOTIFICATION_LANGUAGE_MODULE = 'account.Account'
 
 EMAIL_CONFIRMATION_DAYS = 2
 EMAIL_DEBUG = DEBUG
-CONTACT_EMAIL = "feedback@example.com"
+CONTACT_EMAIL = "polinax@googlegroups.com"
 SITE_NAME = "Pinax"
 LOGIN_URL = "/account/login"
 LOGIN_REDIRECT_URLNAME = "what_next"
-
+PAGINATION_DEFAULT_PAGINATION = 10
 WIKI_MARKUP_CHOICES = (
         ('rst', u'reStructuredText'),
     )

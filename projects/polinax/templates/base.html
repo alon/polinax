@@ -9,25 +9,82 @@
                 zoom: 1; /* trigger hasLayout */
             }
         </style><![endif]-->
-        <link rel="stylesheet" href="{{ MEDIA_URL }}base.css" />
-        <link rel="stylesheet" href="{{ MEDIA_URL }}tabs.css" />
         {% if LANGUAGE_BIDI %}
-        <style type="text/css" media="screen">
-            #subnav {
-                float:right;
-            }
-            div.right_panel {
-                float: left; /* hotfix for sidebar */
-            }
-        </style>
+        <link rel="stylesheet" href="{{ MEDIA_URL }}rtl_960.css" />
+        {% else %}
+        <link rel="stylesheet" href="{{ MEDIA_URL }}960.css" />
         {% endif %}
+        <style type="text/css" media="screen">
+        body {
+            background-color: #001537;
+            color: #65A8D3;
+        }
+        a {
+            color: #65A8D3;
+        }
+
+        #body {
+            background-color: white;
+            padding: 0.5em 0;
+        }
+        #login {
+            float: left;
+        }
+        .selected {
+            font-weight:bold;
+        }
+        #body a { text-decoration:bold; color:#001537;}
+        a:visited { text-decoration:none; }
+        a:hover { text-decoration:underline; }
+        img {border: none; }
+        #footer {
+            clear:both;
+            padding-top: 1em;
+            text-align: center;
+        }
+        .box {
+            margin:0.5em;
+            background-color:#B3D0D8;
+            border:1px dashed;
+        }
+        .box h1 {
+            margin:0;
+            padding:4px;
+            background-color:#001537;
+            font-size:14px;
+        }
+            
+        .box ul {
+            padding:0 1em;
+            list-style: none;
+        }
+        ul#messages {
+            margin: 0 0 10px 0;
+            padding: 0;
+            list-style: none;
+        }
+        ul#messages li {
+            padding: 5px 10px;
+            background: #EFD;
+            margin: 3px;
+            border: 1px solid #BC9;
+        }
+        ul#messages li a {
+            float: right;
+            color: #693;
+        }
+        {% block extra_style %}
+        {% endblock %}
+
+        </style>
         {% block extra_head %}
         {% endblock %}
     </head>
     
     <body>
+        <div class="container_12">
         {% if site_wide_announcements %}
-            <div id="site_wide_announcements">
+            <div id="site_wide_announcements" class="grid_12">
                 <ul>
                     {% for announcement in site_wide_announcements %}
                     <li>
@@ -38,33 +95,32 @@
                 </ul>
             </div>
         {% endif %}
-        
-        <div id="tabhead">
-            <div class="logo" dir="ltr">{% block logo_link_image %}{% endblock %}</div>
-            <div class="login">{% block login %}{% endblock %}{% block locale_switcher %}{% endblock %}<div style="text-align: right;"></div></div>
-            <div class="tabs" {% block tab_id %}{% endblock %}>{% block tabs %}{% endblock %}</div>
-            <div class="right_tab" {% block rtab_id %}{% endblock %}>{% block right_tab %}{% endblock %}</div>
+        <div class="grid_9">
+            <h1><a href="{% url home %}">{% trans "Questions for..." %}</a></h1>
         </div>
-        <div id="subnav" class="clearfix">{% block subnav %}&nbsp;{% endblock %}</div>
-        
-        <div id="body">
-            {% if messages %}
-                <ul id="messages">
-                    {% for message in messages %}
-                    <li id="message_{{ forloop.counter }}"><a href="#" onclick="$('#message_{{ forloop.counter }}').fadeOut(); return false;"><small>{% trans "clear" %}</small></a> {{ message }}</li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-            
-            {% block body %}
-            {% endblock %}
-            
+        <div id="login">
+            {% block login %}{% endblock %}{% block locale_switcher %}{% endblock %}
         </div>
-        
+        <div id="body" class="grid_12">
+            <div id="subnav" class="alpha grid_3">{% block subnav %}&nbsp;{% endblock %}</div>
+            <div class="grid_9 omega">
+                {% if messages %}
+                    <ul id="messages">
+                        {% for message in messages %}
+                        <li id="message_{{ forloop.counter }}"><a href="#" onclick="$('#message_{{ forloop.counter }}').fadeOut(); return false;"><small>{% trans "clear" %}</small></a> {{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            
+                {% block body %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
         <div id="footer">{% block footer %}{% endblock %}</div>
         
-        <script src="{{ MEDIA_URL }}jquery.js" type="text/javascript"></script>
-        <script src="{{ MEDIA_URL }}base.js" type="text/javascript"></script>
+        <script src="{{ MEDIA_URL }}js/jquery.js" type="text/javascript"></script>
+        <script src="{{ MEDIA_URL }}js/base.js" type="text/javascript"></script>
 
         {% block extra_body %}
         {% endblock %}

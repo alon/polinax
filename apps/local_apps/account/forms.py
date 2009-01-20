@@ -1,5 +1,6 @@
 
 import re
+import locale
 
 from django import forms
 from django.template.loader import render_to_string
@@ -18,7 +19,8 @@ from account.models import Account
 
 from timezones.forms import TimeZoneField
 
-alnum_re = re.compile(r'^\w+$')
+locale.setlocale(locale.LC_ALL, 'he_IL.UTF-8')
+alnum_re = re.compile(r'^\w+$', re.L)
 
 class LoginForm(forms.Form):
 

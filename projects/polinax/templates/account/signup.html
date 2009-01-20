@@ -41,8 +41,8 @@
     {% include_validation %}
     <script type="text/javascript">
         $(function(){
-            $('#signup_form').validate('{% url signup_form_validate %}', {type: 'table', fields: ['username'], dom: $('#id_username'), event: 'change'});
-            $("#id_username").focus();
+            // $('#signup_form').validate('{% url signup_form_validate %}', {type: 'table', fields: ['username'], dom: $('#id_username'), event: 'change'});
+            // $("#id_username").focus();
         });
     </script>
 {% endblock %}

@@ -1,7 +1,7 @@
 from django.conf.urls.defaults import *
 from django.conf import settings
 
-from django.views.generic.simple import direct_to_template
+from django.views.generic.simple import direct_to_template, redirect_to
 
 from account.openid_consumer import PinaxConsumer
 
@@ -11,7 +11,8 @@ admin.autodiscover()
 import os
 
 urlpatterns = patterns('',
-    url(r'^$', direct_to_template, {"template": "homepage.html"}, name="home"),
+    # url(r'^$', direct_to_template, {"template": "homepage.html"}, name="home"),
+    url(r'^$', redirect_to, {"url": "questions/"}, name="home"),
     
     (r'^about/', include('about.urls')),
     (r'^account/', include('account.urls')),

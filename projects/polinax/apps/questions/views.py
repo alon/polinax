@@ -7,24 +7,13 @@ from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext, ugettext_lazy as _
 # TODO: from voting.models import Vote
 
-from questions.models import Question, CATEGORY_CHOICES
+from questions.models import Question
 from questions.forms import QuestionForm
 
 def redirect_to_next(request,view):
     ''' A helper function that returns an http redirect request 
     '''
     return HttpResponseRedirect(request.REQUEST.get("next", reverse(view)))
-
-def user_questions (request):
-    ''' a Django context processor that added the user's own questions and the questions he voted for
-    '''
-    if request.user.is_authenticated():
-        c = dict (user_qs = Question.objects.filter(adder=request.user),
-                # user_voted_qs = Vote.objects.filter(user=request.user).values_list('object', flat=True).order_by("-added")
-                )
-    else:
-        c = dict (user_qs = [], user_voted_qs=[])
-    return c 
 
 def questions(request):
     qs=Question.objects.filter(public=True).order_by('-added')
@@ -34,15 +23,14 @@ def questions(request):
         qs=qs.filter(text__icontains=request.GET['q'])
     
     return render_to_response("questions/questions.html", {
-        "categories": CATEGORY_CHOICES,
         "questions": qs,
-    }, context_instance=RequestContext(request, processors=[user_questions]))
+    }, context_instance=RequestContext(request))
 
 
 @login_required
 def my_questions(request):
     return render_to_response("questions/my_questions.html", {}, 
-        context_instance=RequestContext(request, processors=[user_questions]))
+        context_instance=RequestContext(request))
 
 @login_required
 def add_q(request):
