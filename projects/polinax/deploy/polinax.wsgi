@@ -13,7 +13,7 @@ from site import addsitedir
 sys.path.insert(0, abspath(join(dirname(__file__), "../../")))
 
 from django.conf import settings
-os.environ["DJANGO_SETTINGS_MODULE"] = "basic_project.settings"
+os.environ["DJANGO_SETTINGS_MODULE"] = "polinax.settings"
 
 path = addsitedir(join(settings.PINAX_ROOT, "libs/external_libs"), set())
 if path:
