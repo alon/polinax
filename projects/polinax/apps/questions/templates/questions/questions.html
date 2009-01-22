@@ -67,16 +67,11 @@
                         {% dict_entry_for_item question from vote_dict as vote %}
                         {% dict_entry_for_item question from score_dict as score %}
                         {% if user.is_authenticated %}
-                            <a id="up_{{ question.id }}" href="#" onclick="vote({{ question.id }}, '{% if vote and vote.is_downvote %}clear{% else %}up{% endif %}'); return false;"><img src="{{ MEDIA_URL }}up_{% if vote and vote.is_upvote %}mod{% else %}grey{% endif %}.png"/></a><br />
+                            <a id="up_{{ question.id }}" href="#" onclick="vote({{ question.id }}, '{% if vote and vote.is_upvote %}clear{%else%}up{%endif%}');"><img src="{{ MEDIA_URL }}up_{% if vote and vote.is_upvote %}mod{% else %}grey{% endif %}.png"/></a><br />
                         {% endif %}
                         <span id="question_{{ question.id }}_score" class="score">
                             {{ score.score|default:0 }}
                         </span><br />
-                        {% comment %}
-                        {% if user.is_authenticated %}
-                            <a id="down_{{ question.id }}" href="#" onclick="vote({{ question.id }}, '{% if vote and vote.is_upvote %}clear{% else %}down{% endif %}'); return false;"><img id="img_{{ question.id }}_down" src="{{ MEDIA_URL }}down_{% if vote and vote.is_downvote %}mod{% else %}grey{% endif %}.png"/></a>
-                        {% endif %}
-                        {% endcomment %}
                     </td>
                     <td class="meta">
                         
@@ -85,7 +80,7 @@
                     <td>
                         <p class="q">
                             {{ question.text }}
-                            <span class="author">{%trans "by:" %}&nbsp;<a href="{% url profiles.views.profile question.adder.username %}">{{ question.adder }}</a></span>
+                            <span class="author">{%trans "by:" %}&nbsp;<a href="{% url profiles.views.profile question.adder.username %}">{{ question.adder.profile_set.all.0 }}</a></span>
                         </p>
                     </td>
                 </tr>
@@ -119,17 +114,12 @@
                 $('#question_' + question_id + '_score').text(new_score);
             });
             if (direction == 'up') {
-                $('#up_' + question_id).replaceWith('<a id="up_' + question_id + '" href="#" onclick="return false;"><img src="{{ MEDIA_URL }}up_mod.png"/>');
-                $('#down_' + question_id).replaceWith('<a id="down_' + question_id + '" href="#" onclick="vote(' + question_id + ', \'clear\'); return false;"><img src="{{ MEDIA_URL }}down_grey.png"/>');
-            }
-            else if (direction == 'down') {
-                $('#up_' + question_id).replaceWith('<a id="up_' + question_id + '" href="#" onclick="vote(' + question_id + ', \'clear\'); return false;"><img src="{{ MEDIA_URL }}up_grey.png"/>');
-                $('#down_' + question_id).replaceWith('<a id="down_' + question_id + '" href="#" onclick="return false;"><img src="{{ MEDIA_URL }}down_mod.png"/>');
+                $('#up_' + question_id).replaceWith('<a id="up_' + question_id + '" href="#" onclick="vote(' + question_id + ', \'clear\');"><img src="{{ MEDIA_URL }}up_mod.png"/>');
             }
             else { // clear
-                $('#up_' + question_id).replaceWith('<a id="up_' + question_id + '" href="#" onclick="vote(' + question_id + ', \'up\'); return false;"><img src="{{ MEDIA_URL }}up_grey.png"/>');
-                $('#down_' + question_id).replaceWith('<a id="down_' + question_id + '" href="#" onclick="vote(' + question_id + ', \'down\'); return false;"><img src="{{ MEDIA_URL }}down_grey.png"/>');
+                $('#up_' + question_id).replaceWith('<a id="up_' + question_id + '" href="#" onclick="vote(' + question_id + ', \'up\');"><img src="{{ MEDIA_URL }}up_grey.png"/>');
             }
+            return false;
         }
     </script>
 {% endblock %}

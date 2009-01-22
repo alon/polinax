@@ -2,7 +2,7 @@ from django.db import models
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext, ugettext_lazy as _
 
 from timezones.fields import TimeZoneField
 
@@ -15,8 +15,14 @@ class Profile(models.Model):
     website = models.URLField(_('website'), null=True, blank=True, verify_exists=False)
     
     def __unicode__(self):
-        return self.user.username
-    
+        try:
+            return self._diaply_name
+        except AttributeError:            
+            self._diaply_name = self.name and self.name or self.user.username
+            if self.location:
+                self._diaply_name += ' '.join((ugettext('from'), self.location))
+            return self._diaply_name
+
     def get_absolute_url(self):
         return ('profile_detail', None, {'username': self.user.username})
     get_absolute_url = models.permalink(get_absolute_url)

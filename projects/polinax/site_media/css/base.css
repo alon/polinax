@@ -67,3 +67,12 @@ ul#messages li a {
 .content {
     padding-left:1em;
 }
+.pagination {
+    margin-left: auto;
+    margin-right:auto;
+    text-align:center;
+    fomn
+}
+.pagination .disabled {
+    color: white;
+}
