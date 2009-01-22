@@ -13,7 +13,7 @@ TEMPLATE_DEBUG = DEBUG
 SERVE_MEDIA = DEBUG
 
 ADMINS = (
-    # ('Your Name', 'your_email@domain.com'),
+    ('Benny Daon', 'bennydaon@gmail.com'),
 )
 
 MANAGERS = ADMINS

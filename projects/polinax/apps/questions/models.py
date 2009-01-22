@@ -30,7 +30,7 @@ class Question(models.Model):
     text         = models.CharField(_('Q:'), max_length=256)
     public       = models.BooleanField(_('public'), default=True)
     flagged      = models.BooleanField(_('flagged as inappropriate'), default=False)
-    category     = models.CharField(_('Category'), choices=CATEGORY_CHOICES, max_length=1)
+    category     = models.SmallIntegerField(_('Category'), choices=CATEGORY_CHOICES)
     tags         = TagField()
 
 
