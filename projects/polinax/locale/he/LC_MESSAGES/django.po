@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django-hotclub-0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-01-20 23:37+0200\n"
+"POT-Creation-Date: 2009-01-22 12:42+0200\n"
 "PO-Revision-Date: 2008-06-17 22:27+0200\n"
 "Last-Translator: Gil Klein <gklein@gmail.com>\n"
 "Language-Team: Gil Klein <gklein@gmail.com>\n"
@@ -16,6 +16,175 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: Hebrew\n"
 "X-Poedit-Country: ISRAEL\n"
+
+#: apps/account/forms.py:26 apps/account/forms.py:59 apps/account/forms.py:283
+#: apps/account/forms.py:300
+msgid "Username"
+msgstr "שם משתמש"
+
+#: apps/account/forms.py:27 apps/account/forms.py:60 apps/account/forms.py:215
+#: apps/account/forms.py:284 apps/account/forms.py:301
+msgid "Password"
+msgstr "סיסמא"
+
+#: apps/account/forms.py:28
+msgid "Remember Me"
+msgstr "זכור אותי"
+
+#: apps/account/forms.py:28
+msgid "If checked you will stay logged in for 3 weeks"
+msgstr ""
+
+#: apps/account/forms.py:40
+msgid "This account is currently inactive."
+msgstr "חשבון זה אינו פעיל כעת"
+
+#: apps/account/forms.py:42
+msgid "The username and/or password you specified are not correct."
+msgstr "שם המשתמש או הסיסמא שגויים"
+
+#: apps/account/forms.py:48 apps/account/views.py:45
+#, python-format
+msgid "Successfully logged in as %(username)s."
+msgstr ".%(username)s התחברת בהצלחה כ"
+
+#: apps/account/forms.py:59
+msgid "English please"
+msgstr "אנגלית בבקשה"
+
+#: apps/account/forms.py:61 apps/account/forms.py:216
+msgid "Password (again)"
+msgstr "סיסמא (שוב)"
+
+#: apps/account/forms.py:62
+msgid "Email (optional)"
+msgstr "דואל (רשות)"
+
+#: apps/account/forms.py:63
+msgid "Name (optional)"
+msgstr "שם (רשות)"
+
+#: apps/account/forms.py:64
+msgid "Location (optional)"
+msgstr "מיקום (רשות)"
+
+#: apps/account/forms.py:65
+msgid "Site (optional)"
+msgstr "אתר (רשות)"
+
+#: apps/account/forms.py:70
+msgid "Usernames can only contain letters, numbers and underscores."
+msgstr "שם משתמש יכול להכיל רק אותיות אנגליות, מספרים וקו תחתון"
+
+#: apps/account/forms.py:76
+msgid "This username is already taken. Please choose another."
+msgstr "שם המשתמש תפוס. בחר שם אחר."
+
+#: apps/account/forms.py:81 apps/account/forms.py:204
+#: apps/account/forms.py:221
+msgid "You must type the same password each time."
+msgstr "הסיסמאות שהקשת צריכות להיות זהות."
+
+#: apps/account/forms.py:104
+msgid "Your email address has already been verified"
+msgstr "כתובת הדואל שלך כבר אומתה"
+
+#: apps/account/forms.py:111 apps/account/forms.py:117
+#: apps/account/forms.py:186
+#, python-format
+msgid "Confirmation email sent to %(email)s"
+msgstr " %(email)s דואל אישור נשלח ל "
+
+#: apps/account/forms.py:176 apps/account/forms.py:231
+msgid "Email"
+msgstr "דואל"
+
+#: apps/account/forms.py:183
+msgid "This email address already associated with this account."
+msgstr "כתובת הדואל משוייכת כבר לחשבון זה"
+
+#: apps/account/forms.py:192
+#, fuzzy
+msgid "Current Password"
+msgstr "אפס סיסמא"
+
+#: apps/account/forms.py:193
+msgid "New Password"
+msgstr "סיסמא חדשה"
+
+#: apps/account/forms.py:194
+msgid "New Password (again)"
+msgstr "(סיסמה חדשה (שוב"
+
+#: apps/account/forms.py:198
+msgid "Please type your current password."
+msgstr "אנא הקש את סיסמתך הנוכחית"
+
+#: apps/account/forms.py:210
+msgid "Password successfully changed."
+msgstr ".הסיסמא הוחלפה בהצלחה"
+
+#: apps/account/forms.py:227
+#, fuzzy
+msgid "Password successfully set."
+msgstr ".הסיסמא הוחלפה בהצלחה"
+
+#: apps/account/forms.py:235
+msgid "Email address not verified for any user account"
+msgstr "כתובת הדואל לא אומתה עבור אף חשבון"
+
+#: apps/account/forms.py:243
+#, fuzzy
+msgid "Password reset"
+msgstr "אפס סיסמא"
+
+#: apps/account/forms.py:253 templates/account/base.html:23
+#: templates/account/timezone_change.html:5
+#: templates/account/timezone_change.html:8
+msgid "Timezone"
+msgstr "איזור זמן"
+
+#: apps/account/forms.py:262
+#, fuzzy
+msgid "Timezone successfully updated."
+msgstr ".הסיסמא הוחלפה בהצלחה"
+
+#: apps/account/forms.py:266 templates/account/language_change.html:5
+#: templates/account/language_change.html:8
+msgid "Language"
+msgstr ""
+
+#: apps/account/forms.py:275
+#, fuzzy
+msgid "Language successfully updated."
+msgstr ".הסיסמא הוחלפה בהצלחה"
+
+#: apps/account/forms.py:297 apps/account/forms.py:314
+#, fuzzy
+msgid "Successfully authenticated."
+msgstr "איזור זמן עודכן בהצלחה."
+
+#: apps/account/models.py:11 apps/account/models.py:24
+#, fuzzy
+msgid "user"
+msgstr "משתמש"
+
+#: apps/account/models.py:13
+msgid "timezone"
+msgstr "איזור זמן"
+
+#: apps/account/models.py:14
+#, fuzzy
+msgid "language"
+msgstr "הוסר"
+
+#: apps/account/models.py:25
+msgid "Other Service Info Key"
+msgstr ""
+
+#: apps/account/models.py:26
+msgid "Other Service Info Value"
+msgstr ""
 
 #: apps/friends_app/views.py:25
 #, python-format
@@ -1018,11 +1187,11 @@ msgstr "נקודות"
 msgid "date"
 msgstr "תאריך"
 
-#: apps/questions/templates/questions/questions.html:88
+#: apps/questions/templates/questions/questions.html:83
 msgid "by:"
 msgstr "מאת:"
 
-#: apps/questions/templates/questions/questions.html:98
+#: apps/questions/templates/questions/questions.html:93
 msgid "No questions yet."
 msgstr "אין עדיין שאלות."
 
@@ -1204,7 +1373,7 @@ msgstr "הודעות"
 #: templates/site_base.html:27 templates/about/about.html:5
 #: templates/basic_profiles/profile.html:25 templates/profiles/profile.html:24
 msgid "About"
-msgstr "תיאור"
+msgstr "אודות"
 
 #: templates/site_base.html:28 templates/about/terms.html:5
 msgid "Terms of Service"
@@ -1263,7 +1432,7 @@ msgstr ""
 
 #: templates/account/base.html:10
 msgid "Personal Info"
-msgstr ""
+msgstr "מידע אישי"
 
 #: templates/account/base.html:12
 msgid "Profile"
@@ -1293,11 +1462,6 @@ msgstr "אפס סיסמא"
 #, fuzzy
 msgid "Delete Password"
 msgstr "אפס סיסמא"
-
-#: templates/account/base.html:23 templates/account/timezone_change.html:5
-#: templates/account/timezone_change.html:8
-msgid "Timezone"
-msgstr "איזור זמן"
 
 #: templates/account/email.html:10
 msgid "Email Addresses"
@@ -1344,11 +1508,6 @@ msgstr "הוסף כתובות דואל"
 #: templates/account/email.html:64 templates/projects/project.html:65
 msgid "add"
 msgstr "הוסף"
-
-#: templates/account/language_change.html:5
-#: templates/account/language_change.html:8
-msgid "Language"
-msgstr ""
 
 #: templates/account/language_change.html:10
 msgid "Pinax can be used in your preferred language."
@@ -1521,14 +1680,13 @@ msgstr ""
 ".<a href=\"%(privacy_url)s\">להצהרת הפרטיות</a> ו  <a href=\"%(terms_url)s"
 "\">תנאי השימוש</a> בלחיצה על הירשם , את/ה מאשר/ת שקראת והסכמת ל"
 
-#: templates/account/signup.html:30 templates/django_openid/register.html:23
-#, python-format
+#: templates/account/signup.html:30
 msgid ""
-"If you have any trouble creating your account, contact us at <a href="
-"\"mailto:%(contact_email)s\">%(contact_email)s</a>."
+"If you have any trouble creating your account, please open a <a href="
+"\"http://www.assembla.com/spaces/tzafim/tickets/new\">ticket</a>."
 msgstr ""
-"<a href=\"mailto:%(contact_email)s\">%(contact_email)s</a>אם קיימת בעיה "
-"ביצירת חשבון חדש, צור עימנו קשר ב"
+"אם קיימת בעיה ביצירת חשבון אנא פתח <a href='http://www.assembla.com/spaces/"
+"tzafim/tickets/new'>כרטיס</a>."
 
 #: templates/account/timezone_change.html:10
 msgid ""
@@ -1553,6 +1711,16 @@ msgstr "הודעות"
 #: templates/announcements/announcement_list.html:20
 msgid "There are no announcements for you."
 msgstr "אין לך הודעות"
+
+#: templates/avatar/change.html:6 templates/avatar/change.html.py:9
+#: templates/avatar/confirm_delete.html:5
+#: templates/avatar/confirm_delete.html:8
+msgid "Avatar"
+msgstr "צלמית"
+
+#: templates/avatar/change.html:10
+msgid "Here is your current avatar:"
+msgstr "צלמית נוכחית:"
 
 #: templates/basic_profiles/base.html:10
 msgid "Your Profile"
@@ -1755,6 +1923,15 @@ msgid ""
 msgstr ""
 ".<a href=\"/about/privacy\">להצהרת הפרטיות</a> ו  <a href=\"/about/terms"
 "\">תנאי השימוש</a> בלחיצה על הירשם , את/ה מאשר/ת שקראת והסכמת ל"
+
+#: templates/django_openid/register.html:23
+#, python-format
+msgid ""
+"If you have any trouble creating your account, contact us at <a href="
+"\"mailto:%(contact_email)s\">%(contact_email)s</a>."
+msgstr ""
+"<a href=\"mailto:%(contact_email)s\">%(contact_email)s</a>אם קיימת בעיה "
+"ביצירת חשבון חדש, צור עימנו קשר ב"
 
 #: templates/emailconfirmation/confirm_email.html:5
 msgid "Confirm Email"
@@ -1969,8 +2146,17 @@ msgstr "סוג הודעה"
 msgid "Change"
 msgstr "שנה"
 
+#: templates/pagination/pagination.html:6
+#: templates/pagination/pagination.html:8
+msgid "previous"
+msgstr "הקודם"
+
+#: templates/pagination/pagination.html:22
+#: templates/pagination/pagination.html:24
+msgid "next"
+msgstr "הבא"
+
 #: templates/profiles/profile_right_panel.html:6
-#, fuzzy
 msgid "My Friends"
 msgstr "החברים שלך"
 
@@ -2346,63 +2532,6 @@ msgstr "מאמר זה אינו קיים."
 msgid ">Create it now</a>?"
 msgstr ">צור עכשיו</a>?"
 
-#~ msgid "Username"
-#~ msgstr "שם משתמש"
-
-#~ msgid "Password"
-#~ msgstr "סיסמא"
-
-#~ msgid "This account is currently inactive."
-#~ msgstr "חשבון זה אינו פעיל כעת"
-
-#~ msgid "The username and/or password you specified are not correct."
-#~ msgstr "שם המשתמש או הסיסמא שגויים"
-
-#~ msgid "Successfully logged in as %(username)s."
-#~ msgstr ".%(username)s התחברת בהצלחה כ"
-
-#~ msgid "Password (again)"
-#~ msgstr "(סיסמא (שוב"
-
-#~ msgid "Email (optional)"
-#~ msgstr "(דואל (לא חובה"
-
-#~ msgid "Usernames can only contain letters, numbers and underscores."
-#~ msgstr "שם משתמש יכול להכיל רק תווים, מספרים וקו תחתון"
-
-#~ msgid "This username is already taken. Please choose another."
-#~ msgstr "שם המשתמש תפוס. בחר שם אחר."
-
-#~ msgid "You must type the same password each time."
-#~ msgstr "הסיסמאות שהקשת צריכות להיות זהות."
-
-#~ msgid "Your email address has already been verified"
-#~ msgstr "כתובת הדואל שלך כבר אומתה"
-
-#~ msgid "Confirmation email sent to %(email)s"
-#~ msgstr " %(email)s דואל אישור נשלח ל "
-
-#~ msgid "Email"
-#~ msgstr "דואל"
-
-#~ msgid "This email address already associated with this account."
-#~ msgstr "כתובת הדואל משוייכת כבר לחשבון זה"
-
-#~ msgid "New Password"
-#~ msgstr "סיסמא חדשה"
-
-#~ msgid "New Password (again)"
-#~ msgstr "(סיסמה חדשה (שוב"
-
-#~ msgid "Please type your current password."
-#~ msgstr "אנא הקש את סיסמתך הנוכחית"
-
-#~ msgid "Password successfully changed."
-#~ msgstr ".הסיסמא הוחלפה בהצלחה"
-
-#~ msgid "Email address not verified for any user account"
-#~ msgstr "כתובת הדואל לא אומתה עבור אף חשבון"
-
 #~ msgid "about"
 #~ msgstr "תיאור"
 
@@ -2411,9 +2540,6 @@ msgstr ">צור עכשיו</a>?"
 
 #~ msgid "blog rss/atom"
 #~ msgstr "rss/atom בלוג "
-
-#~ msgid "timezone"
-#~ msgstr "איזור זמן"
 
 #~ msgid "profiles"
 #~ msgstr "פרופילים"
@@ -2681,9 +2807,6 @@ msgstr ">צור עכשיו</a>?"
 #~ msgid "Go"
 #~ msgstr "אשר"
 
-#~ msgid "text"
-#~ msgstr "טקסט"
-
 #~ msgid "sender"
 #~ msgstr "שולח"
 
@@ -2703,6 +2826,3 @@ msgstr ">צור עכשיו</a>?"
 
 #~ msgid "adder"
 #~ msgstr "המוסיף"
-
-#~ msgid "Remember Me"
-#~ msgstr "זכור אותי"

@@ -15,10 +15,11 @@ from django.contrib.auth.models import User
 
 from emailconfirmation.models import EmailAddress
 from account.models import Account
+from profiles.models import Profile
 
 from timezones.forms import TimeZoneField
 
-alnum_re = re.compile(r'^[א-ת0-9_]$')
+alnum_re = re.compile(r'^\w+$')
 
 class LoginForm(forms.Form):
 
@@ -55,17 +56,18 @@ class LoginForm(forms.Form):
 
 class SignupForm(forms.Form):
 
-    username = forms.CharField(label=_("Username"), max_length=30, widget=forms.TextInput())
+    username = forms.CharField(label=_("Username"), max_length=30, widget=forms.TextInput(), help_text=_('English please'))
     password1 = forms.CharField(label=_("Password"), widget=forms.PasswordInput(render_value=False))
     password2 = forms.CharField(label=_("Password (again)"), widget=forms.PasswordInput(render_value=False))
     email = forms.EmailField(label=_("Email (optional)"), required=False, widget=forms.TextInput())
+    name = forms.CharField(label=_("Name (optional)"), max_length=30, required=False)
+    location = forms.CharField(label=_("Location (optional)"), max_length=30, required=False)
+    site = forms.URLField(label=_("Site (optional)"), required=False)
     confirmation_key = forms.CharField(max_length=40, required=False, widget=forms.HiddenInput())
 
     def clean_username(self):
-        '''
         if not alnum_re.search(self.cleaned_data["username"]):
             raise forms.ValidationError(_("Usernames can only contain letters, numbers and underscores."))
-        '''
         try:
             user = User.objects.get(username__iexact=self.cleaned_data["username"])
         except User.DoesNotExist:
@@ -97,7 +99,7 @@ class SignupForm(forms.Form):
 
         if confirmed:
             if email == join_invitation.contact.email:
-                new_user = User.objects.create_user(username, email, password)
+                new_user = User.objects.create_user(username, email, password, )
                 join_invitation.accept(new_user) # should go before creation of EmailAddress below
                 new_user.message_set.create(message=ugettext(u"Your email address has already been verified"))
                 # already verified so can just create
@@ -108,12 +110,18 @@ class SignupForm(forms.Form):
                 if email:
                     new_user.message_set.create(message=ugettext(u"Confirmation email sent to %(email)s") % {'email': email})
                     EmailAddress.objects.add_email(new_user, email)
-            return username, password # required for authenticate()
+                return username, password # required for authenticate()
         else:
             new_user = User.objects.create_user(username, "", password)
             if email:
                 new_user.message_set.create(message=ugettext(u"Confirmation email sent to %(email)s") % {'email': email})
                 EmailAddress.objects.add_email(new_user, email)
+        
+            p = Profile.objects.get(user=new_user)
+            p.name=self.cleaned_data["name"]
+            p.location=self.cleaned_data["location"]
+            p.website=self.cleaned_data["site"]
+            p.save()
             return username, password # required for authenticate()
 
 
