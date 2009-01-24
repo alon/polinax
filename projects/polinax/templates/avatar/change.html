@@ -1,0 +1,28 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+{% load avatar_tags %}
+
+{% block head_title %}{% trans "Avatar" %}{% endblock %}
+
+{% block body %}
+    <h1>{% trans "Avatar" %}</h1>
+    <h3>{% trans "Here is your current avatar:" %}</h3>
+  {% avatar user 80 %}
+  {% if not avatars %}
+        <h3>הצלמית שלך היא זו שנמצאה ב<a href="http://www.gravatar.com/">Gravatar</a>, באמצעות הטופס, אתה יכול להעלות צלמית המיוחדת לאתר זה.</h3>
+ {% endif %}
+    <h3>Upload an Avatar:</h3>
+    <form enctype="multipart/form-data" method="POST" action="">
+        <input type="file" name="avatar" value="Avatar Image" />
+        <input type="submit" value="Upload New Image" />
+    </form>
+{% endblock %}
+
+{% block extra_body %}
+    {% load jquery_validation %}
+    {% include_validation %}
+    <script type="text/javascript">
+       <!-- nothing here -->
+    </script>
+{% endblock %}

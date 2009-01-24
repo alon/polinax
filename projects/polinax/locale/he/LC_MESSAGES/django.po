@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django-hotclub-0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-01-22 12:42+0200\n"
+"POT-Creation-Date: 2009-01-24 11:37+0200\n"
 "PO-Revision-Date: 2008-06-17 22:27+0200\n"
 "Last-Translator: Gil Klein <gklein@gmail.com>\n"
 "Language-Team: Gil Klein <gklein@gmail.com>\n"
@@ -33,7 +33,7 @@ msgstr "זכור אותי"
 
 #: apps/account/forms.py:28
 msgid "If checked you will stay logged in for 3 weeks"
-msgstr ""
+msgstr "בחר אותי כדי להישאר מחובר"
 
 #: apps/account/forms.py:40
 msgid "This account is currently inactive."
@@ -186,6 +186,27 @@ msgstr ""
 msgid "Other Service Info Value"
 msgstr ""
 
+#: apps/answers/models.py:17 apps/groups/models.py:49
+#: apps/projects/models.py:52 apps/projects/models.py:85
+#: apps/questions/models.py:28 apps/tribes/models.py:29
+#: apps/tribes/models.py:60
+msgid "created"
+msgstr "נוצר"
+
+#: apps/answers/models.py:19 apps/groups/models.py:54
+#: apps/questions/models.py:31
+msgid "public"
+msgstr ""
+
+#: apps/answers/models.py:20 apps/questions/models.py:32
+msgid "flagged as inappropriate"
+msgstr "סומן בכעייתי"
+
+#: apps/answers/models.py:27 apps/questions/models.py:41
+#, python-format
+msgid "by %(user)s: %(text)s%(more)s"
+msgstr "מאת %(user)s: %(text)s%(more)s"
+
 #: apps/friends_app/views.py:25
 #, python-format
 msgid "Accepted friendship request from %(from_user)s"
@@ -206,20 +227,20 @@ msgstr "אנשי קשר יובאו %(imported)s , אנשי קשר בעלי דו�
 msgid "Message"
 msgstr "הצג הודעה"
 
-#: apps/groups/management.py:22
+#: apps/groups/management.py:23
 #, fuzzy
 msgid "New Group Member"
 msgstr "חבר שבט חדש"
 
-#: apps/groups/management.py:22
+#: apps/groups/management.py:23
 msgid "A new member has joined a group"
 msgstr ""
 
-#: apps/groups/management.py:23
+#: apps/groups/management.py:24
 msgid "New Content"
 msgstr ""
 
-#: apps/groups/management.py:23
+#: apps/groups/management.py:24
 msgid "A new content was added to a group"
 msgstr ""
 
@@ -251,12 +272,6 @@ msgstr "מיקום"
 msgid "Choose the way new members can join this group"
 msgstr ""
 
-#: apps/groups/models.py:49 apps/projects/models.py:52
-#: apps/projects/models.py:85 apps/questions/models.py:28
-#: apps/tribes/models.py:29 apps/tribes/models.py:60
-msgid "created"
-msgstr "נוצר"
-
 #: apps/groups/models.py:50 apps/projects/models.py:53
 #: apps/projects/models.py:86 apps/questions/models.py:29
 #: apps/tribes/models.py:61
@@ -272,10 +287,6 @@ msgstr "חברים"
 #, fuzzy
 msgid "deleted"
 msgstr "מחק"
-
-#: apps/groups/models.py:54 apps/questions/models.py:31
-msgid "public"
-msgstr ""
 
 #: apps/groups/models.py:102
 #, python-format
@@ -455,11 +466,11 @@ msgstr ""
 msgid "ZYX"
 msgstr ""
 
-#: apps/laws/views.py:41
+#: apps/laws/views.py:54
 msgid "The draft of the proposed law."
 msgstr ""
 
-#: apps/laws/views.py:49
+#: apps/laws/views.py:62
 msgid "first version"
 msgstr ""
 
@@ -1000,6 +1011,18 @@ msgid ""
 "                "
 msgstr ""
 
+#: apps/questions/forms.py:18
+msgid "Description"
+msgstr "מה הבעיה בשאלה?"
+
+#: apps/questions/management.py:8
+msgid "Question reported"
+msgstr "שאלה דווחה"
+
+#: apps/questions/management.py:8
+msgid "Someone reported a question"
+msgstr "משתמש דיווח על שאלה"
+
 #: apps/questions/models.py:12
 msgid "Constitution"
 msgstr "שלטון, חוק וחוקה"
@@ -1014,7 +1037,7 @@ msgstr "בטחון אישי וציבורי"
 
 #: apps/questions/models.py:15
 msgid "Education"
-msgstr "חינוך"
+msgstr "חינוך, תרבות וספורט"
 
 #: apps/questions/models.py:16
 msgid "Immigration"
@@ -1044,28 +1067,24 @@ msgstr "הגנת הסביבה, החי והצומח"
 msgid "Q:"
 msgstr "ש:"
 
-#: apps/questions/models.py:32
-msgid "flagged as inappropriate"
-msgstr "סומן בכעייתי"
-
 #: apps/questions/models.py:33
 #: apps/questions/templates/questions/my_questions.html:26
 #: templates/profiles/profile.html:50
 msgid "Category"
 msgstr "תחום"
 
-#: apps/questions/models.py:41
-#, python-format
-msgid "by %(user)s: %(text)s%(more)s"
-msgstr "מאת %(user)s: %(text)s%(more)s"
-
-#: apps/questions/views.py:55
+#: apps/questions/views.py:60
 msgid "Question Deleted"
 msgstr "שאלה נמחקה"
 
+#: apps/questions/views.py:71
+msgid "A report has been sent. Tzafim editors will review it shortly. Thanks."
+msgstr "הדיווח נשלח. אחד מהעורכים שלנו יעבור על השאלה במהרה. תודה."
+
 #: apps/questions/templates/questions/add_q.html:5
 #: apps/questions/templates/questions/add_q.html:9
-#: apps/questions/templates/questions/base.html:27
+#: apps/questions/templates/questions/base.html:29
+#: apps/questions/templates/questions/question.html:8
 msgid "Post a Question"
 msgstr "הפנה שאלה"
 
@@ -1074,36 +1093,36 @@ msgid "*Questions must be non-partisan."
 msgstr "*אנא, שמור על על-מפלגתיות"
 
 #: apps/questions/templates/questions/add_q.html:13
-#, fuzzy
+#: apps/questions/templates/questions/report_q.html:12
 msgid "Post"
 msgstr "פרסם"
 
-#: apps/questions/templates/questions/base.html:8
+#: apps/questions/templates/questions/base.html:10
 #: templates/account/base.html:28
 msgid "Categories"
 msgstr "תחומים"
 
-#: apps/questions/templates/questions/base.html:10
+#: apps/questions/templates/questions/base.html:12
 #: templates/account/base.html:30
 msgid "All"
 msgstr "הכל"
 
-#: apps/questions/templates/questions/base.html:19
+#: apps/questions/templates/questions/base.html:21
 #: templates/account/base.html:39
 msgid "Search"
 msgstr "חיפוש"
 
-#: apps/questions/templates/questions/base.html:23
+#: apps/questions/templates/questions/base.html:25
 msgid "Mine"
 msgstr "שלי"
 
-#: apps/questions/templates/questions/base.html:26
+#: apps/questions/templates/questions/base.html:28
 #: apps/questions/templates/questions/my_questions.html:11
 #: templates/profiles/profile_right_panel.html:45
 msgid "My Questions"
 msgstr "השאלות שלי"
 
-#: apps/questions/templates/questions/base.html:32
+#: apps/questions/templates/questions/base.html:34
 #, python-format
 msgid ""
 "You can <a href=\"%(signup_url)s\">Sign up</a> or <a href=\"%(login_url)s"
@@ -1151,49 +1170,62 @@ msgstr "עדיין לא הפנת שאלות"
 msgid "Click here to post a question"
 msgstr "לחץ כאן להפנות שאלה"
 
-#: apps/questions/templates/questions/questions.html:11
+#: apps/questions/templates/questions/question.html:23
+#: apps/questions/templates/questions/questions.html:93
+msgid "by:"
+msgstr "מאת:"
+
+#: apps/questions/templates/questions/questions.html:13
 msgid "All Questions"
 msgstr "כל השאלות"
 
-#: apps/questions/templates/questions/questions.html:32
+#: apps/questions/templates/questions/questions.html:42
 msgid "Sort by:"
 msgstr "סדר לפי:"
 
-#: apps/questions/templates/questions/questions.html:34
-#: apps/questions/templates/questions/questions.html:42
-#: apps/questions/templates/questions/questions.html:49
+#: apps/questions/templates/questions/questions.html:44
+#: apps/questions/templates/questions/questions.html:52
+#: apps/questions/templates/questions/questions.html:59
 msgid "hot"
 msgstr "חמים"
 
-#: apps/questions/templates/questions/questions.html:35
-#: apps/questions/templates/questions/questions.html:37
-#: apps/questions/templates/questions/questions.html:43
 #: apps/questions/templates/questions/questions.html:45
-#: apps/questions/templates/questions/questions.html:50
-#: apps/questions/templates/questions/questions.html:52
+#: apps/questions/templates/questions/questions.html:47
+#: apps/questions/templates/questions/questions.html:53
+#: apps/questions/templates/questions/questions.html:55
+#: apps/questions/templates/questions/questions.html:60
+#: apps/questions/templates/questions/questions.html:62
 #: templates/site_base.html:9
 msgid "or"
 msgstr "או"
 
-#: apps/questions/templates/questions/questions.html:36
-#: apps/questions/templates/questions/questions.html:44
-#: apps/questions/templates/questions/questions.html:51
+#: apps/questions/templates/questions/questions.html:46
+#: apps/questions/templates/questions/questions.html:54
+#: apps/questions/templates/questions/questions.html:61
 msgid "points"
 msgstr "נקודות"
 
-#: apps/questions/templates/questions/questions.html:38
-#: apps/questions/templates/questions/questions.html:46
-#: apps/questions/templates/questions/questions.html:53
+#: apps/questions/templates/questions/questions.html:48
+#: apps/questions/templates/questions/questions.html:56
+#: apps/questions/templates/questions/questions.html:63
 msgid "date"
 msgstr "תאריך"
 
-#: apps/questions/templates/questions/questions.html:83
-msgid "by:"
-msgstr "מאת:"
+#: apps/questions/templates/questions/questions.html:101
+msgid "Report this question"
+msgstr "דווח"
 
-#: apps/questions/templates/questions/questions.html:93
+#: apps/questions/templates/questions/questions.html:112
 msgid "No questions yet."
 msgstr "אין עדיין שאלות."
+
+#: apps/questions/templates/questions/report_q.html:5
+msgid "Report a Question"
+msgstr "דווח על שאלה"
+
+#: apps/questions/templates/questions/report_q.html:9
+msgid "What is the problem with the question?"
+msgstr "מה הבעיה עם השאלה?"
 
 #: apps/questions/templatetags/questions_tags.py:17
 #, python-format
@@ -1326,11 +1358,11 @@ msgstr "את/ה עדיין לא חבר באף <a href=\"%(tribe_url)s\">שבט</
 msgid "Hide announcement"
 msgstr "הסתר הודעות"
 
-#: templates/base.html:42
+#: templates/base.html:45
 msgid "Questions for..."
 msgstr "צפים 2009"
 
-#: templates/base.html:53
+#: templates/base.html:59
 msgid "clear"
 msgstr "מחק"
 
@@ -2320,16 +2352,12 @@ msgstr ""
 msgid "These are the projects you participate in."
 msgstr ""
 
-#: templates/threadedcomments/comments.html:19
+#: templates/threadedcomments/comments.html:18
 msgid "Delete Post"
 msgstr "מחק מאמר"
 
-#: templates/threadedcomments/comments.html:23
-msgid "Reply to This Post"
-msgstr ""
-
-#: templates/threadedcomments/comments.html:26
-#: templates/threadedcomments/comments.html:38
+#: templates/threadedcomments/comments.html:25
+#: templates/threadedcomments/comments.html:37
 msgid "Post Response"
 msgstr "שלח תגובה"
 

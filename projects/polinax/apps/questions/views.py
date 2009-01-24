@@ -8,7 +8,7 @@ from django.utils.translation import ugettext, ugettext_lazy as _
 # TODO: from voting.models import Vote
 
 from questions.models import Question
-from questions.forms import QuestionForm
+from questions.forms import QuestionForm, ReportQuestionForm
 
 def redirect_to_next(request,view):
     ''' A helper function that returns an http redirect request 
@@ -24,6 +24,12 @@ def questions(request):
     
     return render_to_response("questions/questions.html", {
         "questions": qs,
+    }, context_instance=RequestContext(request))
+
+def question(request, id):
+    q = get_object_or_404(Question, id=id)
+    return render_to_response("questions/question.html", {
+        "question": q,
     }, context_instance=RequestContext(request))
 
 
@@ -43,7 +49,6 @@ def add_q(request):
             return redirect_to_next(request, "my_questions")
     else:
         form = QuestionForm()
-    print form
     return render_to_response("questions/add_q.html", {"form":form}, 
         context_instance=RequestContext(request))
 
@@ -55,4 +60,18 @@ def delete_q(request, id):
         request.user.message_set.create(message=ugettext("Question Deleted"))
         
     return redirect_to_next(request, "questions.views.my_questions")
+    
+@login_required
+def report_q(request, id):
+    q = get_object_or_404(Question, id=id)
+    if request.method == "POST":
+        form = ReportQuestionForm(request.POST)
+        if form.is_valid():
+            q = form.notify(request.user, q)
+            request.user.message_set.create(message=ugettext("A report has been sent. Tzafim editors will review it shortly. Thanks."))
+            return redirect_to_next(request, "all_questions")
+    else:
+        form = ReportQuestionForm()
+    return render_to_response("questions/report_q.html", {"form":form}, 
+        context_instance=RequestContext(request))
     

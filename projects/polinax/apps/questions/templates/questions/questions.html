@@ -7,6 +7,8 @@
 {% load extra_voting_tags %}
 {% load in_filter %}
 {% load tagging_tags %}
+{% load threadedcommentstags %}
+
 
 {% block head_title %}{% blocktrans %}All Questions{% endblocktrans %}{% endblock %}
 
@@ -16,6 +18,7 @@
         .q {
             padding-right:0.2em;
             font-size:130%;
+            margin: 0.1em 0;
         }
         .author {
             font-style: italic;
@@ -23,6 +26,13 @@
             color: #001537;
 
         }
+        .q a {text-decoration: none;}
+        .q a:hover { text-decoration:underline;}
+        .more {
+            font-weight: bold;
+            font-size:70%;
+        }
+
     </style>
 
 {% endblock %}
@@ -79,8 +89,17 @@
                     </td>
                     <td>
                         <p class="q">
-                            {{ question.text }}
-                            <span class="author">{%trans "by:" %}&nbsp;<a href="{% url profiles.views.profile question.adder.username %}">{{ question.adder.profile_set.all.0 }}</a></span>
+                            <a href="{{question.get_absolute_url}}"> {{ question.text }}</a>
+                            <span class="author">{% trans "by:" %}&nbsp;<a href="{% url profiles.views.profile question.adder.username %}">{{ question.adder.profile_set.all.0 }}</a></span><br>
+                            {% get_comment_count for question as cc %}
+                            <span class="more">{{ cc|default:"אין" }} 
+                                תגוב{{cc|pluralize:"ה,ות"}}
+                               &nbsp;&nbsp;
+                            {{ ac|default:"אין" }}
+                       תשוב{{ ac|pluralize:"ה,ות"}}
+                            &nbsp;&nbsp;
+                            <a href="{% url report_question question.id %}">{% trans "Report this question" %}</a>
+                        </span>
                         </p>
                     </td>
                 </tr>

@@ -1,0 +1,50 @@
+{% extends "questions/base.html" %}
+
+{% load comments_tag %}
+{% load voting_tags %}
+{% load avatar_tags %}
+{% load i18n %}
+
+{% block head_title %}{% trans "Post a Question" %}{% endblock %}
+
+
+{% block body %}
+         {% vote_by_user user on question as vote %}
+       {% score_for_object question  as score %}
+        {% if user.is_authenticated %}
+            <a id="up_{{ question.id }}" href="#" onclick="vote({{ question.id }}, '{% if vote and vote.is_upvote %}clear{%else%}up{%endif%}');"><img src="{{ MEDIA_URL }}up_{% if vote and vote.is_upvote %}mod{% else %}grey{% endif %}.png"/></a><br />
+        {% endif %}
+        <span id="question_{{ question.id }}_score" class="score">
+            {{ score.score|default:0 }}
+        </span><br />
+        
+        <div class="avatar"><a href="{% url profiles.views.profile question.adder.username %}">{% avatar question.adder 40 %}</a></div>
+        <h2>{{ question.text }}</h2>
+        <span class="author">{%trans "by:" %}&nbsp;<a href="{% url profiles.views.profile question.adder.username %}">{{ question.adder.profile_set.all.0 }}</a></span>
+        {% comments question %}
+{% endblock %}
+{% block extra_js_init %}
+            var c={{question.category}};
+            $("#cat_menu_"+c).addClass("selected");
+{% endblock %}
+{% block extra_script %}
+    <script src="{{ MEDIA_URL }}js/jquery.getUrlParam.js" type="text/javascript"></script>
+    
+    <script>
+
+        function vote(question_id, direction) {
+            $.post(question_id + '/' + direction + 'vote/', function(data) {
+                var jsonResult = eval('(' + data + ')');
+                var new_score = jsonResult.score.score;
+                $('#question_' + question_id + '_score').text(new_score);
+            });
+            if (direction == 'up') {
+                $('#up_' + question_id).replaceWith('<a id="up_' + question_id + '" href="#" onclick="vote(' + question_id + ', \'clear\');"><img src="{{ MEDIA_URL }}up_mod.png"/>');
+            }
+            else { // clear
+                $('#up_' + question_id).replaceWith('<a id="up_' + question_id + '" href="#" onclick="vote(' + question_id + ', \'up\');"><img src="{{ MEDIA_URL }}up_grey.png"/>');
+            }
+            return false;
+        }
+    </script>
+{% endblock %}

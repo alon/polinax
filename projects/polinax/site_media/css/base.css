@@ -13,7 +13,7 @@ a, a:visited {
 
 #body {
     background-color: white;
-    padding: 0.5em 0;
+    padding: 0.5em;
 }
 #login {
     float: left;
@@ -76,3 +76,81 @@ ul#messages li a {
 .pagination .disabled {
     color: white;
 }
+.hidden {
+    display:none;
+}
+.responses {
+    margin-left: 0px;
+    padding-left: 0px;
+}
+.responses li { 
+    list-style-type: none; 
+}
+div.meta {
+    float: right;
+    width: 100px;
+    margin: 4px;
+    padding: 4px;
+}
+.even {
+    background-color: #FAFAFA;
+}
+.odd {
+    background-color: #F3F3F3;
+}
+.thread-0 { margin-right: 0px; }
+.thread-1 { margin-right: 20px; }
+.thread-2 { margin-right: 40px; }
+.thread-3 { margin-right: 60px; }
+.thread-4 { margin-right: 80px; }
+.thread-5 { margin-right: 100px; }
+.thread-6 { margin-right: 120px; }
+.thread-7 { margin-right: 140px; }
+.thread-8 { margin-right: 160px; }
+.tabs {
+    position: absolute;
+    bottom: -3px; /* must be same thickness as tab border */
+    left:0px;
+    /* left: 210px; /* based on width and padding of logo */
+}
+.tabs td {
+    vertical-align: bottom;
+    padding-right: 0; /* space between tabs */
+}
+
+.tab a, .tab a:visited {
+    color: #444; /* unselected tab text colour */
+    font-weight: bold;
+    text-decoration: none;
+}
+.tab a:hover {
+    color: #666; /* unselected tab text hover colour */
+}
+.tab div {
+    background-color: #DDD; /* unselected tab colour */
+    padding: 0;
+    padding-bottom: 4px;
+    padding-top: 5px;
+    margin: 0 1px; /* to compensate for border */
+}
+.tab div a {
+    padding: 5px 12px;
+}
+#questions_tab .rtab_questions a,
+#notices_tab .rtab_notices a
+{
+    color: #001537 !important; /* selected tab text colour */
+}
+#questions_tab .rtab_questions div,
+#notices_tab .rtab_notices div
+{
+    margin: 0;
+    background-color: white !important; /* selected tab colour */
+    border-left: 1px solid #000 !important; /* tab border */
+    border-top: 1px solid #000 !important; /* tab border */
+    border-right: 1px solid #000 !important; /* tab border */
+    padding-bottom: 5px; /* 1px more than unselected padding-bottom */
+}
+
+
+

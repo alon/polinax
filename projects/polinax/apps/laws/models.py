@@ -47,10 +47,11 @@ class Law(Group):
 
 from threadedcomments.models import ThreadedComment
 def new_comment(sender, instance, **kwargs):
-    law = instance.content_object
-    law.modified = datetime.now()
-    law.save()
-    if notification:
-        notification.send(law.members.all(), "laws_new_comment", {"user": instance.user, "law": law, "comment": instance})
+    if isinstance(instance.content_object, Law):
+        law = instance.content_object
+        law.modified = datetime.now()
+        law.save()
+        if notification:
+            notification.send(law.members.all(), "laws_new_comment", {"user": instance.user, "law": law, "comment": instance})
 
 signals.post_save.connect(new_comment, sender=ThreadedComment)
