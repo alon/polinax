@@ -1,12 +1,14 @@
 {% load i18n %}
+{% load avatar_tags %}
 <div class="members">
-    <h2>{% trans "Members" %}</h2>
-    <table width="100%">
+    <table>
         {% for member in members %}
             {% if forloop.counter0|divisibleby:"3" %}<tr>{% endif %}
-            <td class="{% if member.away %}away{% else %}active{% endif %}-member">
-                <div class="avatar">{# {% avatar member.user 40 %} #}</div>
-                <div class="details"><a href="{% url profile_detail member.user.username %}" title="{{ member.user.username }}">{{ member.user.username }}</a></div>
+            <td>
+                {% avatar member.user 40 %}
+            </td>
+            <td> 
+                <a href="{% url profile_detail member.user.username %}" title="{{ member.user.profile_set.all.0 }}">{{ member.user.profile_set.all.0 }}</a>
             </td>
             {% if forloop.counter0|add:"1"|divisibleby:"3" %}</tr>{% endif %}
         {% endfor %}

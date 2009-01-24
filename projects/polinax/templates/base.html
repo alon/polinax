@@ -51,18 +51,13 @@
             </div>
         </div>
         <div id="body" class="grid_12">
+            {% block nonav_body %}
             <div id="subnav" class="alpha grid_3">{% block subnav %}&nbsp;{% endblock %}</div>
             <div class="grid_9 omega">
-                {% if messages %}
-                    <ul id="messages">
-                        {% for message in messages %}
-                        <li id="message_{{ forloop.counter }}"><a href="#" onclick="$('#message_{{ forloop.counter }}').fadeOut(); return false;"><img src="{{MEDIA_URL}}delete.png" /></a> {{ message }}</li>
-                        {% endfor %}
-                    </ul>
-                {% endif %}
-            
+                {% include "messages/messages.html" %}            
                 {% block body %}
                 {% endblock %}
+            {% endblock %}
             </div>
         </div>
     </div>

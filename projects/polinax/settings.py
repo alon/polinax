@@ -136,8 +136,9 @@ INSTALLED_APPS = (
     
     'about',
     'groups',
-    'laws',
+    'parties',
     'questions',
+    'answers',
     
     'tagging',
     'tag_app',

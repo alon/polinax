@@ -25,6 +25,7 @@ urlpatterns = patterns('',
 
     (r'^groups/', include('groups.urls')),
     (r'^questions/', include('questions.urls')),
+    (r'^parties/', include('parties.urls')),
     (r'^avatars/', include('avatar.urls')),
     (r'^microblog/', include('microblogging.urls')),
 

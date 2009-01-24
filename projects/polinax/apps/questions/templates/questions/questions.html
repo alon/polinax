@@ -70,7 +70,7 @@
         {% votes_by_user user on questions as vote_dict %}
         {% scores_for_objects questions as score_dict %}
         
-        <table class="questions">
+        <table class="questions" cellspacing="0" cellpadding="4">
             {% for question in questions %}
                 <tr class="{% cycle odd,even %}">
                     <td class="vote">

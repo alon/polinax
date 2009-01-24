@@ -1,0 +1,20 @@
+{% extends "parties/base.html" %}
+
+{% load comments_tag %}
+{% load groups_tags %}
+{% load avatar_tags %}
+{% load i18n %}
+
+{% block head_title %}{% trans "Party" %} {{party.name}}{% endblock %}
+
+
+{% block nonav_body %}
+    <h1> {% trans "Party" %} {{party.name}}</h1>
+    <p> {{party.description|linebreaks}}</p>
+    <h2> {% trans "Candidates" %} </h2>
+    {% if party.candidates %}
+        {% show_group_members party "candidate" %}
+    {% else %}
+        {% trans "No candidatess yet." %}
+    {% endif %}
+{% endblock %}

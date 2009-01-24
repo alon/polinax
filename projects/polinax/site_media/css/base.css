@@ -71,7 +71,7 @@ ul#messages li a {
     margin-left: auto;
     margin-right:auto;
     text-align:center;
-    fomn
+    padding:0.5em 0;
 }
 .pagination .disabled {
     color: white;
@@ -137,20 +137,16 @@ div.meta {
     padding: 5px 12px;
 }
 #questions_tab .rtab_questions a,
+#parties_tab .rtab_parties a,
 #notices_tab .rtab_notices a
 {
     color: #001537 !important; /* selected tab text colour */
 }
 #questions_tab .rtab_questions div,
+#parties_tab .rtab_parties div,
 #notices_tab .rtab_notices div
 {
-    margin: 0;
     background-color: white !important; /* selected tab colour */
-    border-left: 1px solid #000 !important; /* tab border */
-    border-top: 1px solid #000 !important; /* tab border */
-    border-right: 1px solid #000 !important; /* tab border */
-    padding-bottom: 5px; /* 1px more than unselected padding-bottom */
 }
-
-
-
+.members td {
+}
