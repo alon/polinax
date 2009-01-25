@@ -17,7 +17,6 @@ from account.models import Account
 from profiles.models import Profile
 
 from timezones.forms import TimeZoneField
-from parties.models import Party
 
 alnum_re = re.compile(r'^\w+$')
 
@@ -313,7 +312,3 @@ class PownceForm(UserForm):
         )
         self.user.message_set.create(message=ugettext(u"Successfully authenticated."))
         
-class CandidateRegistrationForm(forms.Form):
-    
-    party = forms.ModelChoiceField(queryset=Party.objects.filter(public=True))
-

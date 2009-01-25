@@ -9,7 +9,7 @@ from django.utils.translation import ugettext, ugettext_lazy as _
 from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
 
-from account.forms import SignupForm, AddEmailForm, LoginForm, ChangePasswordForm, SetPasswordForm, ResetPasswordForm, ChangeTimezoneForm, ChangeLanguageForm, TwitterForm, PownceForm, CandidateRegistrationForm
+from account.forms import SignupForm, AddEmailForm, LoginForm, ChangePasswordForm, SetPasswordForm, ResetPasswordForm, ChangeTimezoneForm, ChangeLanguageForm, TwitterForm, PownceForm
 from emailconfirmation.models import EmailAddress, EmailConfirmation
 
 def login(request, form_class=LoginForm, template_name="account/login.html"):
@@ -222,19 +222,4 @@ def other_services(request, template_name="account/other_services.html"):
         "pownce_authorized":pownce_authorized,
     }, context_instance=RequestContext(request))
 other_services = login_required(other_services)
-
-@login_required
-def candidate_registration(request):
-    if request.method == "POST":
-        form = CandidateRegistrationForm(request.POST)
-        if form.is_valid():
-            if form.cleaned_data['party'].add_candidate(request.user):
-                m = _("You are now registered as a candidate for %(party)s") % dict(party=form.cleaned_data['party'])
-            else:
-                m = ugettext("Registration failed. Could it be you are already registered?")
-            request.user.message_set.create(message=m)
-    else:
-        form = CandidateRegistrationForm()
-    return render_to_response("account/candidate_registration.html", {"form":form}, 
-        context_instance=RequestContext(request))
 

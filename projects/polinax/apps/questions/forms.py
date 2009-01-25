@@ -16,6 +16,7 @@ class QuestionForm(forms.ModelForm):
 
 class ReportQuestionForm(forms.Form):
     description = forms.CharField(label='', widget=forms.Textarea(attrs={'rows':3}))
+    
     def notify(self, from_user, q):
         editors = Permission.objects.get(codename='change_question').user_set.all() | User.objects.filter(is_superuser=True)
         notification.send(editors, 'question_reported', {"from":from_user, "q":q, "description": self.cleaned_data['description']})

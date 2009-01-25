@@ -36,15 +36,14 @@ class Party(Group):
         return self.membership().filter(role__title="candidate").values_list('user', flat=True)
 
 def create_party_roles(sender, instance, created, **kwargs):
-    print 'in create_party_roles'
     if created:
          Role.objects.create(title='candidate', group=instance)
 signals.post_save.connect(create_party_roles, sender=Party)
 
 def update_answer_count(sender, instance, created, **kwargs):
     if created:
-        p=Memebership.objects.get(user=instance.adder, role__title='candidate').group
-        p.answer_count += 1
+        p=Membership.objects.get(user=instance.adder, role__title='candidate').group.party
+        p.answers_count += 1
         p.save()
 signals.post_save.connect(update_answer_count, sender=Answer)
 

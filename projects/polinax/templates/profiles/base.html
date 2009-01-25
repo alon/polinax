@@ -1,1 +1,10 @@
-{% extends "account/base.html" %}
+{% extends "site_base.html" %}
+
+{% block rtab_id %}id="account_tab"{% endblock %}
+
+{% block nonav_body %}
+    <div class="alpha prefix_1 grid_11 omega">
+        {% block body %}
+        {% endblock %}
+    </div>
+{% endblock %}

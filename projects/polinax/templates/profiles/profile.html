@@ -2,9 +2,11 @@
 
 {% load i18n %}
 {% load avatar_tags %}
+{% load voting_tags %}
 {% load app_plugins %}
 {% load pagination_tags %}
 {% load questions_tags %}
+{% load parties_tags %}
 
 {% block head_title %}{% blocktrans %}Profile for {{ other_user }}{% endblocktrans %}{% endblock %}
 
@@ -21,6 +23,10 @@
     
         <div class="profile_info">
             {% if other_user.get_profile.name %}<p><b>{% trans "Name" %}</b>: {{ other_user.get_profile.name }}</p>{% endif %}
+            {% get_user_party for other_user as party %}
+            {% if party %}
+                <p><b>{% trans "Candidate in party" %}</b>: {{party}}</p>
+            {% endif %}
             {% if other_user.get_profile.about %}<p><b>{% trans "About" %}</b>: {{ other_user.get_profile.about }}</p>{% endif %}
             {% if other_user.get_profile.location%}<p><b>{% trans "Location" %}</b>: {{ other_user.get_profile.location }}</p>{% endif %}
             {% if other_user.get_profile.website %}<p><b>{% trans "Website" %}</b>: <a href="{{ other_user.get_profile.website }}">{{ other_user.get_profile.website }}</a></p>{% endif %}
@@ -45,8 +51,9 @@
         {# % plugin_point "profiles.profile" user=other_user owner=other_user viewer=user % #}
 {% questions_for_user other_user as user_qs %}
 {% if user_qs %}
+    <h2>{% trans "Questions" %}:</h2>
     {% autopaginate user_qs %}
-    <table class="questions">
+    <table class="questions" cellspacing="0" cellpadding="4">
         <tr><th>{% trans "Category" %}<th>{% trans "Question" %}</tr>
         {% for question in user_qs %}
             <tr class="{% cycle odd,even %}">
@@ -54,13 +61,53 @@
                     {{question.category_name}}
                 </td>
                 <td class="questions">
-                    <h3>{{question.text}}</h3>
+                    <p class="q">
+                        <a href="{{question.get_absolute_url}}">{{question.text}}</a>
+                    </p>
                 </td>
             </tr>
         {% endfor %}
     </table>
     {% paginate %}
 {% endif %}
+        {% if other_user.answers.public.count %}
+            <h2>{% trans "Answers" %}:</h2>
+            {% votes_by_user user on other_user.answers.public as vote_dict %}
+            {% scores_for_objects other_user.answers.public as score_dict %}
+            <table class="answers" cellspacing="0" cellpadding="4">
+                <tr><th><th>{% trans "Answer" %}<th>{% trans "For question" %}</tr>
+
+                {% for a in other_user.answers.public %}
+                <tr class="{% cycle odd,even %}">
+                    <td class="vote">
+                        {% dict_entry_for_item a from vote_dict as vote %}
+                        {% dict_entry_for_item a from score_dict as score %}
+                        
+                        
+                        {% if user.is_authenticated %}
+                            <a id="up_{{ a.id }}" href="#" onclick="vote({{ a.id }}, '{% if vote and vote.is_downvote %}clear{% else %}up{% endif %}'); return false;"><img src="{{ MEDIA_URL }}up_{% if vote and vote.is_upvote %}mod{% else %}grey{% endif %}.png"/></a><br />
+                        {% endif %}
+                        <span id="a_{{ a.id }}_score" class="score">
+                            {{ score.score|default:0 }}
+                        </span><br />
+                        {% if user.is_authenticated %}
+                            <a id="down_{{ a.id }}" href="#" onclick="vote({{ a.id }}, '{% if vote and vote.is_upvote %}clear{% else %}down{% endif %}'); return false;"><img id="img_{{ a.id }}_down" src="{{ MEDIA_URL }}down_{% if vote and vote.is_downvote %}mod{% else %}grey{% endif %}.png"/></a>
+                        {% endif %}
+                        
+                    </td>
+                    <td><p>
+                        <a href="{{a.url}}">{{a.summary|default:"אופס, תשובה ללא כותרת"}}</a>
+                    </p></td>
+                    <td>
+                        <p>
+                            <a href="{{a.q.get_absolute_url}}"> {{a.q}}</a>
+                        </p>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% endif %}
+
 {% endblock %}
 
 {% block extra_body %}
@@ -77,6 +124,26 @@
                 $('#edit-profile ul.errorlist').autoscroll();
             }
         });
+        function vote(a_id, direction) {
+            $.post('/answers/' + a_id + '/' + direction + 'vote/', function(data) {
+                var jsonResult = eval('(' + data + ')');
+                var new_score = jsonResult.score.score;
+                $('#a_' + a_id + '_score').text(new_score);
+            });
+            if (direction == 'up') {
+                $('#up_' + a_id).replaceWith('<a id="up_' + a_id + '" href="#" onclick="return false;"><img src="{{ MEDIA_URL }}up_mod.png"/>');
+                $('#down_' + a_id).replaceWith('<a id="down_' + a_id + '" href="#" onclick="vote(' + a_id + ', \'clear\'); return false;"><img src="{{ MEDIA_URL }}down_grey.png"/>');
+            }
+            else if (direction == 'down') {
+                $('#up_' + a_id).replaceWith('<a id="up_' + a_id + '" href="#" onclick="vote(' + a_id + ', \'clear\'); return false;"><img src="{{ MEDIA_URL }}up_grey.png"/>');
+                $('#down_' + a_id).replaceWith('<a id="down_' + a_id + '" href="#" onclick="return false;"><img src="{{ MEDIA_URL }}down_mod.png"/>');
+            }
+            else { // clear
+                $('#up_' + a_id).replaceWith('<a id="up_' + a_id + '" href="#" onclick="vote(' + a_id + ', \'up\'); return false;"><img src="{{ MEDIA_URL }}up_grey.png"/>');
+                $('#down_' + a_id).replaceWith('<a id="down_' + a_id + '" href="#" onclick="vote(' + a_id + ', \'down\'); return false;"><img src="{{ MEDIA_URL }}down_grey.png"/>');
+            }
+            return false;
+        }
     </script>
 {% endblock %}
 

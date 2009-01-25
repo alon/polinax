@@ -8,4 +8,6 @@ urlpatterns = patterns('',
     url(r'^$', 'parties.views.parties', name="all_parties"),
     # url(r'^mine/$', 'parties.views.my_parties', name="my_parties"),
     url(r'^(\d+)/$', 'parties.views.party', name="view_party"),
+    url(r'^join/$', 'parties.views.join', name="join_party"),
+
 )

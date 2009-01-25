@@ -7,6 +7,7 @@ from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext, ugettext_lazy as _
 # TODO: from voting.models import Vote
 
+from parties.forms import JoinForm
 from parties.models import Party
 
 def redirect_to_next(request,view):
@@ -26,5 +27,22 @@ def party(request, id):
     return render_to_response("parties/party.html", {
         "party": party,
     }, context_instance=RequestContext(request))
+    
+@login_required
+def join(request):
+    if request.method == "POST":
+        form = JoinForm(request.POST)
+        if form.is_valid():
+            if form.cleaned_data['party'].add_candidate(request.user):
+                m = _("You are now registered as a candidate for %(party)s") % dict(party=form.cleaned_data['party'])
+            else:
+                m = ugettext("Registration failed. Could it be you are already registered?")
+            request.user.message_set.create(message=m)
+    else:
+        form = JoinForm()
+    return render_to_response("account/candidate_registration.html", {"form":form}, 
+        context_instance=RequestContext(request))
+
+
 
 

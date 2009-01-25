@@ -8,26 +8,19 @@
 {% load in_filter %}
 {% load tagging_tags %}
 {% load threadedcommentstags %}
-
+{% load answers_tags %}
 
 {% block head_title %}{% blocktrans %}All Questions{% endblocktrans %}{% endblock %}
 
 {% block extra_head %}
     <link rel="alternate" type="application/atom+xml" title="Questions Feed" href="/feeds/questions/" />
     <style type="text/css" media="screen">
-        .q {
-            padding-right:0.2em;
-            font-size:130%;
-            margin: 0.1em 0;
-        }
         .author {
             font-style: italic;
             font-size:80%;
             color: #001537;
 
         }
-        .q a {text-decoration: none;}
-        .q a:hover { text-decoration:underline;}
         .more {
             font-weight: bold;
             font-size:70%;
@@ -69,6 +62,7 @@
         
         {% votes_by_user user on questions as vote_dict %}
         {% scores_for_objects questions as score_dict %}
+        {# TODO: performance % count_answers_for questions as answers_dict % #}
         
         <table class="questions" cellspacing="0" cellpadding="4">
             {% for question in questions %}
@@ -76,6 +70,7 @@
                     <td class="vote">
                         {% dict_entry_for_item question from vote_dict as vote %}
                         {% dict_entry_for_item question from score_dict as score %}
+                        {# TODO % dict_entry_for_item question from answers_dict as answers % #}
                         {% if user.is_authenticated %}
                             <a id="up_{{ question.id }}" href="#" onclick="vote({{ question.id }}, '{% if vote and vote.is_upvote %}clear{%else%}up{%endif%}');"><img src="{{ MEDIA_URL }}up_{% if vote and vote.is_upvote %}mod{% else %}grey{% endif %}.png"/></a><br />
                         {% endif %}
@@ -95,8 +90,8 @@
                             <span class="more">{{ cc|default:"אין" }} 
                                 תגוב{{cc|pluralize:"ה,ות"}}
                                &nbsp;&nbsp;
-                            {{ ac|default:"אין" }}
-                       תשוב{{ ac|pluralize:"ה,ות"}}
+                            {{ question.answers.count|default:"אין" }}
+                       תשוב{{ question.answers.count|pluralize:"ה,ות"}}
                             &nbsp;&nbsp;
                             <a href="{% url report_question question.id %}">{% trans "Report this question" %}</a>
                         </span>

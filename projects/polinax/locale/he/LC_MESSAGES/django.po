@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django-hotclub-0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-01-25 00:30+0200\n"
+"POT-Creation-Date: 2009-01-25 19:47+0200\n"
 "PO-Revision-Date: 2008-06-17 22:27+0200\n"
 "Last-Translator: Gil Klein <gklein@gmail.com>\n"
 "Language-Team: Gil Klein <gklein@gmail.com>\n"
@@ -195,23 +195,23 @@ msgstr "הינך רשמום במועמד מטעם %(party)s"
 msgid "Registration failed. Could it be you are already registered?"
 msgstr "הרשמה נכשלה. ככל הנראה אתה כבר רשום כמועמד."
 
-#: apps/answers/models.py:17 apps/groups/models.py:49
+#: apps/answers/models.py:37 apps/groups/models.py:49
 #: apps/projects/models.py:52 apps/projects/models.py:85
 #: apps/questions/models.py:28 apps/tribes/models.py:29
 #: apps/tribes/models.py:60
 msgid "created"
 msgstr "נוצר"
 
-#: apps/answers/models.py:19 apps/groups/models.py:54
+#: apps/answers/models.py:41 apps/groups/models.py:54
 #: apps/questions/models.py:31
 msgid "public"
 msgstr ""
 
-#: apps/answers/models.py:20 apps/questions/models.py:32
+#: apps/answers/models.py:42 apps/questions/models.py:32
 msgid "flagged as inappropriate"
 msgstr "סומן בכעייתי"
 
-#: apps/answers/models.py:27 apps/questions/models.py:41
+#: apps/answers/models.py:50 apps/questions/models.py:41
 #, python-format
 msgid "by %(user)s: %(text)s%(more)s"
 msgstr "מאת %(user)s: %(text)s%(more)s"
@@ -1144,7 +1144,6 @@ msgstr "הדיווח נשלח. אחד מהעורכים שלנו יעבור על 
 #: apps/questions/templates/questions/add_q.html:5
 #: apps/questions/templates/questions/add_q.html:9
 #: apps/questions/templates/questions/base.html:32
-#: apps/questions/templates/questions/question.html:8
 msgid "Post a Question"
 msgstr "הפנה שאלה"
 
@@ -1225,10 +1224,30 @@ msgstr "עדיין לא הפנת שאלות"
 msgid "Click here to post a question"
 msgstr "לחץ כאן להפנות שאלה"
 
-#: apps/questions/templates/questions/question.html:23
-#: apps/questions/templates/questions/questions.html:93
+#: apps/questions/templates/questions/question.html:17
+#, fuzzy
+msgid "A Question"
+msgstr "שאלה"
+
+#: apps/questions/templates/questions/question.html:28
+#: apps/questions/templates/questions/question.html:53
+#: apps/questions/templates/questions/questions.html:95
 msgid "by:"
 msgstr "מאת:"
+
+#: apps/questions/templates/questions/question.html:32
+msgid "Answers"
+msgstr "תשובות"
+
+#: apps/questions/templates/questions/question.html:60
+#, fuzzy
+msgid "No Answers yet. "
+msgstr "אין מאמרים בוויקי עדיין"
+
+#: apps/questions/templates/questions/question.html:60
+#, fuzzy
+msgid "Click here to post your answer."
+msgstr "לחץ כאן להפנות שאלה"
 
 #: apps/questions/templates/questions/questions.html:13
 msgid "All Questions"
@@ -1266,11 +1285,11 @@ msgstr "נקודות"
 msgid "date"
 msgstr "תאריך"
 
-#: apps/questions/templates/questions/questions.html:101
+#: apps/questions/templates/questions/questions.html:103
 msgid "Report this question"
 msgstr "דווח"
 
-#: apps/questions/templates/questions/questions.html:112
+#: apps/questions/templates/questions/questions.html:114
 msgid "No questions yet."
 msgstr "אין עדיין שאלות."
 
@@ -1837,7 +1856,7 @@ msgstr "מיקום"
 
 #: templates/basic_profiles/profile.html:27 templates/profiles/profile.html:26
 msgid "Website"
-msgstr "אתר"
+msgstr "פיד"
 
 #: templates/basic_profiles/profile.html:33
 msgid "Followers"
@@ -2409,7 +2428,7 @@ msgid "Delete Post"
 msgstr "מחק מאמר"
 
 #: templates/threadedcomments/comments.html:25
-#: templates/threadedcomments/comments.html:37
+#: templates/threadedcomments/comments.html:36
 msgid "Post Response"
 msgstr "שלח תגובה"
 
@@ -2625,8 +2644,8 @@ msgstr ">צור עכשיו</a>?"
 #~ msgid "about"
 #~ msgstr "תיאור"
 
-#~ msgid "website"
-#~ msgstr "אתר"
+msgid "website"
+msgstr "פיד"
 
 #~ msgid "blog rss/atom"
 #~ msgstr "rss/atom בלוג "

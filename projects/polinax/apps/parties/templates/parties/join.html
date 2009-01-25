@@ -1,0 +1,15 @@
+{% extends "questions/base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Join a party" %}{% endblock %}
+
+
+{% block body %}
+    <h1>{% trans "Register as a party candidate" %}</h1>
+    <p>{% trans "This form if for party candidates only."</p>
+    <form method="POST" action="">
+        {{form.as_p}}
+        <input type="submit" value="{% trans 'Post' %}">
+    </form>
+{% endblock %}

@@ -14,7 +14,7 @@
             <div class="bulk">
                 <div class="body">{{ response.comment|urlize|linebreaks }}</div>
                 {% ifequal user response.user %}
-                <form method="POST" action="{% url tc_comment_delete response.id %}">
+                <form class="delete" method="POST" action="{% url tc_comment_delete response.id %}">
                     <input type="submit" value="{% trans "Delete Post" %}" />
                     <input type="hidden" name="next" value="{{ request.path }}" />
                 </form>
@@ -30,10 +30,9 @@
     {% endfor %}
 </ul>
 {% if user.is_authenticated %}
-    <a href="javascript:toggle_comment_form(0)">הגב</a>
-    <form class="hidden" action="{% get_comment_url object %}" method="POST" id="comment_form_0">
+    <form action="{% get_comment_url object %}" method="POST" id="comment_form_0">
         <table>
-            <tr><td><textarea id="id_comment" rows="5" cols="40" name="comment"></textarea></td></tr>
+            <tr><td><textarea id="id_comment" rows="4" cols="40" name="comment"></textarea></td></tr>
             <tr><td><input type="submit" value="{% trans "Post Response" %}" /></td></tr>
         </table>
         <input type="hidden" name="next" value="{{ request.path }}" />

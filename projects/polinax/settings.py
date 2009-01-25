@@ -73,6 +73,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django_openid.consumer.SessionConsumer',
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
     # 'account.middleware.LocaleMiddleware',
     'django.middleware.doc.XViewMiddleware',
     'misc.middleware.SortOrderMiddleware',
@@ -110,6 +111,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.humanize',
     'django.contrib.markup',
+    'django.contrib.flatpages',
     
     # external
     'notification', # must be first
