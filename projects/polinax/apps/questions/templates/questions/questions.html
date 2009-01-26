@@ -72,7 +72,7 @@
                         {% dict_entry_for_item question from score_dict as score %}
                         {# TODO % dict_entry_for_item question from answers_dict as answers % #}
                         {% if user.is_authenticated %}
-                            <a id="up_{{ question.id }}" href="#" onclick="vote({{ question.id }}, '{% if vote and vote.is_upvote %}clear{%else%}up{%endif%}');"><img src="{{ MEDIA_URL }}up_{% if vote and vote.is_upvote %}mod{% else %}grey{% endif %}.png"/></a><br />
+                            <a id="up_{{ question.id }}" href="#" onclick="vote_on_question({{ question.id }}, '{% if vote and vote.is_upvote %}clear{%else%}up{%endif%}');"><img src="{{ MEDIA_URL }}up_{% if vote and vote.is_upvote %}mod{% else %}grey{% endif %}.png"/></a><br />
                         {% endif %}
                         <span id="question_{{ question.id }}_score" class="score">
                             {{ score.score|default:0 }}
@@ -121,19 +121,6 @@
     
     <script>
 
-        function vote(question_id, direction) {
-            $.post(question_id + '/' + direction + 'vote/', function(data) {
-                var jsonResult = eval('(' + data + ')');
-                var new_score = jsonResult.score.score;
-                $('#question_' + question_id + '_score').text(new_score);
-            });
-            if (direction == 'up') {
-                $('#up_' + question_id).replaceWith('<a id="up_' + question_id + '" href="#" onclick="vote(' + question_id + ', \'clear\');"><img src="{{ MEDIA_URL }}up_mod.png"/>');
-            }
-            else { // clear
-                $('#up_' + question_id).replaceWith('<a id="up_' + question_id + '" href="#" onclick="vote(' + question_id + ', \'up\');"><img src="{{ MEDIA_URL }}up_grey.png"/>');
-            }
-            return false;
-        }
+    {% include "questions/vote_on_question.js" %}
     </script>
 {% endblock %}

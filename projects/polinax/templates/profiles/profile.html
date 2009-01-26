@@ -53,10 +53,25 @@
 {% if user_qs %}
     <h2>{% trans "Questions" %}:</h2>
     {% autopaginate user_qs %}
+    {% votes_by_user user on user_qs as q_vote_dict %}
+    {% scores_for_objects user_qs as q_score_dict %}
+
     <table class="questions" cellspacing="0" cellpadding="4">
-        <tr><th>{% trans "Category" %}<th>{% trans "Question" %}</tr>
+        <tr><th><th>{% trans "Category" %}<th>{% trans "Question" %}</tr>
         {% for question in user_qs %}
             <tr class="{% cycle odd,even %}">
+                <td class="vote">
+                    {% dict_entry_for_item question from q_vote_dict as vote %}
+                    {% dict_entry_for_item question from q_score_dict as score %}
+                    {# TODO % dict_entry_for_item question from answers_dict as answers % #}
+                    {% if user.is_authenticated %}
+                        <a id="up_{{ question.id }}" href="#" onclick="vote_on_question({{ question.id }}, '{% if vote and vote.is_upvote %}clear{%else%}up{%endif%}');"><img src="{{ MEDIA_URL }}up_{% if vote and vote.is_upvote %}mod{% else %}grey{% endif %}.png"/></a><br />
+                    {% endif %}
+                    <span id="question_{{ question.id }}_score" class="score">
+                        {{ score.score|default:0 }}
+                    </span><br />
+                </td>
+                
                 <td>
                     {{question.category_name}}
                 </td>
@@ -72,26 +87,25 @@
 {% endif %}
         {% if other_user.answers.public.count %}
             <h2>{% trans "Answers" %}:</h2>
-            {% votes_by_user user on other_user.answers.public as vote_dict %}
-            {% scores_for_objects other_user.answers.public as score_dict %}
+            {% votes_by_user user on other_user.answers.public as a_vote_dict %}
+            {% scores_for_objects other_user.answers.public as a_score_dict %}
             <table class="answers" cellspacing="0" cellpadding="4">
                 <tr><th><th>{% trans "Answer" %}<th>{% trans "For question" %}</tr>
 
                 {% for a in other_user.answers.public %}
                 <tr class="{% cycle odd,even %}">
                     <td class="vote">
-                        {% dict_entry_for_item a from vote_dict as vote %}
-                        {% dict_entry_for_item a from score_dict as score %}
-                        
+                        {% dict_entry_for_item a from a_vote_dict as vote %}
+                        {% dict_entry_for_item a from a_score_dict as score %}
                         
                         {% if user.is_authenticated %}
-                            <a id="up_{{ a.id }}" href="#" onclick="vote({{ a.id }}, '{% if vote and vote.is_downvote %}clear{% else %}up{% endif %}'); return false;"><img src="{{ MEDIA_URL }}up_{% if vote and vote.is_upvote %}mod{% else %}grey{% endif %}.png"/></a><br />
+                            <a id="up_{{ a.id }}" href="#" onclick="vote_on_answer({{ a.id }}, '{% if vote and vote.is_downvote %}clear{% else %}up{% endif %}'); return false;"><img src="{{ MEDIA_URL }}up_{% if vote and vote.is_upvote %}mod{% else %}grey{% endif %}.png"/></a><br />
                         {% endif %}
                         <span id="a_{{ a.id }}_score" class="score">
                             {{ score.score|default:0 }}
                         </span><br />
                         {% if user.is_authenticated %}
-                            <a id="down_{{ a.id }}" href="#" onclick="vote({{ a.id }}, '{% if vote and vote.is_upvote %}clear{% else %}down{% endif %}'); return false;"><img id="img_{{ a.id }}_down" src="{{ MEDIA_URL }}down_{% if vote and vote.is_downvote %}mod{% else %}grey{% endif %}.png"/></a>
+                            <a id="down_{{ a.id }}" href="#" onclick="vote_on_answer({{ a.id }}, '{% if vote and vote.is_upvote %}clear{% else %}down{% endif %}'); return false;"><img id="img_{{ a.id }}_down" src="{{ MEDIA_URL }}down_{% if vote and vote.is_downvote %}mod{% else %}grey{% endif %}.png"/></a>
                         {% endif %}
                         
                     </td>
@@ -124,26 +138,8 @@
                 $('#edit-profile ul.errorlist').autoscroll();
             }
         });
-        function vote(a_id, direction) {
-            $.post('/answers/' + a_id + '/' + direction + 'vote/', function(data) {
-                var jsonResult = eval('(' + data + ')');
-                var new_score = jsonResult.score.score;
-                $('#a_' + a_id + '_score').text(new_score);
-            });
-            if (direction == 'up') {
-                $('#up_' + a_id).replaceWith('<a id="up_' + a_id + '" href="#" onclick="return false;"><img src="{{ MEDIA_URL }}up_mod.png"/>');
-                $('#down_' + a_id).replaceWith('<a id="down_' + a_id + '" href="#" onclick="vote(' + a_id + ', \'clear\'); return false;"><img src="{{ MEDIA_URL }}down_grey.png"/>');
-            }
-            else if (direction == 'down') {
-                $('#up_' + a_id).replaceWith('<a id="up_' + a_id + '" href="#" onclick="vote(' + a_id + ', \'clear\'); return false;"><img src="{{ MEDIA_URL }}up_grey.png"/>');
-                $('#down_' + a_id).replaceWith('<a id="down_' + a_id + '" href="#" onclick="return false;"><img src="{{ MEDIA_URL }}down_mod.png"/>');
-            }
-            else { // clear
-                $('#up_' + a_id).replaceWith('<a id="up_' + a_id + '" href="#" onclick="vote(' + a_id + ', \'up\'); return false;"><img src="{{ MEDIA_URL }}up_grey.png"/>');
-                $('#down_' + a_id).replaceWith('<a id="down_' + a_id + '" href="#" onclick="vote(' + a_id + ', \'down\'); return false;"><img src="{{ MEDIA_URL }}down_grey.png"/>');
-            }
-            return false;
-        }
+    {% include "answers/vote_on_answer.js" %}
+    {% include "questions/vote_on_question.js" %}
     </script>
 {% endblock %}
 

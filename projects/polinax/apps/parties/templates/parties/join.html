@@ -7,9 +7,18 @@
 
 {% block body %}
     <h1>{% trans "Register as a party candidate" %}</h1>
-    <p>{% trans "This form if for party candidates only."</p>
+    <p>{% trans "This form if for party candidates only." %}</p>
     <form method="POST" action="">
         {{form.as_p}}
-        <input type="submit" value="{% trans 'Post' %}">
+        <input type="submit" value="{% trans 'post' %}">
     </form>
+    <p>
+        כתובת הפיד מאפשרת לרובוט שלנו לסרוק את הבלוג שלך ולשייך את תשובותייך לשאלות באתר. כתובות הפיד מסומנת בדרך כלל ב 
+        <img src="{{MEDIA_URL}}feed.png">.
+            <br/>
+            כדי לכתוב תשובות, עליך להעתיק את כתובת השאלה באתר צפים ולכלול אותה במקום כלשהוא בפוסט התשובה. לדוגמא, הכתובת של שאלה 1 באתר צפים היא :
+            <p dir="ltr" style="float:right;margin-top:0;">
+            http://www.tzafim.org/questions/1/
+            </p>
+    </p>
 {% endblock %}

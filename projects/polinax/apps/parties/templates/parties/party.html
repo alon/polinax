@@ -3,6 +3,7 @@
 {% load comments_tag %}
 {% load groups_tags %}
 {% load avatar_tags %}
+{% load voting_tags %}
 {% load i18n %}
 
 {% block head_title %}{% trans "Party" %} {{party.name}}{% endblock %}
@@ -12,9 +13,51 @@
     <h1> {% trans "Party" %} {{party.name}}</h1>
     <p> {{party.description|linebreaks}}</p>
     <h2> {% trans "Candidates" %} </h2>
-    {% if party.candidates %}
+    {% if party.candidates_count %}
         {% show_group_members party "candidate" %}
     {% else %}
         {% trans "No candidatess yet." %}
     {% endif %}
+    {% if answers %}
+    <h2>{% trans "Answers" %}:</h2>
+    {% votes_by_user user on answers as a_vote_dict %}
+    {% scores_for_objects answers as a_score_dict %}
+    <table class="answers" cellspacing="0" cellpadding="4">
+        <tr><th><th>{% trans "Answer" %}<th>{% trans "For question" %}</tr>
+
+        {% for a in answers %}
+        <tr class="{% cycle odd,even %}">
+            <td class="vote">
+                {% dict_entry_for_item a from a_vote_dict as vote %}
+                {% dict_entry_for_item a from a_score_dict as score %}
+                
+                {% if user.is_authenticated %}
+                    <a id="up_{{ a.id }}" href="#" onclick="vote_on_answer({{ a.id }}, '{% if vote and vote.is_downvote %}clear{% else %}up{% endif %}'); return false;"><img src="{{ MEDIA_URL }}up_{% if vote and vote.is_upvote %}mod{% else %}grey{% endif %}.png"/></a><br />
+                {% endif %}
+                <span id="a_{{ a.id }}_score" class="score">
+                    {{ score.score|default:0 }}
+                </span><br />
+                {% if user.is_authenticated %}
+                    <a id="down_{{ a.id }}" href="#" onclick="vote_on_answer({{ a.id }}, '{% if vote and vote.is_upvote %}clear{% else %}down{% endif %}'); return false;"><img id="img_{{ a.id }}_down" src="{{ MEDIA_URL }}down_{% if vote and vote.is_downvote %}mod{% else %}grey{% endif %}.png"/></a>
+                {% endif %}
+                
+            </td>
+            <td><p>
+                <a href="{{a.url}}">{{a.summary|default:"אופס, תשובה ללא כותרת"}}</a>
+            </p></td>
+            <td>
+                <p>
+                    <a href="{{a.q.get_absolute_url}}"> {{a.q}}</a>
+                </p>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endif %}
+
+{% endblock %}
+{% block extra_body %}
+    <script>
+    {% include "answers/vote_on_answer.js" %}
+    </script>
 {% endblock %}

@@ -2,7 +2,8 @@ from django.db import models
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
-from django.utils.translation import ugettext, ugettext_lazy as _
+from django.utils.translation import ugettext
+from django.utils.translation import ugettext_lazy as _
 
 from timezones.fields import TimeZoneField
 
@@ -20,7 +21,7 @@ class Profile(models.Model):
         except AttributeError:            
             self._diaply_name = self.name and self.name or self.user.username
             if self.location:
-                self._diaply_name += ' '.join((ugettext('from'), self.location))
+                self._diaply_name = ' '.join((self._diaply_name, ugettext(u'from') + self.location))
             return self._diaply_name
 
     def get_absolute_url(self):

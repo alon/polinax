@@ -43,3 +43,9 @@ def do_get_user_party(parser, token):
     return GetUserPartyNode(bits[2], bits[4])
 
 register.tag('get_user_party', do_get_user_party)
+
+def show_party_of(user):
+    g = Membership.objects.get(user=user).group
+    return '<a href="%s">%s</a>' % (g.party.get_absolute_url(), Membership.objects.get(user=user).group.name)
+
+register.simple_tag(show_party_of)

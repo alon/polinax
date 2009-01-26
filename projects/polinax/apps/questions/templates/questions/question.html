@@ -3,6 +3,7 @@
 {% load comments_tag %}
 {% load voting_tags %}
 {% load avatar_tags %}
+{% load parties_tags %}
 {% load i18n %}
 
 {% block extra_style %}
@@ -38,13 +39,13 @@
                         
                         
                         {% if user.is_authenticated %}
-                            <a id="up_{{ a.id }}" href="#" onclick="vote({{ a.id }}, '{% if vote and vote.is_downvote %}clear{% else %}up{% endif %}'); return false;"><img src="{{ MEDIA_URL }}up_{% if vote and vote.is_upvote %}mod{% else %}grey{% endif %}.png"/></a><br />
+                            <a id="up_{{ a.id }}" href="#" onclick="vote_on_answer({{ a.id }}, '{% if vote and vote.is_downvote %}clear{% else %}up{% endif %}'); return false;"><img src="{{ MEDIA_URL }}up_{% if vote and vote.is_upvote %}mod{% else %}grey{% endif %}.png"/></a><br />
                         {% endif %}
                         <span id="a_{{ a.id }}_score" class="score">
                             {{ score.score|default:0 }}
                         </span><br />
                         {% if user.is_authenticated %}
-                            <a id="down_{{ a.id }}" href="#" onclick="vote({{ a.id }}, '{% if vote and vote.is_upvote %}clear{% else %}down{% endif %}'); return false;"><img id="img_{{ a.id }}_down" src="{{ MEDIA_URL }}down_{% if vote and vote.is_downvote %}mod{% else %}grey{% endif %}.png"/></a>
+                            <a id="down_{{ a.id }}" href="#" onclick="vote_on_answer({{ a.id }}, '{% if vote and vote.is_upvote %}clear{% else %}down{% endif %}'); return false;"><img id="img_{{ a.id }}_down" src="{{ MEDIA_URL }}down_{% if vote and vote.is_downvote %}mod{% else %}grey{% endif %}.png"/></a>
                         {% endif %}
                         
                     </td>
@@ -53,14 +54,14 @@
                     </td>
                     <td><p>
                         <a href="{{a.url}}">{{a.summary|default:"אופס, תשובה ללא כותרת"}}</a>
-                        <span class="author">{% trans "by:" %}&nbsp;<a href="{% url profiles.views.profile a.adder.username %}">{{ a.adder.profile_set.all.0 }}</a></span>
+                        <span class="author">{% trans "by:" %}&nbsp;<a href="{% url profiles.views.profile a.adder.username %}">{{ a.adder.profile_set.all.0 }} </a>,{% show_party_of a.adder %}</span>
                     </p></td>
                 </tr>
                 {% endfor %}
             </table>
         {% else %}
             <p>
-            {% trans "No Answers yet. "%} <a href="/how_to_answer/">{% trans "Click here to post your answer."%}</a>
+            {% trans "No Answers yet. "%}
             </p>
         {% endif %}
         <h2>{% trans "Discuss" %}:</h2>
@@ -73,29 +74,8 @@
             $("#cat_menu_"+c).addClass("selected");
 {% endblock %}
 {% block extra_script %}
-    <script src="{{ MEDIA_URL }}js/jquery.getUrlParam.js" type="text/javascript"></script>
     
     <script>
-
-        function vote(a_id, direction) {
-            $.post('/answers/' + a_id + '/' + direction + 'vote/', function(data) {
-                var jsonResult = eval('(' + data + ')');
-                var new_score = jsonResult.score.score;
-                $('#a_' + a_id + '_score').text(new_score);
-            });
-            if (direction == 'up') {
-                $('#up_' + a_id).replaceWith('<a id="up_' + a_id + '" href="#" onclick="return false;"><img src="{{ MEDIA_URL }}up_mod.png"/>');
-                $('#down_' + a_id).replaceWith('<a id="down_' + a_id + '" href="#" onclick="vote(' + a_id + ', \'clear\'); return false;"><img src="{{ MEDIA_URL }}down_grey.png"/>');
-            }
-            else if (direction == 'down') {
-                $('#up_' + a_id).replaceWith('<a id="up_' + a_id + '" href="#" onclick="vote(' + a_id + ', \'clear\'); return false;"><img src="{{ MEDIA_URL }}up_grey.png"/>');
-                $('#down_' + a_id).replaceWith('<a id="down_' + a_id + '" href="#" onclick="return false;"><img src="{{ MEDIA_URL }}down_mod.png"/>');
-            }
-            else { // clear
-                $('#up_' + a_id).replaceWith('<a id="up_' + a_id + '" href="#" onclick="vote(' + a_id + ', \'up\'); return false;"><img src="{{ MEDIA_URL }}up_grey.png"/>');
-                $('#down_' + a_id).replaceWith('<a id="down_' + a_id + '" href="#" onclick="vote(' + a_id + ', \'down\'); return false;"><img src="{{ MEDIA_URL }}down_grey.png"/>');
-            }
-            return false;
-        }
+    {% include "answers/vote_on_answer.js" %}
     </script>
 {% endblock %}
