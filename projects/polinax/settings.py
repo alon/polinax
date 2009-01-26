@@ -152,6 +152,7 @@ ABSOLUTE_URL_OVERRIDES = {
 AUTH_PROFILE_MODULE = 'profiles.Profile'
 NOTIFICATION_LANGUAGE_MODULE = 'account.Account'
 
+DEFAULT_FROM_EMAIL = 'dontreply@tzafim.org'
 EMAIL_CONFIRMATION_DAYS = 2
 EMAIL_DEBUG = DEBUG
 CONTACT_EMAIL = "polinax@googlegroups.com"

@@ -76,3 +76,14 @@ ul#messages li a {
 .pagination .disabled {
     color: white;
 }
+#site_wide_announcements {
+    background: #efd;
+border: 1px dashed;
+    padding: 10px;
+    text-align: center;
+}
+#site_wide_announcements ul {
+    padding: 0;
+    margin: 0;
+}
+
