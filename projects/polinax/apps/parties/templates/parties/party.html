@@ -13,11 +13,7 @@
     <h1> {% trans "Party" %} {{party.name}}</h1>
     <p> {{party.description|linebreaks}}</p>
     <h2> {% trans "Candidates" %} </h2>
-    {% if party.candidates_count %}
-        {% show_group_members party "candidate" %}
-    {% else %}
-        {% trans "No candidatess yet." %}
-    {% endif %}
+    {% show_group_members party "candidate" %}
     {% if answers %}
     <h2>{% trans "Answers" %}:</h2>
     {% votes_by_user user on answers as a_vote_dict %}
@@ -53,11 +49,19 @@
         </tr>
         {% endfor %}
     </table>
+    <h2>{% trans "Discuss" %}:</h2>
+
+    {% comments question %}
+
 {% endif %}
 
 {% endblock %}
 {% block extra_body %}
     <script>
+    $(document).ready(function(){
+            $("#cat_menu_"+{{party.id}}).addClass("selected");
+            }
+
     {% include "answers/vote_on_answer.js" %}
     </script>
 {% endblock %}

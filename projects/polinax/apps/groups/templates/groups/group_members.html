@@ -1,5 +1,6 @@
 {% load i18n %}
 {% load avatar_tags %}
+{% if members %}
 <div class="members">
     <table>
         {% for member in members %}
@@ -15,4 +16,6 @@
         {% if members.all|length|divisibleby:"3" %}{% else %}</tr>{% endif %}
     </table>
 </div>
-
+{% else %}
+    {% trans "No members yet." %}
+{% endif %}

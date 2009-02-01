@@ -24,7 +24,9 @@ def parties(request):
 
 def party(request, id):
     party = get_object_or_404(Party, id=id)
+    parties=Party.objects.filter(public=True)
     return render_to_response("parties/party.html", {
+        "parties": parties,
         "party": party,
         "answers": Answer.objects.filter(adder__id__in=party.candidates(),public=True),
     }, context_instance=RequestContext(request))

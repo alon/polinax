@@ -19,6 +19,6 @@ class ReportQuestionForm(forms.Form):
     
     def notify(self, from_user, q):
         editors = Permission.objects.get(codename='change_question').user_set.all() | User.objects.filter(is_superuser=True)
-        notification.send(editors, 'question_reported', {"from":from_user, "q":q, "description": self.cleaned_data['description']})
+        notification.send_now(editors, 'question_reported', {"from":from_user, "q":q, "description": self.cleaned_data['description']})
 
 

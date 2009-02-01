@@ -3,7 +3,8 @@
 {% load i18n %}
 {% load pagination_tags %}
 {% load threadedcommentstags %}
-
+{% load parties_tags %}
+{% load voting_tags %}
 {% block head_title %}{% blocktrans %}All Parties{% endblocktrans %}{% endblock %}
 
 {% block extra_head %}
@@ -34,17 +35,19 @@
 {% block body %}
     {% if parties %}
         {% autopaginate parties %}
-        
+        {% get_candidate_count for parties as candidate_count %}
         <table class="parties" cellspacing="0" cellpadding="4">
             {% for party in parties %}
+                {% dict_entry_for_item party from candidate_count as count %}
+
                 <tr class="{% cycle odd,even %}">
                     <td class="name">
                         <a href="{{party.get_absolute_url}}"> {{party.name}}</a>
                     <td>
                         <p class="description">
                             {{ party.description|linebreaks}}
-                            <span class="more">{{ party.candidates_count|default:"אין" }} 
-מועמד{{party.candidates_count|pluralize:"ים"}}
+                            <span class="more">{{ count|default:"אין" }} 
+מועמד{{count|pluralize:"ים"}}
                                &nbsp;&nbsp;
                             {{ party.answers_count|default:"אין" }}
 תשוב{{party.answers_count|pluralize:"ה,ות"}}
