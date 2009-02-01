@@ -7,10 +7,11 @@ from groups.models import Role
 from groups import models as groups
 
 def create_common_roles(app, created_models, verbosity, **kwargs):
-    # TODO: add default_permission
+    # create default roles
     r = Role.objects.create(title='creator')
     for p in Permission.objects.all():
         r.default_permissions.add(p)
+    Role.objects.create(title='editor')
     Role.objects.create(title='follower')
     Role.objects.create(title='member')
 signals.post_syncdb.connect(create_common_roles, sender=groups)

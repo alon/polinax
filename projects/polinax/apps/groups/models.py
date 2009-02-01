@@ -57,7 +57,6 @@ class Group(models.Model):
     def has_member(self, user):
         
         if user.is_authenticated():
-            #if ProjectMember.objects.filter(project=self, user=user).count() > 0: # @@@ is there a better way?
             if Membership.objects.filter(group=self, user=user):
                 return True
         return False
@@ -87,8 +86,12 @@ class Group(models.Model):
         return Membership.objects.filter(group=self)
         
     def add_member(self, member, role, by=False):
+        ''' adds a member to the group. Returns True unless member is already in the group
+        '''
         if not self.id: 
             self.save()
+        if self.has_member(member):
+            return False
         m = Membership.objects.create(group = self, 
             user = member,
             role= role)
@@ -101,6 +104,7 @@ class Group(models.Model):
             action_flag = admin_models.ADDITION, 
             change_message = _("%(by)s added %(user)s as %(role)s") % dict(by=by or member, user=member, role=unicode(role)),
             )
+        return True
     
     def get_content (self, distinction):
         # return AssociatedContent.objects.filter(group=self, distinction=distinction).values('content_object')
@@ -137,7 +141,7 @@ class Role(models.Model):
     This models holds system wide roles as well as type-specific roles. Basic roles are created in post_syncdb
     '''
     group = models.ForeignKey(Group, null=True, blank=True, related_name='roles')          # use null for global roles - e.g. maker, guest
-    title = models.CharField(_('relation'), max_length=30)
+    title = models.CharField(_('Title'), max_length=30)
     default_permissions = models.ManyToManyField(Permission, verbose_name=_('permissions'), blank=True)
 
     def __unicode__(self):

@@ -2,14 +2,11 @@
 
 {% load i18n %}
 
-{% block rtab_id %}id="account_tab"{% endblock %}
-
 {% block subnav %}
     {% if user.is_authenticated %}
         <div class="box">
         <h1>{% trans "Personal Info" %}</h1>
         <ul>
-            <li><a href="{% url profile_detail user %}">{% trans "Profile" %}</a></li>
             <li><a href="{% url acct_email %}">{% trans "E-Mail Addresses" %}</a></li>
             <li><a href="/openid/associations/">{% trans "OpenID Associations" %}</a></li>
             {% if user.password %}

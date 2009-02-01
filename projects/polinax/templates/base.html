@@ -38,25 +38,26 @@
                 </ul>
             </div>
         {% endif %}
-        <div class="grid_9">
-            <h1><a href="{% url home %}">{% trans "Questions for..." %}</a></h1>
-        </div>
         <div id="login">
             {% block login %}{% endblock %}{% block locale_switcher %}{% endblock %}
         </div>
+        <div class="grid_9">
+            <h1><a href="{% url home %}">{% trans "Questions for..." %}</a></h1>
+        </div>
+        <div class="grid_12" style="position:relative;">
+            <div class="tabs" {% block rtab_id %}{% endblock %}>
+                {% block right_tab %}
+                {% endblock %}
+            </div>
+        </div>
         <div id="body" class="grid_12">
+            {% block nonav_body %}
             <div id="subnav" class="alpha grid_3">{% block subnav %}&nbsp;{% endblock %}</div>
             <div class="grid_9 omega">
-                {% if messages %}
-                    <ul id="messages">
-                        {% for message in messages %}
-                        <li id="message_{{ forloop.counter }}"><a href="#" onclick="$('#message_{{ forloop.counter }}').fadeOut(); return false;"><small>{% trans "clear" %}</small></a> {{ message }}</li>
-                        {% endfor %}
-                    </ul>
-                {% endif %}
-            
+                {% include "messages/messages.html" %}            
                 {% block body %}
                 {% endblock %}
+            {% endblock %}
             </div>
         </div>
     </div>

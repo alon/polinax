@@ -1,0 +1,81 @@
+{% extends "questions/base.html" %}
+
+{% load comments_tag %}
+{% load voting_tags %}
+{% load avatar_tags %}
+{% load parties_tags %}
+{% load i18n %}
+
+{% block extra_style %}
+        #meta {
+            margin-top:19px;
+        }
+{% endblock %}
+
+{% block head_title %}{% trans "A Question" %}{% endblock %}
+
+
+{% block body %}
+        {% vote_by_user user on question as vote %}
+       {% score_for_object question  as score %}
+        <div id="meta" class="grid_1 alpha">
+            <div class="avatar"><a href="{% url profiles.views.profile question.adder.username %}">{% avatar question.adder 40 %}</a></div>
+        </div>
+        <div class="grid_8 omega">
+        <h2>{{ question.text }}</h2>
+        <span class="author">{%trans "by:" %}&nbsp;<a href="{% url profiles.views.profile question.adder.username %}">{{ question.adder.profile_set.all.0 }}</a></span>
+        </div>
+        <div class="alpha prefix_1 grid_7 suffix_1 omega">
+        {% if question.answers.count %}
+            <h2>{% trans "Answers" %}:</h2>
+            {% votes_by_user user on question.answers.public as vote_dict %}
+            {% scores_for_objects question.answers.public as score_dict %}
+            <table class="answers" cellspacing="0" cellpadding="4">
+                {% for a in question.answers.public %}
+                <tr class="{% cycle odd,even %}">
+                    <td class="vote">
+                        {% dict_entry_for_item a from vote_dict as vote %}
+                        {% dict_entry_for_item a from score_dict as score %}
+                        
+                        
+                        {% if user.is_authenticated %}
+                            <a id="up_{{ a.id }}" href="#" onclick="vote_on_answer({{ a.id }}, '{% if vote and vote.is_downvote %}clear{% else %}up{% endif %}'); return false;"><img src="{{ MEDIA_URL }}up_{% if vote and vote.is_upvote %}mod{% else %}grey{% endif %}.png"/></a><br />
+                        {% endif %}
+                        <span id="a_{{ a.id }}_score" class="score">
+                            {{ score.score|default:0 }}
+                        </span><br />
+                        {% if user.is_authenticated %}
+                            <a id="down_{{ a.id }}" href="#" onclick="vote_on_answer({{ a.id }}, '{% if vote and vote.is_upvote %}clear{% else %}down{% endif %}'); return false;"><img id="img_{{ a.id }}_down" src="{{ MEDIA_URL }}down_{% if vote and vote.is_downvote %}mod{% else %}grey{% endif %}.png"/></a>
+                        {% endif %}
+                        
+                    </td>
+                    <td>
+                        <div class="avatar"><a href="{% url profiles.views.profile a.adder.username %}">{% avatar a.adder 40 %}</a></div>
+                    </td>
+                    <td><p>
+                        <a href="{{a.url}}">{{a.summary|default:"אופס, תשובה ללא כותרת"}}</a>
+                        <span class="author">{% trans "by:" %}&nbsp;<a href="{% url profiles.views.profile a.adder.username %}">{{ a.adder.profile_set.all.0 }} </a>,{% show_party_of a.adder %}</span>
+                    </p></td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p>
+            {% trans "No Answers yet. "%}
+            </p>
+        {% endif %}
+        <h2>{% trans "Discuss" %}:</h2>
+
+        {% comments question %}
+    </div>
+{% endblock %}
+{% block extra_js_init %}
+            var c={{question.category}};
+            $("#cat_menu_"+c).addClass("selected");
+{% endblock %}
+{% block extra_script %}
+    
+    <script>
+    {% include "answers/vote_on_answer.js" %}
+    </script>
+{% endblock %}

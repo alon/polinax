@@ -1,4 +1,3 @@
-#encoding: utf-8
 import re
 
 from django import forms
@@ -312,3 +311,4 @@ class PownceForm(UserForm):
             pownce_password = get_pownce_password(settings.SECRET_KEY, self.cleaned_data['passwordp']),
         )
         self.user.message_set.create(message=ugettext(u"Successfully authenticated."))
+        

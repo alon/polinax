@@ -52,3 +52,7 @@ class Question(models.Model):
 
     def category_name(self):
         return unicode(CATEGORY_CHOICES[int(self.category)-1][1])
+        
+    def get_absolute_url(self):
+        return ("view_question", [self.id])
+    get_absolute_url = models.permalink(get_absolute_url)

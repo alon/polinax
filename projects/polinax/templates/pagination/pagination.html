@@ -1,0 +1,27 @@
+{% if is_paginated %}
+{% load i18n %}
+
+<div class="pagination">
+    {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}{{ getvars }}" class="prev">{% if LANGUAGE_BIDI %}&rsaquo;&rsaquo;{% else %}&lsaquo;&lsaquo;{%endif%}  {% trans "previous" %}</a>
+    {% else %}
+        <span class="disabled prev">{% if LANGUAGE_BIDI %}&rsaquo;&rsaquo;{% else %}&lsaquo;&lsaquo;{%endif%} {% trans "previous" %}</span>
+    {% endif %}
+    {% for page in pages %}
+        {% if page %}
+            {% ifequal page page_obj.number %}
+                <span class="current page">{{ page }}</span>
+            {% else %}
+                <a href="?page={{ page }}{{ getvars }}" class="page">{{ page }}</a>
+            {% endifequal %}
+        {% else %}
+            ...
+        {% endif %}
+    {% endfor %}
+    {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}{{ getvars }}" class="next">{% trans "next" %} {% if LANGUAGE_BIDI %}&lsaquo;&lsaquo;{% else %}&rsaquo;&rsaquo;{%endif%} </a>
+    {% else %}
+        <span class="disabled next">{% trans "next" %}{% if LANGUAGE_BIDI %}&lsaquo;&lsaquo;{% else %}&rsaquo;&rsaquo;{%endif%}</span>
+    {% endif %}
+</div>
+{% endif %}

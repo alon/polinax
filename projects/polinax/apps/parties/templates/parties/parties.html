@@ -1,0 +1,65 @@
+{% extends "parties/base.html" %}
+
+{% load i18n %}
+{% load pagination_tags %}
+{% load threadedcommentstags %}
+
+{% block head_title %}{% blocktrans %}All Parties{% endblocktrans %}{% endblock %}
+
+{% block extra_head %}
+    <link rel="alternate" type="application/atom+xml" title="Questions Feed" href="/feeds/questions/" />
+    <style type="text/css" media="screen">
+        .q {
+            padding-right:0.2em;
+            font-size:130%;
+            margin: 0.1em 0;
+        }
+        .author {
+            font-style: italic;
+            font-size:80%;
+            color: #001537;
+
+        }
+        .q a {text-decoration: none;}
+        .q a:hover { text-decoration:underline;}
+        .more {
+            font-weight: bold;
+            font-size:70%;
+        }
+
+    </style>
+
+{% endblock %}
+
+{% block body %}
+    {% if parties %}
+        {% autopaginate parties %}
+        
+        <table class="parties" cellspacing="0" cellpadding="4">
+            {% for party in parties %}
+                <tr class="{% cycle odd,even %}">
+                    <td class="name">
+                        <a href="{{party.get_absolute_url}}"> {{party.name}}</a>
+                    <td>
+                        <p class="description">
+                            {{ party.description|linebreaks}}
+                            <span class="more">{{ party.candidates_count|default:"אין" }} 
+מועמד{{party.candidates_count|pluralize:"ים"}}
+                               &nbsp;&nbsp;
+                            {{ party.answers_count|default:"אין" }}
+תשוב{{party.answers_count|pluralize:"ה,ות"}}
+                            &nbsp;&nbsp;
+                            </span>
+                        </p>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+        
+        {% paginate %}
+        
+    {% else %}
+        <p>{% trans "No parties yet." %}</p>
+    {% endif %}
+    
+{% endblock %}

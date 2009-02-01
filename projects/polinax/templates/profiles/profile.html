@@ -2,9 +2,11 @@
 
 {% load i18n %}
 {% load avatar_tags %}
+{% load voting_tags %}
 {% load app_plugins %}
 {% load pagination_tags %}
 {% load questions_tags %}
+{% load parties_tags %}
 
 {% block head_title %}{% blocktrans %}Profile for {{ other_user }}{% endblocktrans %}{% endblock %}
 
@@ -21,6 +23,10 @@
     
         <div class="profile_info">
             {% if other_user.get_profile.name %}<p><b>{% trans "Name" %}</b>: {{ other_user.get_profile.name }}</p>{% endif %}
+            {% get_user_party for other_user as party %}
+            {% if party %}
+                <p><b>{% trans "Candidate in party" %}</b>: {{party}}</p>
+            {% endif %}
             {% if other_user.get_profile.about %}<p><b>{% trans "About" %}</b>: {{ other_user.get_profile.about }}</p>{% endif %}
             {% if other_user.get_profile.location%}<p><b>{% trans "Location" %}</b>: {{ other_user.get_profile.location }}</p>{% endif %}
             {% if other_user.get_profile.website %}<p><b>{% trans "Website" %}</b>: <a href="{{ other_user.get_profile.website }}">{{ other_user.get_profile.website }}</a></p>{% endif %}
@@ -45,22 +51,77 @@
         {# % plugin_point "profiles.profile" user=other_user owner=other_user viewer=user % #}
 {% questions_for_user other_user as user_qs %}
 {% if user_qs %}
+    <h2>{% trans "Questions" %}:</h2>
     {% autopaginate user_qs %}
-    <table class="questions">
-        <tr><th>{% trans "Category" %}<th>{% trans "Question" %}</tr>
+    {% votes_by_user user on user_qs as q_vote_dict %}
+    {% scores_for_objects user_qs as q_score_dict %}
+
+    <table class="questions" cellspacing="0" cellpadding="4">
+        <tr><th><th>{% trans "Category" %}<th>{% trans "Question" %}</tr>
         {% for question in user_qs %}
             <tr class="{% cycle odd,even %}">
+                <td class="vote">
+                    {% dict_entry_for_item question from q_vote_dict as vote %}
+                    {% dict_entry_for_item question from q_score_dict as score %}
+                    {# TODO % dict_entry_for_item question from answers_dict as answers % #}
+                    {% if user.is_authenticated %}
+                        <a id="up_{{ question.id }}" href="#" onclick="vote_on_question({{ question.id }}, '{% if vote and vote.is_upvote %}clear{%else%}up{%endif%}');"><img src="{{ MEDIA_URL }}up_{% if vote and vote.is_upvote %}mod{% else %}grey{% endif %}.png"/></a><br />
+                    {% endif %}
+                    <span id="question_{{ question.id }}_score" class="score">
+                        {{ score.score|default:0 }}
+                    </span><br />
+                </td>
+                
                 <td>
                     {{question.category_name}}
                 </td>
                 <td class="questions">
-                    <h3>{{question.text}}</h3>
+                    <p class="q">
+                        <a href="{{question.get_absolute_url}}">{{question.text}}</a>
+                    </p>
                 </td>
             </tr>
         {% endfor %}
     </table>
     {% paginate %}
 {% endif %}
+        {% if other_user.answers.public.count %}
+            <h2>{% trans "Answers" %}:</h2>
+            {% votes_by_user user on other_user.answers.public as a_vote_dict %}
+            {% scores_for_objects other_user.answers.public as a_score_dict %}
+            <table class="answers" cellspacing="0" cellpadding="4">
+                <tr><th><th>{% trans "Answer" %}<th>{% trans "For question" %}</tr>
+
+                {% for a in other_user.answers.public %}
+                <tr class="{% cycle odd,even %}">
+                    <td class="vote">
+                        {% dict_entry_for_item a from a_vote_dict as vote %}
+                        {% dict_entry_for_item a from a_score_dict as score %}
+                        
+                        {% if user.is_authenticated %}
+                            <a id="up_{{ a.id }}" href="#" onclick="vote_on_answer({{ a.id }}, '{% if vote and vote.is_downvote %}clear{% else %}up{% endif %}'); return false;"><img src="{{ MEDIA_URL }}up_{% if vote and vote.is_upvote %}mod{% else %}grey{% endif %}.png"/></a><br />
+                        {% endif %}
+                        <span id="a_{{ a.id }}_score" class="score">
+                            {{ score.score|default:0 }}
+                        </span><br />
+                        {% if user.is_authenticated %}
+                            <a id="down_{{ a.id }}" href="#" onclick="vote_on_answer({{ a.id }}, '{% if vote and vote.is_upvote %}clear{% else %}down{% endif %}'); return false;"><img id="img_{{ a.id }}_down" src="{{ MEDIA_URL }}down_{% if vote and vote.is_downvote %}mod{% else %}grey{% endif %}.png"/></a>
+                        {% endif %}
+                        
+                    </td>
+                    <td><p>
+                        <a href="{{a.url}}">{{a.summary|default:"אופס, תשובה ללא כותרת"}}</a>
+                    </p></td>
+                    <td>
+                        <p>
+                            <a href="{{a.q.get_absolute_url}}"> {{a.q}}</a>
+                        </p>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% endif %}
+
 {% endblock %}
 
 {% block extra_body %}
@@ -77,6 +138,8 @@
                 $('#edit-profile ul.errorlist').autoscroll();
             }
         });
+    {% include "answers/vote_on_answer.js" %}
+    {% include "questions/vote_on_question.js" %}
     </script>
 {% endblock %}
 

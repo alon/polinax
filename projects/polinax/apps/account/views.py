@@ -5,7 +5,7 @@ from django.http import HttpResponseRedirect, HttpResponseForbidden
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_login
 from django.template import RequestContext
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext, ugettext_lazy as _
 from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
 
@@ -222,3 +222,4 @@ def other_services(request, template_name="account/other_services.html"):
         "pownce_authorized":pownce_authorized,
     }, context_instance=RequestContext(request))
 other_services = login_required(other_services)
+

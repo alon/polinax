@@ -15,6 +15,8 @@ SERVE_MEDIA = DEBUG
 ADMINS = (
     ('Benny Daon', 'bennydaon@gmail.com'),
 )
+DEFAULT_FROM_EMAIL = 'dontreply@tzafim.org'
+
 
 MANAGERS = ADMINS
 
@@ -30,7 +32,7 @@ DATABASE_PORT = ''             # Set to empty string for default. Not used with 
 # although not all variations may be possible on all operating systems.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = 'Israel'
+TIME_ZONE = 'Asia/Tel_Aviv'
 
 # Language code for this installation. All choices can be found here:
 # http://www.w3.org/TR/REC-html40/struct/dirlang.html#langcodes
@@ -71,6 +73,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django_openid.consumer.SessionConsumer',
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
     # 'account.middleware.LocaleMiddleware',
     'django.middleware.doc.XViewMiddleware',
     'misc.middleware.SortOrderMiddleware',
@@ -108,6 +111,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.humanize',
     'django.contrib.markup',
+    'django.contrib.flatpages',
     
     # external
     'notification', # must be first
@@ -134,8 +138,9 @@ INSTALLED_APPS = (
     
     'about',
     'groups',
-    'laws',
+    'parties',
     'questions',
+    'answers',
     
     'tagging',
     'tag_app',
@@ -155,7 +160,7 @@ NOTIFICATION_LANGUAGE_MODULE = 'account.Account'
 DEFAULT_FROM_EMAIL = 'dontreply@tzafim.org'
 EMAIL_CONFIRMATION_DAYS = 2
 EMAIL_DEBUG = DEBUG
-CONTACT_EMAIL = "polinax@googlegroups.com"
+CONTACT_EMAIL = "tzafim@gmail.com"
 SITE_NAME = "tzafim"
 LOGIN_URL = "/account/login"
 LOGIN_REDIRECT_URLNAME = "what_next"

@@ -1,6 +1,12 @@
 {% extends "site_base.html" %}
 {% load i18n %}
+{% load parties_tags %}
+    {% block rtab_id %}id="questions_tab"{% endblock %}
+
     {% block extra_style %}
+    .questions tr {
+        margin-bottom: 0.2em;
+    }
     {% endblock %}
 
 {% block subnav %}
@@ -25,6 +31,11 @@
         <ul>
             <li id="menu_my_qs"><a href="{% url my_questions %}">{% trans "My Questions" %}</a></li>
             <li id="menu_add_q"><a href="{% url add_question %}">{% trans "Post a Question" %}</a></li>
+            {% get_user_party for user as party %}
+            {% if party %}
+            {% else %}
+            <li id="menu_add_q"><a href="{% url join_party %}">{% trans "Candidates Registration" %}</a></li>
+            {% endif %}
         </ul>
     {% else %}
             {% url acct_signup as signup_url %}

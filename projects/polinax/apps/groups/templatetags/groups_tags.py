@@ -5,8 +5,14 @@ from django import forms
 
 register = template.Library()
 
-def show_group_members(group):
-    return {"members": groups.Membership.objects.filter(group=group)}
+def show_group_members(group, title=None):
+    members = groups.Membership.objects.filter(group=group)
+    print members[0].role.title
+    print title
+    if title: members = members.filter(role__title__exact=title) 
+    print members.count()
+
+    return {"members": members}
 register.inclusion_tag("groups/group_members.html")(show_group_members)
 
 def show_member_actions(group, user):

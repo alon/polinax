@@ -1,0 +1,16 @@
+{% extends "questions/base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Report a Question" %}{% endblock %}
+
+
+{% block body %}
+    <h1>{% trans "What is the problem with the question?" %}</h1>
+נא לדווח על שאלות המכילות שפה גסה, שאלות שמביעות עמדה פוליטית וסתם שאלות כפולות שניתן לאחד. 
+    <form method="POST" action="">
+        {{form.as_p}}
+        
+        <input type="submit" value="{% trans 'שלח' %}">
+    </form>
+{% endblock %}
