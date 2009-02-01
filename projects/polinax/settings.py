@@ -37,7 +37,7 @@ TIME_ZONE = 'Asia/Tel_Aviv'
 # Language code for this installation. All choices can be found here:
 # http://www.w3.org/TR/REC-html40/struct/dirlang.html#langcodes
 # http://blogs.law.harvard.edu/tech/stories/storyReader$15
-LANGUAGE_CODE = 'he_IL.UTF-8'
+LANGUAGE_CODE = 'he'
 
 SITE_ID = 1
 
@@ -157,9 +157,10 @@ ABSOLUTE_URL_OVERRIDES = {
 AUTH_PROFILE_MODULE = 'profiles.Profile'
 NOTIFICATION_LANGUAGE_MODULE = 'account.Account'
 
+DEFAULT_FROM_EMAIL = 'dontreply@tzafim.org'
 EMAIL_CONFIRMATION_DAYS = 2
 EMAIL_DEBUG = DEBUG
-CONTACT_EMAIL = "polinax@googlegroups.com"
+CONTACT_EMAIL = "tzafim@gmail.com"
 SITE_NAME = "tzafim"
 LOGIN_URL = "/account/login"
 LOGIN_REDIRECT_URLNAME = "what_next"

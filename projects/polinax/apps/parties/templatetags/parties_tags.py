@@ -19,8 +19,6 @@ class GetUserPartyNode(Node):
             context[self.context_var] = Membership.objects.get(user=user, role__title='candidate').group.name
         except Membership.DoesNotExist:
             context[self.context_var] = None
-        print self.context_var
-        print context[self.context_var]
         return ''
 
 class GetCandidateCountNode(Node):

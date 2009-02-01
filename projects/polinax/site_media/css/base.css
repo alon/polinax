@@ -76,6 +76,12 @@ ul#messages li a {
 .pagination .disabled {
     color: white;
 }
+#site_wide_announcements {
+    background: #efd;
+border: 1px dashed;
+    padding: 10px;
+    text-align: center;
+}
 .hidden {
     display:none;
 }
@@ -134,8 +140,8 @@ form.delete {
     color: #666; /* unselected tab text hover colour */
 }
 .tab div {
+    margin: 0;
     background-color: #DDD; /* unselected tab colour */
-    padding: 0;
     padding-bottom: 4px;
     padding-top: 5px;
     margin: 0 1px; /* to compensate for border */
