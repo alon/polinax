@@ -10,7 +10,8 @@ from groups.models import AssociatedContent
 from profiles.models import Profile
 from answers.models import Answer
 from parties.models import Feed
-search_re = re.compile(Site.objects.get(id=settings.SITE_ID).domain + reverse("view_question", args=[0])[:-2] + '(\d+)')
+
+search_re = re.compile(unicode(Site.objects.get_current()) + reverse("view_question", args=[0])[:-2] + '(\d+)')
 
 LONG_AGO = datetime(1970,1,1)
 class Command(NoArgsCommand):
@@ -23,7 +24,7 @@ class Command(NoArgsCommand):
         else:
             return datetime(*entry.updated_parsed[:6])
 
-    def parse_feeds(self, feeds):      
+    def parse_feeds(self, feeds):
         result = []
         next_last = LONG_AGO
         for feed in feeds:
@@ -31,12 +32,15 @@ class Command(NoArgsCommand):
             for i in f.entries:
                 entry_date = self._get_entry_date(i)
                 if entry_date > feed.last_read:
+                    # update next last_read 
                     if entry_date > next_last:
                         next_last = entry_date
+                    # get the content, either from the feed or directly from the entry link
                     try:
                         c = i.content[0].value
                     except AttributeError:
                         c = urlopen(i.link).read()
+                        
                     m = search_re.search(c)
                     if m:
                         result.append({"adder":feed.user,
@@ -54,7 +58,6 @@ class Command(NoArgsCommand):
         
         feeds = Feed.objects.filter(public=True)
         answers = self.parse_feeds(feeds)
-        print answers
         for a in answers:
             Answer.objects.create(**a) 
         

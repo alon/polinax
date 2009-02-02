@@ -1,0 +1,2 @@
+user {{ from_users}} reported a problem with question {{q.id}}:
+"{{q.text}}"

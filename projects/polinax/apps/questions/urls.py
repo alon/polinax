@@ -13,11 +13,11 @@ urlpatterns = patterns('',
    url(r'^(\d+)/report/$', 'questions.views.report_q', name="report_question"),
     
     # for voting
-    (r'^(?P<object_id>\d+)/(?P<direction>up|clear)vote/?$',
+    url(r'^(?P<object_id>\d+)/(?P<direction>up|clear)vote/?$',
         vote_on_object, dict(
             model=Question,
-            template_object_name='q',
-            template_name='kb/link_confirm_vote.html',
-            allow_xmlhttprequest=True)),
+            template_object_name='question',
+            template_name='questions/question.html',
+            allow_xmlhttprequest=True), name="vote_on_question"),
 
 )

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django-hotclub-0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-01-26 20:44+0200\n"
+"POT-Creation-Date: 2009-02-02 11:44+0200\n"
 "PO-Revision-Date: 2008-06-17 22:27+0200\n"
 "Last-Translator: Gil Klein <gklein@gmail.com>\n"
 "Language-Team: Gil Klein <gklein@gmail.com>\n"
@@ -358,6 +358,11 @@ msgstr "תיאור"
 msgid "inheritable"
 msgstr ""
 
+#: apps/groups/templates/groups/group_members.html:20
+#, fuzzy
+msgid "No members yet."
+msgstr "אין מאמרים בוויקי עדיין"
+
 #: apps/groups/templates/groups/member_actions.html:4
 msgid "Manage Membership"
 msgstr ""
@@ -585,14 +590,20 @@ msgstr "מפלגה"
 msgid "Blog feed:"
 msgstr "פיד הבלוג"
 
-#: apps/parties/views.py:38
+#: apps/parties/views.py:40
 #, python-format
 msgid "You are now registered as a candidate for %(party)s"
-msgstr "בקשתך להרשם כמועמד ב %(party)s נרשמה. העורכים שלנו יוודאו את פרטייך בקרוב."
+msgstr ""
+"בקשתך להרשם כמועמד ב %(party)s נרשמה. העורכים שלנו יוודאו את פרטייך בקרוב."
 
-#: apps/parties/views.py:40
+#: apps/parties/views.py:42
 msgid "Registration failed. Could it be you are already registered?"
 msgstr "הרשמה נכשלה. ככל הנראה אתה כבר רשום כמועמד."
+
+#: apps/parties/templates/parties/base.html:7
+#, fuzzy
+msgid "Parties A-Z"
+msgstr "מפלגות"
 
 #: apps/parties/templates/parties/join.html:5
 msgid "Join a party"
@@ -607,15 +618,15 @@ msgid "This form if for party candidates only."
 msgstr "טופס זה מיועד למועמדים רשומים בלבד."
 
 #: apps/parties/templates/parties/join.html:13
-#: apps/questions/templates/questions/add_q.html:13
-msgid "Post"
-msgstr "פרסם"
+#: templates/microblogging/personal.html:33
+msgid "post"
+msgstr "שלח"
 
-#: apps/parties/templates/parties/parties.html:7
+#: apps/parties/templates/parties/parties.html:8
 msgid "All Parties"
 msgstr "כל המפלגות"
 
-#: apps/parties/templates/parties/parties.html:62
+#: apps/parties/templates/parties/parties.html:65
 msgid "No parties yet."
 msgstr "ממש, ממש בקרוב כל המפלגות יהיו כאן"
 
@@ -623,44 +634,48 @@ msgstr "ממש, ממש בקרוב כל המפלגות יהיו כאן"
 msgid "Candidates"
 msgstr "מועמדים"
 
-#: apps/parties/templates/parties/party.html:19
-msgid "No candidatess yet."
-msgstr "עדיין אין מועמדים רשומים."
-
-#: apps/parties/templates/parties/party.html:22
+#: apps/parties/templates/parties/party.html:18
 #: apps/questions/templates/questions/question.html:30
 #: templates/profiles/profile.html:89
 msgid "Answers"
 msgstr "תשובות"
 
-#: apps/parties/templates/parties/party.html:26
+#: apps/parties/templates/parties/party.html:22
 #: templates/profiles/profile.html:93
 msgid "Answer"
 msgstr "תשובה"
 
-#: apps/parties/templates/parties/party.html:26
+#: apps/parties/templates/parties/party.html:22
 #: templates/profiles/profile.html:93
 msgid "For question"
 msgstr "לשאלה"
 
-#: apps/parties/templatetags/parties_tags.py:16
+#: apps/parties/templates/parties/party.html:56
+#: apps/questions/templates/questions/question.html:67
+msgid "Discuss"
+msgstr "דיון"
+
+#: apps/parties/templatetags/parties_tags.py:17
 #: apps/questions/templatetags/questions_tags.py:17
 #, python-format
 msgid "questions_for_user tag was given an invalid user: %s"
 msgstr ""
 
-#: apps/parties/templatetags/parties_tags.py:38
+#: apps/parties/templatetags/parties_tags.py:47
+#: apps/parties/templatetags/parties_tags.py:66
 #: apps/questions/templatetags/questions_tags.py:34
 #, python-format
 msgid "%s tag requires threearguments"
 msgstr ""
 
-#: apps/parties/templatetags/parties_tags.py:40
+#: apps/parties/templatetags/parties_tags.py:49
+#: apps/parties/templatetags/parties_tags.py:68
 #, python-format
 msgid "first argument to %s tag must be 'as'"
 msgstr ""
 
-#: apps/parties/templatetags/parties_tags.py:42
+#: apps/parties/templatetags/parties_tags.py:51
+#: apps/parties/templatetags/parties_tags.py:70
 #, python-format
 msgid "third argument to %s tag must be 'as'"
 msgstr ""
@@ -1176,6 +1191,10 @@ msgstr "הפנה שאלה"
 msgid "*Questions must be non-partisan."
 msgstr "*אנא, שמור על על-מפלגתיות"
 
+#: apps/questions/templates/questions/add_q.html:13
+msgid "Post"
+msgstr "פרסם"
+
 #: apps/questions/templates/questions/base.html:14
 #: templates/account/base.html:25
 msgid "Categories"
@@ -1260,17 +1279,13 @@ msgstr "שאלה"
 
 #: apps/questions/templates/questions/question.html:26
 #: apps/questions/templates/questions/question.html:57
-#: apps/questions/templates/questions/questions.html:88
+#: apps/questions/templates/questions/questions.html:90
 msgid "by:"
 msgstr "מאת:"
 
 #: apps/questions/templates/questions/question.html:64
 msgid "No Answers yet. "
 msgstr "עדיין אין תשובות"
-
-#: apps/questions/templates/questions/question.html:67
-msgid "Discuss"
-msgstr "תגובות"
 
 #: apps/questions/templates/questions/questions.html:13
 msgid "All Questions"
@@ -1308,11 +1323,11 @@ msgstr "נקודות"
 msgid "date"
 msgstr "תאריך"
 
-#: apps/questions/templates/questions/questions.html:96
+#: apps/questions/templates/questions/questions.html:98
 msgid "Report this question"
 msgstr "דווח"
 
-#: apps/questions/templates/questions/questions.html:107
+#: apps/questions/templates/questions/questions.html:109
 msgid "No questions yet."
 msgstr "אין עדיין שאלות."
 
@@ -1332,6 +1347,37 @@ msgstr ""
 #, python-format
 msgid "second argument to %s tag must be 'as'"
 msgstr ""
+
+#: apps/timeline/models.py:20
+msgid "action time"
+msgstr ""
+
+#: apps/timeline/models.py:23
+#, fuzzy
+msgid "object id"
+msgstr "נושא"
+
+#: apps/timeline/models.py:24
+msgid "object repr"
+msgstr ""
+
+#: apps/timeline/models.py:25
+msgid "action flag"
+msgstr ""
+
+#: apps/timeline/models.py:26
+#, fuzzy
+msgid "change message"
+msgstr "שלח הודעה"
+
+#: apps/timeline/models.py:29
+msgid "log entry"
+msgstr ""
+
+#: apps/timeline/models.py:30
+#, fuzzy
+msgid "log entries"
+msgstr "אין הודעות."
 
 #: apps/tribes/forms.py:9
 #, fuzzy
@@ -1511,13 +1557,11 @@ msgid ""
 msgstr ""
 "\n"
 "<p>אתר צפים מיועד לתת במה לשאלות שלנו ולתשובות של המועמדים לכנסת.  האתר פתוח "
-"לכל המועמדים לכנסת.  באם אתה מועמד, כל שעליך לעשות הוא להירשם כמועמד ולפרסם תשובות "
-"בבלוג שלך."
-"</p><p>"
-"באם נתקלת בבעיה כלשהיא באתר אנא שלח דואל ל polinax@gmail.com.  "
-"אם ברצונך לעזור בפיתוח האתר עם רעיונות, עיצוב או כתיבת קוד (קוד האתר פתוח) אתה מוזמן להצטרף לקהילה שלנו."
-"</p><p>בני דאון וקהילת <a href='http://groups.google.com/group/"
-"polinax'>פולינקס</a>.</p>"
+"לכל המועמדים לכנסת.  באם אתה מועמד, כל שעליך לעשות הוא להירשם כמועמד ולפרסם "
+"תשובות בבלוג שלך.</p><p>באם נתקלת בבעיה כלשהיא באתר אנא שלח דואל ל "
+"polinax@gmail.com.  אם ברצונך לעזור בפיתוח האתר עם רעיונות, עיצוב או כתיבת "
+"קוד (קוד האתר פתוח) אתה מוזמן להצטרף לקהילה שלנו.</p><p>בני דאון וקהילת <a "
+"href='http://groups.google.com/group/polinax'>פולינקס</a>.</p>"
 
 #: templates/about/dmca.html:5
 msgid "Digital Millennium Copyright Act Notice"
@@ -1532,7 +1576,8 @@ msgstr "<p>שלך<b>תנאי השימוש</b> כאן</p>"
 
 #: templates/about/privacy.html:8
 msgid "<p>Your <b>Privacy Policy</b> would normally go here...</p>"
-msgstr "<p>צפים שומרים על פרטיות הגולשים ולא חולקים את פרטי הגולשים עם אף אחד.</p>"
+msgstr ""
+"<p>צפים שומרים על פרטיות הגולשים ולא חולקים את פרטי הגולשים עם אף אחד.</p>"
 
 #: templates/about/terms.html:8
 msgid "<p>Your <b>Terms of Service</b> would normally go here...</p>"
@@ -1660,7 +1705,7 @@ msgstr ".%(user)s את/ה מוחבר כבר כ "
 #: templates/account/login.html:17
 #, python-format
 msgid "Don't have an account? <a href=\"%(signup_url)s\">Sign up</a>!"
-msgstr "?אין לך חשבון<a href=\"%(signup_url)s\">הירשם</a>!"
+msgstr "אין לך חשבון? <a href=\"%(signup_url)s\">הרשם עכשיו</a>."
 
 #: templates/account/login.html:28 templates/account/login.html.py:43
 msgid "Log in &raquo;"
@@ -1692,9 +1737,9 @@ msgid ""
 "If you have any trouble logging in to your account, contact us at <a href="
 "\"mailto:%(contact_email)s\">%(contact_email)s</a>."
 msgstr ""
-"<a href=\"mailto:%(contact_email)s\">%(contact_email)s</a> אם קיימת בעיה "
+"אם קיימת בעיה "
 "בחיבור לחשבונך, צור עימנו קשר ב"
-
+"<a href=\"mailto:%(contact_email)s\">%(contact_email)s</a>"
 #: templates/account/logout.html:8
 msgid "You've been logged out."
 msgstr "נותקת בהצלחה"
@@ -1800,16 +1845,17 @@ msgid ""
 "the <a href=\"%(terms_url)s\">Terms of Use</a> and <a href=\"%(privacy_url)s"
 "\">Privacy Policy</a>."
 msgstr ""
-".<a href=\"%(privacy_url)s\">להצהרת הפרטיות</a> ו  <a href=\"%(terms_url)s"
-"\">תנאי השימוש</a> בלחיצה על הירשם , את/ה מאשר/ת שקראת והסכמת ל"
+"בלחיצה על הרשם את/ה מאשר/ת שקראת והסכמת ל"
+"<a href=\"%(terms_url)s\">תנאי השימוש</a> ו"
+"<a href=\"%(privacy_url)s\">הצהרת הפרטיות</a>."
 
 #: templates/account/signup.html:30
-#, fuzzy
 msgid ""
 "If you have any trouble creating your account, please send an email to "
 "tzafim@gmail.com."
 msgstr ""
-"אם נתקלת בבעיה ביצירת חשבון חדש אנא שלח דואל ל tzafim@gmail.com"
+"אם נתקלת בבעיה ביצירת חשבון חדש אנא שלח דואל ל"
+" tzafim@gmail.com"
 
 #: templates/account/timezone_change.html:10
 msgid ""
@@ -2201,10 +2247,6 @@ msgstr ""
 msgid "chars left."
 msgstr "תווים נותרו."
 
-#: templates/microblogging/personal.html:33
-msgid "post"
-msgstr "שלח"
-
 #: templates/microblogging/personal.html:37
 msgid "person,people"
 msgstr "חבר,חברים"
@@ -2457,6 +2499,14 @@ msgstr "מחק מאמר"
 msgid "Post Response"
 msgstr "שלח תגובה"
 
+#: templates/threadedcomments/comments.html:43
+msgid ""
+" Please <a href=\"%(login)s\">Login</a> (or <a href=\"%(signup)s\">Sign Up</"
+"a>) to leave a comment"
+msgstr ""
+"<a href=\"%(signup)s\">הרשם</a> או <a href=\"%(login)s\">התחבר</a> "
+"כדי להצטרף לדיון."
+
 #: templates/tribes/base.html:12
 msgid "All Tribes"
 msgstr "כל השבטים"
@@ -2655,6 +2705,9 @@ msgstr "מאמר זה אינו קיים."
 #: templates/wiki/view.html:39
 msgid ">Create it now</a>?"
 msgstr ">צור עכשיו</a>?"
+
+#~ msgid "No candidatess yet."
+#~ msgstr "עדיין אין מועמדים רשומים."
 
 #, fuzzy
 #~ msgid "Click here to post your answer."
@@ -2906,9 +2959,6 @@ msgstr ">צור עכשיו</a>?"
 #~ msgid "Sender"
 #~ msgstr "שולח"
 
-#~ msgid "Subject"
-#~ msgstr "נושא"
-
 #~ msgid "Received"
 #~ msgstr "התקבל"
 
@@ -2972,5 +3022,5 @@ msgstr ">צור עכשיו</a>?"
 #~ msgid "adder"
 #~ msgstr "המוסיף"
 
-msgid "from"
-msgstr "מ"
+#~ msgid "from"
+#~ msgstr "מ"

@@ -38,5 +38,7 @@
         <input type="hidden" name="next" value="{{ request.path }}" />
     </form>
 {% else %}
-    <h3>Please <a href="{% url acct_login %}">Login</a> (or <a href="{% url acct_signup %}">Sign Up</a>) to leave a comment</h3>
+    {% url acct_login as login %}
+    {% url acct_signup as signup %}
+    <h3>{% blocktrans %} Please <a href="{{login}}">Login</a> (or <a href="{{signup}}">Sign Up</a>) to leave a comment{% endblocktrans %}</h3>
 {% endif %}

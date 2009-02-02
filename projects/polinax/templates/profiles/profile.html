@@ -100,12 +100,16 @@
                         
                         {% if user.is_authenticated %}
                             <a id="up_{{ a.id }}" href="#" onclick="vote_on_answer({{ a.id }}, '{% if vote and vote.is_downvote %}clear{% else %}up{% endif %}'); return false;"><img src="{{ MEDIA_URL }}up_{% if vote and vote.is_upvote %}mod{% else %}grey{% endif %}.png"/></a><br />
+                        {% else %}
+                            <a href="{% url acct_login %}?next={{request.path}}"><img src="{{ MEDIA_URL }}up_grey.png"/></a><br />
                         {% endif %}
                         <span id="a_{{ a.id }}_score" class="score">
                             {{ score.score|default:0 }}
                         </span><br />
                         {% if user.is_authenticated %}
                             <a id="down_{{ a.id }}" href="#" onclick="vote_on_answer({{ a.id }}, '{% if vote and vote.is_upvote %}clear{% else %}down{% endif %}'); return false;"><img id="img_{{ a.id }}_down" src="{{ MEDIA_URL }}down_{% if vote and vote.is_downvote %}mod{% else %}grey{% endif %}.png"/></a>
+                        {% else %}
+                            <a href="{% url acct_login %}?next={{request.path}}"><img src="{{ MEDIA_URL }}down_grey.png"/></a><br />
                         {% endif %}
                         
                     </td>

@@ -73,6 +73,8 @@
                         {# TODO % dict_entry_for_item question from answers_dict as answers % #}
                         {% if user.is_authenticated %}
                             <a id="up_{{ question.id }}" href="#" onclick="vote_on_question({{ question.id }}, '{% if vote and vote.is_upvote %}clear{%else%}up{%endif%}');"><img src="{{ MEDIA_URL }}up_{% if vote and vote.is_upvote %}mod{% else %}grey{% endif %}.png"/></a><br />
+                        {% else %}
+                            <a href='{% url acct_login %}?next={{request.path}}'><img src="{{ MEDIA_URL }}up_grey.png"/></a><br />
                         {% endif %}
                         <span id="question_{{ question.id }}_score" class="score">
                             {{ score.score|default:0 }}

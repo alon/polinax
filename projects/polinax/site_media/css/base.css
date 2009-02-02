@@ -173,3 +173,6 @@ form.delete {
 .q a {text-decoration: none;}
 .q a:hover { text-decoration:underline;}
 
+.questions, .parties {
+    margin:0.5em;
+}
