@@ -1,18 +1,12 @@
-Polinax: A free site to explore popular government through direct democracy. This version includes a first verion of the laws app. Please join the discussion in http://groups.google.com/group/polinax.
-
-Polinax is a web site written in Python and using the Django and Pinax
-projects as a base. 
-
-This version is a fork from Pinax's new-groups-app svn branch. I've rewrote
-most of it, using design from James Tauber. and other
-To read about the groups app design and find more polinax URLs go to
-http://del.icio.us/tag/polinax.
+Polinax 
+=========
+A free site with the modest aim of modernizing democracy. Polinax is written in Python
+using the Django and Pinax projects as a base. Please join the discussion at
+ http://groups.google.com/group/polinax.
 
 PINAX BASED DIRECTORY STRUCTURE
 
 projects/
-    complete_project/   a complete sample Pinax project and templates
-    basic_project/      a more basic starter Pinax project
     polinax/            currently includes the laws and notification apps
 apps/
     external_apps/      external re-usable apps via svn:externals
