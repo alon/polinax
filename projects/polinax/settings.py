@@ -130,7 +130,6 @@ INSTALLED_APPS = (
     'voting',
     'wiki',
     # internal (for now)
-    'photos',
     'profiles',
     'account',
     'misc',
