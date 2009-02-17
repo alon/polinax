@@ -1,8 +1,9 @@
 Polinax 
 =========
 A free site with the modest aim of modernizing democracy. Polinax is written in Python
-using the Django and Pinax projects as a base. Please join the discussion at
- http://groups.google.com/group/polinax.
+using the Django and Pinax projects as a base. Please join the discussion Group_.
+
+.. _Group: http://groups.google.com/group/polinax
 
 PINAX BASED DIRECTORY STRUCTURE
 
@@ -19,8 +20,12 @@ fixtures/               test fixtures (in progress)
 There is some path manipulation in manage.py to get this all to work. You'll
 need to do something similar in your wsgi or mod_python configuration.
 
-Note that if you already have an external app or external lib on the path,
-you don't need to use the one we provide.
+To install the required external libraries and pass run:
+
+git pull
+easy_install virtualenv
+easy_install pip
+pip install -r polinax/requirements/external_apps.txt 
 
 Things should just work out of the box. You can cd into project/polinax and
 run ./manage.py syncdb and ./manage.py runserver to get running immediately.
