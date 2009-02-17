@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django-hotclub-0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-02-02 11:44+0200\n"
+"POT-Creation-Date: 2009-02-17 20:48+0200\n"
 "PO-Revision-Date: 2008-06-17 22:27+0200\n"
 "Last-Translator: Gil Klein <gklein@gmail.com>\n"
 "Language-Team: Gil Klein <gklein@gmail.com>\n"
@@ -187,9 +187,7 @@ msgid "Other Service Info Value"
 msgstr ""
 
 #: apps/answers/models.py:37 apps/groups/models.py:49
-#: apps/projects/models.py:52 apps/projects/models.py:85
-#: apps/questions/models.py:28 apps/tribes/models.py:29
-#: apps/tribes/models.py:60
+#: apps/questions/models.py:28
 msgid "created"
 msgstr "נוצר"
 
@@ -222,7 +220,7 @@ msgstr "אנשי קשר יובאו %(imported)s  ,נמצאו vCards %(total)s "
 msgid "%(total)s people with email found, %(imported)s contacts imported."
 msgstr "אנשי קשר יובאו %(imported)s , אנשי קשר בעלי דואל נמצאו  %(total)s"
 
-#: apps/groups/forms.py:6 apps/projects/forms.py:118
+#: apps/groups/forms.py:6
 #, fuzzy
 msgid "Message"
 msgstr "הצג הודעה"
@@ -252,15 +250,15 @@ msgstr ""
 msgid "Approval required"
 msgstr ""
 
-#: apps/groups/models.py:43 apps/photos/models.py:39 apps/tribes/models.py:26
+#: apps/groups/models.py:43
 msgid "slug"
 msgstr "שם מקוצר"
 
-#: apps/groups/models.py:44 apps/photos/models.py:21 apps/tribes/models.py:27
+#: apps/groups/models.py:44
 msgid "name"
 msgstr "שם"
 
-#: apps/groups/models.py:45 apps/photos/models.py:22 apps/tribes/models.py:30
+#: apps/groups/models.py:45
 msgid "description"
 msgstr "תיאור"
 
@@ -272,17 +270,15 @@ msgstr "מיקום"
 msgid "Choose the way new members can join this group"
 msgstr ""
 
-#: apps/groups/models.py:50 apps/projects/models.py:53
-#: apps/projects/models.py:86 apps/questions/models.py:29
-#: apps/tribes/models.py:61
+#: apps/groups/models.py:50 apps/questions/models.py:29
 msgid "modified"
 msgstr "השתנה"
 
-#: apps/groups/models.py:51 templates/tribes/tribe.html:21
+#: apps/groups/models.py:51
 msgid "Members"
 msgstr "חברים"
 
-#: apps/groups/models.py:52 apps/tribes/models.py:33
+#: apps/groups/models.py:52
 #, fuzzy
 msgid "deleted"
 msgstr "מחק"
@@ -392,28 +388,23 @@ msgid "Leave"
 msgstr "עזוב"
 
 #: apps/groups/templates/groups/members.html:9
-#: templates/projects/members_status.html:9
 #, fuzzy
 msgid "Members' Status"
 msgstr "חברים"
 
 #: apps/groups/templates/groups/members.html:12
-#: templates/projects/members_status.html:12
 msgid "Set Away"
 msgstr ""
 
 #: apps/groups/templates/groups/members.html:17
-#: templates/projects/members_status.html:17
 msgid "set away"
 msgstr ""
 
 #: apps/groups/templates/groups/members.html:21
-#: templates/projects/members_status.html:21
 msgid "Set Back"
 msgstr ""
 
 #: apps/groups/templates/groups/members.html:24
-#: templates/projects/members_status.html:24
 msgid "set back"
 msgstr ""
 
@@ -422,7 +413,7 @@ msgstr ""
 msgid "Member"
 msgstr "חברים"
 
-#: apps/groups/templates/groups/members.html:53 apps/projects/forms.py:91
+#: apps/groups/templates/groups/members.html:53
 msgid "Role"
 msgstr ""
 
@@ -445,141 +436,6 @@ msgid ""
 "    User <a href=\"%(member_url)s\">%(member)s</a> joined <a href=\"%"
 "(group_url)s\">%(group)s</a> as %(role)s</a>\n"
 msgstr ""
-
-#: apps/laws/management.py:9
-msgid "New Comment on a Law"
-msgstr ""
-
-#: apps/laws/management.py:9
-msgid "a new comment has been made on a law you are interested in."
-msgstr ""
-
-#: apps/laws/models.py:31
-msgid "Law"
-msgstr ""
-
-#: apps/laws/models.py:32
-msgid "Laws"
-msgstr ""
-
-#: apps/laws/thing.py:15
-msgid "ABC"
-msgstr ""
-
-#: apps/laws/thing.py:16
-msgid "ZYX"
-msgstr ""
-
-#: apps/laws/views.py:41
-msgid "The draft of the proposed law."
-msgstr ""
-
-#: apps/laws/views.py:49
-msgid "first version"
-msgstr ""
-
-#: apps/laws/templates/laws/base.html:10 templates/wiki/base.html:10
-#, fuzzy
-msgid "Your Laws"
-msgstr "השבטים שלך"
-
-#: apps/laws/templates/laws/base.html:11 templates/wiki/base.html:11
-#, fuzzy
-msgid "All Laws"
-msgstr "כל הטוויטים"
-
-#: apps/laws/templates/laws/create_law.html:7
-msgid "Propose a New Law"
-msgstr ""
-
-#: apps/laws/templates/laws/create_law.html:11
-#: apps/laws/templates/laws/laws.html:15
-msgid "Propose a new law"
-msgstr ""
-
-#: apps/laws/templates/laws/create_law.html:17
-#: apps/laws/templates/laws/edit_law.html:14 templates/projects/create.html:20
-#: templates/projects/projects.html:25 templates/tribes/create.html:20
-#: templates/tribes/tribes.html:24
-msgid "create"
-msgstr "צור"
-
-#: apps/laws/templates/laws/create_law.html:22
-#, fuzzy, python-format
-msgid ""
-"<a href=\"%(signup_url)s\">Sign up</a> or <a href=\"%(login_url)s\">log in </"
-"a> to propose laws."
-msgstr ""
-"<a href=\"%(signup_url)s\">הירשם</a> <a href=\"%(login_url)s\">התחבר </a> "
-"להצטרפות לשבט"
-
-#: apps/laws/templates/laws/delete_law.html:7
-msgid "Deleting a Law"
-msgstr ""
-
-#: apps/laws/templates/laws/delete_law.html:11
-#, fuzzy
-msgid "Deletion of "
-msgstr "מחק מאמר"
-
-#: apps/laws/templates/laws/delete_law.html:11
-msgid " Can not be undone"
-msgstr ""
-
-#: apps/laws/templates/laws/delete_law.html:16
-msgid "delete"
-msgstr "מחק"
-
-#: apps/laws/templates/laws/delete_law.html:19
-msgid "Only the law creator can delete a low"
-msgstr ""
-
-#: apps/laws/templates/laws/edit_law.html:7
-#, fuzzy
-msgid "Edit Law"
-msgstr "ערוך פרטים"
-
-#: apps/laws/templates/laws/law_detail.html:25
-msgid "Law - "
-msgstr ""
-
-#: apps/laws/templates/laws/law_detail.html:28
-msgid "edit Law"
-msgstr ""
-
-#: apps/laws/templates/laws/law_detail.html:29
-#, fuzzy
-msgid "delete Law"
-msgstr "מחק"
-
-#: apps/laws/templates/laws/law_detail.html:51
-msgid "Forum"
-msgstr ""
-
-#: apps/laws/templates/laws/law_detail.html:64
-#: templates/projects/project.html:119
-msgid "Start a discussion"
-msgstr ""
-
-#: apps/laws/templates/laws/law_detail.html:82
-#: templates/microblogging/personal.html:6
-#: templates/microblogging/personal.html:14
-#: templates/projects/project.html:161 templates/tribes/tribe.html:132
-msgid "Tweets"
-msgstr "טוויטס"
-
-#: apps/laws/templates/laws/laws.html:8 apps/laws/templates/laws/laws.html:12
-msgid "Proposed Laws"
-msgstr ""
-
-#: apps/laws/templates/laws/laws.html:19
-#, fuzzy, python-format
-msgid ""
-"<a href=\"%(signup_url)s\">Sign up</a> and <a href=\"%(login_url)s\">log in "
-"</a> to propose laws or support prposed laws."
-msgstr ""
-"<a href=\"%(signup_url)s\">הירשם</a> <a href=\"%(login_url)s\">התחבר </a> "
-"להצטרפות לשבט"
 
 #: apps/parties/forms.py:7 apps/parties/templates/parties/party.html:9
 #: apps/parties/templates/parties/party.html:13
@@ -678,440 +534,6 @@ msgstr ""
 #: apps/parties/templatetags/parties_tags.py:70
 #, python-format
 msgid "third argument to %s tag must be 'as'"
-msgstr ""
-
-#: apps/photos/models.py:13
-#: apps/questions/templates/questions/my_questions.html:26
-msgid "Public"
-msgstr "ציבורי"
-
-#: apps/photos/models.py:14
-msgid "Private"
-msgstr "פרטי"
-
-#: apps/photos/models.py:23
-msgid "publish_type"
-msgstr ""
-
-#: apps/photos/models.py:27 apps/photos/models.py:45
-#, fuzzy
-msgid "photo set"
-msgstr "שלח"
-
-#: apps/photos/models.py:28
-msgid "photo sets"
-msgstr ""
-
-#: apps/photos/models.py:35
-msgid "Safe"
-msgstr ""
-
-#: apps/photos/models.py:36
-#, fuzzy
-msgid "Not Safe"
-msgstr "הודעה"
-
-#: apps/photos/models.py:38 apps/projects/models.py:50
-#: apps/tribes/models.py:58
-msgid "title"
-msgstr "כותרת"
-
-#: apps/photos/models.py:40
-#, fuzzy
-msgid "caption"
-msgstr "מיקום"
-
-#: apps/photos/models.py:41
-#, fuzzy
-msgid "date added"
-msgstr "הוסף"
-
-#: apps/photos/models.py:42
-msgid "is public"
-msgstr ""
-
-#: apps/photos/models.py:42
-msgid "Public photographs will be displayed in the default views."
-msgstr ""
-
-#: apps/photos/models.py:44
-msgid "safetylevel"
-msgstr ""
-
-#: apps/photos/models.py:64
-#, fuzzy
-msgid "created_at"
-msgstr "נוצר"
-
-#: apps/photos/models.py:69
-msgid "pool"
-msgstr ""
-
-#: apps/photos/models.py:70
-#, fuzzy
-msgid "pools"
-msgstr "שלח"
-
-#: apps/photos/views.py:28
-#, python-format
-msgid "Successfully uploaded photo '%s'"
-msgstr ""
-
-#: apps/photos/views.py:100 apps/photos/views.py:137
-#, python-format
-msgid "Successfully add photo '%s' to project"
-msgstr ""
-
-#: apps/photos/views.py:103 apps/photos/views.py:140
-#, python-format
-msgid "Did not add photo '%s' to project because it already exists."
-msgstr ""
-
-#: apps/photos/views.py:113
-#, python-format
-msgid "Successfully add photo '%s' to tribe"
-msgstr ""
-
-#: apps/photos/views.py:116
-#, python-format
-msgid "Did not add photo '%s' to tribe because it already exists."
-msgstr ""
-
-#: apps/photos/views.py:125
-#, python-format
-msgid "Successfully removed photo '%s' from tribe"
-msgstr ""
-
-#: apps/photos/views.py:128
-#, python-format
-msgid "Did not remove photo '%s' from tribe."
-msgstr ""
-
-#: apps/photos/views.py:149
-#, python-format
-msgid "Successfully removed photo '%s' from project"
-msgstr ""
-
-#: apps/photos/views.py:152
-#, python-format
-msgid "Did not remove photo '%s' from project."
-msgstr ""
-
-#: apps/photos/views.py:192
-#, fuzzy, python-format
-msgid "Successfully updated photo '%s'"
-msgstr "איזור זמן עודכן בהצלחה."
-
-#: apps/photos/views.py:217
-#, python-format
-msgid "Successfully deleted photo '%s'"
-msgstr ""
-
-#: apps/projects/forms.py:18
-#, fuzzy
-msgid ""
-"a short version of the name consisting only of letters, numbers, underscores "
-"or hyphens."
-msgstr "גירסה מקוצרת של השם המכילה רק מספרים אותיות וקו תחתון"
-
-#: apps/projects/forms.py:19 apps/tribes/forms.py:10
-#, fuzzy
-msgid "This value must contain only letters, numbers, underscores and hyphens."
-msgstr "שדה זה חייב להכיל רק מספרים אותיות וקו תחתון"
-
-#: apps/projects/forms.py:23
-#, fuzzy
-msgid "A project already exists with that slug."
-msgstr "קיים כבר שבט בשם קצר זה"
-
-#: apps/projects/forms.py:28 apps/projects/forms.py:45
-#, fuzzy
-msgid "A project already exists with that name."
-msgstr "קיים כבר שבט בשם זה"
-
-#: apps/projects/forms.py:90
-#, fuzzy
-msgid "User"
-msgstr "משתמש"
-
-#: apps/projects/forms.py:104
-msgid "There is no user with this username."
-msgstr ""
-
-#: apps/projects/forms.py:107
-msgid "User is already a member of this project."
-msgstr ""
-
-#: apps/projects/management.py:9
-#, fuzzy
-msgid "New Project Member"
-msgstr "חבר שבט חדש"
-
-#: apps/projects/management.py:9
-#, fuzzy
-msgid "a project you are a member of has a new member"
-msgstr "שבט שאת/ה חבר בו צרף חבר חדש"
-
-#: apps/projects/management.py:10
-msgid "Added to Project"
-msgstr ""
-
-#: apps/projects/management.py:10
-msgid "you have been added to a project"
-msgstr ""
-
-#: apps/projects/management.py:12
-msgid "Project Deleted"
-msgstr ""
-
-#: apps/projects/management.py:12
-#, fuzzy
-msgid "a project you are a member of has been deleted"
-msgstr "שבט שאת/ה חבר בו צרף חבר חדש"
-
-#: apps/projects/management.py:14
-#, fuzzy
-msgid "New Project Topic Started"
-msgstr "דיון חדש החל"
-
-#: apps/projects/management.py:14
-#, fuzzy
-msgid "a new topic has started in a project you're a member of"
-msgstr "דיון חדש החל בשבט שאתה חבר בו"
-
-#: apps/projects/management.py:15
-#, fuzzy
-msgid "Response To Your Project Topic"
-msgstr "תגובה לדיון שלך"
-
-#: apps/projects/management.py:15
-#, fuzzy
-msgid "someone has responded on a project topic you started"
-msgstr "מישהו הגיב לדיון שיצרת"
-
-#: apps/projects/management.py:17
-msgid "New Project Task"
-msgstr ""
-
-#: apps/projects/management.py:17
-#, fuzzy
-msgid "a new task been created in a project you're a member of"
-msgstr "דיון חדש החל בשבט שאתה חבר בו"
-
-#: apps/projects/management.py:18
-msgid "Comment on Project Task"
-msgstr ""
-
-#: apps/projects/management.py:18
-#, fuzzy
-msgid "a new comment has been made on a task in a project you're a member of"
-msgstr "דיון חדש החל בשבט שאתה חבר בו"
-
-#: apps/projects/management.py:19 apps/projects/management.py:20
-#: apps/projects/management.py:21
-msgid "Change to Project Task"
-msgstr ""
-
-#: apps/projects/management.py:19
-#, fuzzy
-msgid ""
-"there has been a change in the state of a task in a project you're a member "
-"of"
-msgstr "דיון חדש החל בשבט שאתה חבר בו"
-
-#: apps/projects/management.py:20
-#, fuzzy
-msgid "a task has been (re)assigned in a project you're a member of"
-msgstr "דיון חדש החל בשבט שאתה חבר בו"
-
-#: apps/projects/management.py:21
-#, fuzzy
-msgid ""
-"there has been a status update to a task in a project you're a member of"
-msgstr "דיון חדש החל בשבט שאתה חבר בו"
-
-#: apps/projects/models.py:48 apps/projects/models.py:80
-msgid "project"
-msgstr ""
-
-#: apps/projects/models.py:51 apps/projects/models.py:84
-#: apps/tribes/models.py:28 apps/tribes/models.py:59
-msgid "creator"
-msgstr "יצר"
-
-#: apps/projects/models.py:54 apps/tribes/models.py:62
-msgid "body"
-msgstr "גוף"
-
-#: apps/projects/models.py:82
-msgid "summary"
-msgstr ""
-
-#: apps/projects/models.py:83
-#, fuzzy
-msgid "detail"
-msgstr "ערוך פרטים"
-
-#: apps/projects/models.py:87
-msgid "assignee"
-msgstr ""
-
-#: apps/projects/models.py:92
-msgid "status"
-msgstr ""
-
-#: apps/projects/models.py:93
-#, fuzzy
-msgid "state"
-msgstr "תאריך"
-
-#: apps/projects/templates/notification/projects_added_as_member/notice.html:2
-#, python-format
-msgid ""
-"You have been added to project '<a href=\"%(project_url)s\">%(project)s</a>' "
-"by <a href=\"%(adder_url)s\">%(adder)s</a>."
-msgstr ""
-
-#: apps/projects/templates/notification/projects_deleted/notice.html:1
-#, python-format
-msgid "Project %(project)s has been deleted."
-msgstr ""
-
-#: apps/projects/templates/notification/projects_new_member/notice.html:2
-#, python-format
-msgid ""
-"<a href=\"%(new_member_url)s\">%(new_member)s</a> has been added to project "
-"'<a href=\"%(project_url)s\">%(project)s</a>'."
-msgstr ""
-
-#: apps/projects/templates/notification/projects_new_task/notice.html:2
-#, python-format
-msgid ""
-"<a href=\"%(creator_url)s\">%(creator)s</a> has added a task '<a href=\"%"
-"(task_url)s\">%(task)s</a>' in project '<a href=\"%(project_url)s\">%"
-"(project)s</a>'."
-msgstr ""
-
-#: apps/projects/templates/notification/projects_new_topic/notice.html:2
-#, python-format
-msgid ""
-"<a href=\"%(creator_url)s\">%(creator)s</a> has started a topic '<a href=\"%"
-"(topic_url)s\">%(topic)s</a>' in project <a href=\"%(project_url)s\">%"
-"(project)s</a>."
-msgstr ""
-
-#: apps/projects/templates/notification/projects_task_assignment/notice.html:2
-#, python-format
-msgid ""
-"<a href=\"%(user_url)s\">%(user)s</a> has assigned task '<a href=\"%"
-"(task_url)s\">%(task)s</a>' in project <a href=\"%(project_url)s\">%(project)"
-"s</a> to <a href=\"%(assignee_url)s\">%(assignee)s</a>."
-msgstr ""
-
-#: apps/projects/templates/notification/projects_task_change/notice.html:2
-#, python-format
-msgid ""
-"<a href=\"%(user_url)s\">%(user)s</a> has marked task '<a href=\"%(task_url)s"
-"\">%(task)s</a>' in project <a href=\"%(project_url)s\">%(project)s</a> as %"
-"(new_state)s."
-msgstr ""
-
-#: apps/projects/templates/notification/projects_task_comment/notice.html:2
-#, python-format
-msgid ""
-"<a href=\"%(user_url)s\">%(user)s</a> has commented on task '<a href=\"%"
-"(task_url)s\">%(task)s</a>' in project <a href=\"%(project_url)s\">%(project)"
-"s</a>."
-msgstr ""
-
-#: apps/projects/templates/notification/projects_task_status/notice.html:2
-#, python-format
-msgid ""
-"<a href=\"%(user_url)s\">%(user)s</a> has updated the status of task '<a "
-"href=\"%(task_url)s\">%(task)s</a>' in project <a href=\"%(project_url)s\">%"
-"(project)s</a>."
-msgstr ""
-
-#: apps/projects/templates/notification/projects_topic_response/notice.html:2
-#: apps/tribes/templates/notification/tribes_topic_response/notice.html:2
-#, python-format
-msgid ""
-"<a href=\"%(user_url)s\">%(user)s</a> has responded to your topic '<a href="
-"\"%(topic_url)s\">%(topic)s</a>'."
-msgstr ""
-
-#: apps/projects/templates/projects/project_item.html:8
-#: apps/tribes/templates/tribes/tribe_item.html:7
-#, fuzzy
-msgid "Members:"
-msgstr "חברים"
-
-#: apps/projects/templates/projects/project_item.html:9
-msgid "Tasks:"
-msgstr ""
-
-#: apps/projects/templates/projects/project_item.html:10
-#: apps/tribes/templates/tribes/tribe_item.html:8
-msgid "Topics:"
-msgstr ""
-
-#: apps/projects/templates/projects/project_item.html:11
-msgid "Wiki Pages:"
-msgstr ""
-
-#: apps/projects/templates/projects/task_item.html:11
-#: templates/projects/task_item.html:11
-msgid "Assignee"
-msgstr ""
-
-#: apps/projects/templates/projects/task_item.html:13
-#: templates/projects/task_item.html:13
-msgid "Unassigned"
-msgstr ""
-
-#: apps/projects/templates/projects/task_item.html:15
-#: templates/projects/task_item.html:15
-#, fuzzy
-msgid "State"
-msgstr "תאריך"
-
-#: apps/projects/templates/projects/task_item.html:16
-#: templates/projects/task_item.html:16
-#, fuzzy
-msgid "Creator"
-msgstr "יצר"
-
-#: apps/projects/templates/projects/task_item.html:17
-#: templates/projects/task_item.html:17
-#, fuzzy
-msgid "Created"
-msgstr "נוצר"
-
-#: apps/projects/templates/projects/task_item.html:18
-#: templates/projects/task_item.html:18
-#, fuzzy
-msgid "Modified"
-msgstr "השתנה"
-
-#: apps/projects/templates/projects/task_item.html:28
-#: templates/projects/task_item.html:28
-msgid "Status"
-msgstr ""
-
-#: apps/projects/templates/projects/task_item.html:32
-#: templates/projects/task_item.html:32
-#, fuzzy
-msgid "none"
-msgstr "ללא"
-
-#: apps/projects/templates/projects/topic_item.html:19
-#: apps/tribes/templates/tribes/topic_item.html:19
-#: templates/projects/topic_item.html:19 templates/tribes/topic_item.html:19
-#, python-format
-msgid ""
-"\n"
-"                (most recent: %(topic_modified)s)\n"
-"                "
 msgstr ""
 
 #: apps/questions/management.py:8
@@ -1247,6 +669,10 @@ msgid "Points"
 msgstr "נקודות"
 
 #: apps/questions/templates/questions/my_questions.html:26
+msgid "Public"
+msgstr "ציבורי"
+
+#: apps/questions/templates/questions/my_questions.html:26
 msgid "Flagged"
 msgstr "הוסר"
 
@@ -1255,7 +681,6 @@ msgid "Published"
 msgstr "פורסם"
 
 #: apps/questions/templates/questions/my_questions.html:26
-#: templates/wiki/view.html:16
 msgid "Actions"
 msgstr "פעולות"
 
@@ -1347,149 +772,6 @@ msgstr ""
 #, python-format
 msgid "second argument to %s tag must be 'as'"
 msgstr ""
-
-#: apps/timeline/models.py:20
-msgid "action time"
-msgstr ""
-
-#: apps/timeline/models.py:23
-#, fuzzy
-msgid "object id"
-msgstr "נושא"
-
-#: apps/timeline/models.py:24
-msgid "object repr"
-msgstr ""
-
-#: apps/timeline/models.py:25
-msgid "action flag"
-msgstr ""
-
-#: apps/timeline/models.py:26
-#, fuzzy
-msgid "change message"
-msgstr "שלח הודעה"
-
-#: apps/timeline/models.py:29
-msgid "log entry"
-msgstr ""
-
-#: apps/timeline/models.py:30
-#, fuzzy
-msgid "log entries"
-msgstr "אין הודעות."
-
-#: apps/tribes/forms.py:9
-#, fuzzy
-msgid ""
-"a short version of the name consisting only of letters, numbers, underscores "
-"and hyphens."
-msgstr "גירסה מקוצרת של השם המכילה רק מספרים אותיות וקו תחתון"
-
-#: apps/tribes/forms.py:15
-msgid "The slug you've chosen is reserved for internal use."
-msgstr ""
-
-#: apps/tribes/forms.py:17
-msgid "A tribe already exists with that slug."
-msgstr "קיים כבר שבט בשם קצר זה"
-
-#: apps/tribes/forms.py:22 apps/tribes/forms.py:39
-msgid "A tribe already exists with that name."
-msgstr "קיים כבר שבט בשם זה"
-
-#: apps/tribes/management.py:9
-msgid "Friend Joined Tribe"
-msgstr "חבר הצטרף לשבט"
-
-#: apps/tribes/management.py:9
-msgid "a friend of yours joined a tribe"
-msgstr "חבר שלך הצטרף לשבט"
-
-#: apps/tribes/management.py:10
-msgid "New Tribe Member"
-msgstr "חבר שבט חדש"
-
-#: apps/tribes/management.py:10
-msgid "a tribe you are a member of has a new member"
-msgstr "שבט שאת/ה חבר בו צרף חבר חדש"
-
-#: apps/tribes/management.py:11
-msgid "New Member Of Tribe You Created"
-msgstr "חבר חדש בשבט שיצרת"
-
-#: apps/tribes/management.py:11
-msgid "a tribe you created has a new member"
-msgstr "שבט שיצרת צירף חבר חדש"
-
-#: apps/tribes/management.py:12
-msgid "New Tribe Created"
-msgstr "שבט חדש נוצר"
-
-#: apps/tribes/management.py:12
-msgid "a new tribe has been created"
-msgstr "שבט חדש נוצר"
-
-#: apps/tribes/management.py:13
-msgid "Friend Created Tribe"
-msgstr "חברך יצר שבט"
-
-#: apps/tribes/management.py:13
-msgid "a friend has created a new tribe"
-msgstr "חברך יצר שבט"
-
-#: apps/tribes/management.py:15
-msgid "New Topic Started"
-msgstr "דיון חדש החל"
-
-#: apps/tribes/management.py:15
-msgid "a new topic has started in a tribe you're a member of"
-msgstr "דיון חדש החל בשבט שאתה חבר בו"
-
-#: apps/tribes/management.py:16
-msgid "Response To Your Topic"
-msgstr "תגובה לדיון שלך"
-
-#: apps/tribes/management.py:16
-msgid "someone has responded on a topic you started"
-msgstr "מישהו הגיב לדיון שיצרת"
-
-#: apps/tribes/models.py:31
-msgid "members"
-msgstr "חברים"
-
-#: apps/tribes/models.py:56
-msgid "tribe"
-msgstr "שבט"
-
-#: apps/tribes/templates/notification/tribes_created_new_member/notice.html:2
-#: apps/tribes/templates/notification/tribes_friend_joined/notice.html:2
-#: apps/tribes/templates/notification/tribes_new_member/notice.html:2
-#, python-format
-msgid ""
-"<a href=\"%(user_url)s\">%(user)s</a> has joined the tribe <a href=\"%"
-"(tribe_url)s\">%(tribe)s</a>."
-msgstr ""
-
-#: apps/tribes/templates/notification/tribes_friend_tribe/notice.html:2
-#, python-format
-msgid ""
-"<a href=\"%(user_url)s\">%(tribe_creator)s</a> has created a new tribe <a "
-"href=\"%(tribe_url)s\">%(tribe)s</a>."
-msgstr ""
-
-#: apps/tribes/templates/notification/tribes_new_topic/notice.html:2
-#, python-format
-msgid ""
-"<a href=\"%(user_url)s\">%(topic_creator)s</a> has started a topic '<a href="
-"\"%(topic_url)s\">%(topic)s</a>' in tribe <a href=\"%(tribe_url)s\">%"
-"(topic_tribe)s</a>."
-msgstr ""
-
-#: apps/tribes/templates/notification/tribes_new_tribe/notice.html:2
-#, fuzzy, python-format
-msgid "A new tribe <a href=\"%(tribe_url)s\">%(tribe)s</a> has been created."
-msgstr "את/ה עדיין לא חבר באף <a href=\"%(tribe_url)s\">שבט</a>."
 
 #: templates/base.html:35 templates/announcements/announcement_list.html:15
 msgid "Hide announcement"
@@ -1673,7 +955,7 @@ msgstr "מומלץ להוסיף כדי לקבל עידכונים , לאפס סי
 msgid "Add Email Address"
 msgstr "הוסף כתובות דואל"
 
-#: templates/account/email.html:64 templates/projects/project.html:65
+#: templates/account/email.html:64
 msgid "add"
 msgstr "הוסף"
 
@@ -1737,9 +1019,9 @@ msgid ""
 "If you have any trouble logging in to your account, contact us at <a href="
 "\"mailto:%(contact_email)s\">%(contact_email)s</a>."
 msgstr ""
-"אם קיימת בעיה "
-"בחיבור לחשבונך, צור עימנו קשר ב"
-"<a href=\"mailto:%(contact_email)s\">%(contact_email)s</a>"
+"אם קיימת בעיה בחיבור לחשבונך, צור עימנו קשר ב<a href=\"mailto:%"
+"(contact_email)s\">%(contact_email)s</a>"
+
 #: templates/account/logout.html:8
 msgid "You've been logged out."
 msgstr "נותקת בהצלחה"
@@ -1845,17 +1127,14 @@ msgid ""
 "the <a href=\"%(terms_url)s\">Terms of Use</a> and <a href=\"%(privacy_url)s"
 "\">Privacy Policy</a>."
 msgstr ""
-"בלחיצה על הרשם את/ה מאשר/ת שקראת והסכמת ל"
-"<a href=\"%(terms_url)s\">תנאי השימוש</a> ו"
-"<a href=\"%(privacy_url)s\">הצהרת הפרטיות</a>."
+"בלחיצה על הרשם את/ה מאשר/ת שקראת והסכמת ל<a href=\"%(terms_url)s\">תנאי "
+"השימוש</a> ו<a href=\"%(privacy_url)s\">הצהרת הפרטיות</a>."
 
 #: templates/account/signup.html:30
 msgid ""
 "If you have any trouble creating your account, please send an email to "
 "tzafim@gmail.com."
-msgstr ""
-"אם נתקלת בבעיה ביצירת חשבון חדש אנא שלח דואל ל"
-" tzafim@gmail.com"
+msgstr "אם נתקלת בבעיה ביצירת חשבון חדש אנא שלח דואל ל tzafim@gmail.com"
 
 #: templates/account/timezone_change.html:10
 msgid ""
@@ -1932,7 +1211,6 @@ msgid "Edit profile"
 msgstr "ערוך פרופיל"
 
 #: templates/basic_profiles/profile.html:43 templates/profiles/profile.html:44
-#: templates/projects/project.html:44 templates/tribes/tribe.html:58
 msgid "update"
 msgstr "עדכן"
 
@@ -1989,8 +1267,6 @@ msgstr ""
 "להוספתו כחבר וצפייה בטוויטס ובבלוג שלו"
 
 #: templates/basic_profiles/profile_right_panel.html:6
-#: templates/tribes/base.html:10 templates/tribes/your_tribes.html:7
-#: templates/tribes/your_tribes.html:11
 msgid "Your Tribes"
 msgstr "השבטים שלך"
 
@@ -2033,7 +1309,6 @@ msgstr "פרופילים"
 
 #: templates/basic_profiles/profiles.html:18
 #: templates/notification/notices.html:26 templates/profiles/profiles.html:18
-#: templates/projects/tasks.html:57
 msgid "MONTH_DAY_FORMAT"
 msgstr ""
 
@@ -2223,6 +1498,11 @@ msgstr "עדיין <a href=\"%(tweets_url)s\">tweets</a> לא שלחת "
 msgid "There are currently no tweets to be listed."
 msgstr "אין טוויטס כעת"
 
+#: templates/microblogging/personal.html:6
+#: templates/microblogging/personal.html:14
+msgid "Tweets"
+msgstr "טוויטס"
+
 #: templates/microblogging/personal.html:17
 msgid "What are you doing?"
 msgstr "?מה אתה עושה "
@@ -2322,6 +1602,10 @@ msgstr "הקודם"
 msgid "next"
 msgstr "הבא"
 
+#: templates/profiles/profile.html:19
+msgid "(replace)"
+msgstr "(החלף)"
+
 #: templates/profiles/profile.html:28
 msgid "Candidate in party"
 msgstr "מועמד במפלגה"
@@ -2344,152 +1628,6 @@ msgstr "%(other_user)s החברים של"
 msgid "post a quetion"
 msgstr ""
 
-#: templates/projects/base.html:10
-#, fuzzy
-msgid "Your Tasks"
-msgstr "השבטים שלך"
-
-#: templates/projects/base.html:11 templates/projects/your_projects.html:7
-#: templates/projects/your_projects.html:11
-#, fuzzy
-msgid "Your Projects"
-msgstr "הפרופיל שלך"
-
-#: templates/projects/base.html:12
-#, fuzzy
-msgid "All Projects"
-msgstr "כל הפרופילים"
-
-#: templates/projects/create.html:8 templates/projects/create.html.py:12
-#, fuzzy
-msgid "Create Project"
-msgstr "צור דיון חדש"
-
-#: templates/projects/create.html:26 templates/projects/projects.html:32
-#, fuzzy, python-format
-msgid ""
-"<a href=\"%(signup_url)s\">Sign up</a> and <a href=\"%(login_url)s\">log in "
-"</a> to create your own project or join an existing one."
-msgstr ""
-"<a href=\"%(signup_url)s\">הירשם</a> <a href=\"%(login_url)s\">התחבר </a> "
-"להצטרפות לשבט קיים או יצירת שבט חדש"
-
-#: templates/projects/project.html:25
-msgid "Project"
-msgstr ""
-
-#: templates/projects/project.html:40 templates/tribes/tribe.html:53
-msgid "Edit details"
-msgstr "ערוך פרטים"
-
-#: templates/projects/project.html:61
-msgid "Add new member"
-msgstr ""
-
-#: templates/projects/project.html:70
-#, fuzzy
-msgid "Delete project"
-msgstr "מחק מאמר"
-
-#: templates/projects/project.html:72
-#, fuzzy
-msgid "Delete Project"
-msgstr "מחק מאמר"
-
-#: templates/projects/project.html:105 templates/tribes/tribe.html:104
-#: templates/tribes/tribe.html.py:120
-msgid "more..."
-msgstr ""
-
-#: templates/projects/project.html:108
-msgid "Create a task"
-msgstr ""
-
-#: templates/projects/project.html:136 templates/tribes/tribe.html:124
-#, python-format
-msgid ""
-"\n"
-"                        None yet. Go to the <a href=\"%(wiki_url)s\" title="
-"\"wiki\">wiki</a> to start a new article.\n"
-"                    "
-msgstr ""
-
-#: templates/projects/projects.html:9 templates/projects/projects.html:13
-#, fuzzy
-msgid "Projects"
-msgstr "פרופילים"
-
-#: templates/projects/projects.html:19
-#, fuzzy
-msgid "Start your own project"
-msgstr "צור שבט  חדש"
-
-#: templates/projects/task.html:10
-#, fuzzy
-msgid "Back to Task List for Project "
-msgstr "חזרה לרשימת הדיונים בשבט"
-
-#: templates/projects/task.html:18
-msgid "Update Status"
-msgstr ""
-
-#: templates/projects/task.html:31
-msgid "Reassign"
-msgstr ""
-
-#: templates/projects/task.html:33
-msgid "Assign"
-msgstr ""
-
-#: templates/projects/task.html:44
-msgid "Mark Resolved"
-msgstr ""
-
-#: templates/projects/task.html:52
-msgid "Mark Closed"
-msgstr ""
-
-#: templates/projects/task.html:58 templates/projects/task.html.py:65
-#, fuzzy
-msgid "Reopen"
-msgstr "אל"
-
-#: templates/projects/tasks.html:12
-msgid "Tasks for Project"
-msgstr ""
-
-#: templates/projects/tasks.html:74
-#, fuzzy
-msgid "add task"
-msgstr "הוסף למעודפים"
-
-#: templates/projects/topic.html:10
-#, fuzzy
-msgid "Back to Topic List for Project "
-msgstr "חזרה לרשימת הדיונים בשבט"
-
-#: templates/projects/topics.html:11
-#, fuzzy
-msgid "Discussion Topics for Project"
-msgstr "רשימת דיון בשבט"
-
-#: templates/projects/topics.html:27 templates/tribes/topics.html:26
-msgid "Create New Topic"
-msgstr "צור דיון חדש"
-
-#: templates/projects/user_tasks.html:9
-#, fuzzy, python-format
-msgid "Tasks for %(other_user)s"
-msgstr "%(other_user)s פרופיל של"
-
-#: templates/projects/user_tasks.html:23
-msgid "You have no tasks right now."
-msgstr ""
-
-#: templates/projects/your_projects.html:13
-msgid "These are the projects you participate in."
-msgstr ""
-
 #: templates/threadedcomments/comments.html:18
 msgid "Delete Post"
 msgstr "מחק מאמר"
@@ -2500,211 +1638,486 @@ msgid "Post Response"
 msgstr "שלח תגובה"
 
 #: templates/threadedcomments/comments.html:43
+#, python-format
 msgid ""
 " Please <a href=\"%(login)s\">Login</a> (or <a href=\"%(signup)s\">Sign Up</"
 "a>) to leave a comment"
 msgstr ""
-"<a href=\"%(signup)s\">הרשם</a> או <a href=\"%(login)s\">התחבר</a> "
-"כדי להצטרף לדיון."
+"<a href=\"%(signup)s\">הרשם</a> או <a href=\"%(login)s\">התחבר</a> כדי "
+"להצטרף לדיון."
 
-#: templates/tribes/base.html:12
-msgid "All Tribes"
-msgstr "כל השבטים"
-
-#: templates/tribes/create.html:10 templates/tribes/create.html.py:13
 #, fuzzy
-msgid "Create Tribe"
-msgstr "חברך יצר שבט"
+#~ msgid "Your Laws"
+#~ msgstr "השבטים שלך"
 
-#: templates/tribes/create.html:15 templates/tribes/tribes.html:16
-msgid "A <b>tribe</b> is a group of people with some common interest."
-msgstr ""
-
-#: templates/tribes/create.html:26 templates/tribes/tribes.html:31
-#, python-format
-msgid ""
-"<a href=\"%(signup_url)s\">Sign up</a> and <a href=\"%(login_url)s\">log in "
-"</a> to create your own tribe or join an existing one."
-msgstr ""
-"<a href=\"%(signup_url)s\">הירשם</a> <a href=\"%(login_url)s\">התחבר </a> "
-"להצטרפות לשבט קיים או יצירת שבט חדש"
-
-#: templates/tribes/topic.html:12
-msgid "Back to Topic List for Tribe "
-msgstr "חזרה לרשימת הדיונים בשבט"
-
-#: templates/tribes/topic.html:27
-msgid "Delete Topic"
-msgstr "מחק דיון"
-
-#: templates/tribes/topics.html:7
-#, python-format
-msgid "Topics for %(tribe_name)s"
-msgstr ""
-
-#: templates/tribes/topics.html:10
-msgid "Discussion Topics for Tribe"
-msgstr "רשימת דיון בשבט"
-
-#: templates/tribes/topics.html:21
 #, fuzzy
-msgid "New Topic"
-msgstr "צור דיון חדש"
+#~ msgid "All Laws"
+#~ msgstr "כל הטוויטים"
 
-#: templates/tribes/tribe.html:39
-msgid "Tribe"
-msgstr "שבט"
+#~ msgid "create"
+#~ msgstr "צור"
 
-#: templates/tribes/tribe.html:42
 #, fuzzy
-msgid "Slug:"
-msgstr "שם מקוצר"
+#~ msgid ""
+#~ "<a href=\"%(signup_url)s\">Sign up</a> or <a href=\"%(login_url)s\">log "
+#~ "in </a> to propose laws."
+#~ msgstr ""
+#~ "<a href=\"%(signup_url)s\">הירשם</a> <a href=\"%(login_url)s\">התחבר </a> "
+#~ "להצטרפות לשבט"
 
-#: templates/tribes/tribe.html:43
 #, fuzzy
-msgid "Creator:"
-msgstr "יצר"
+#~ msgid "Deletion of "
+#~ msgstr "מחק מאמר"
 
-#: templates/tribes/tribe.html:44
+#~ msgid "delete"
+#~ msgstr "מחק"
+
 #, fuzzy
-msgid "Created:"
-msgstr "נוצר"
+#~ msgid "Edit Law"
+#~ msgstr "ערוך פרטים"
 
-#: templates/tribes/tribe.html:64
 #, fuzzy
-msgid "Delete tribe"
-msgstr "מחק מאמר"
+#~ msgid "delete Law"
+#~ msgstr "מחק"
 
-#: templates/tribes/tribe.html:66
 #, fuzzy
-msgid "Delete Tribe"
-msgstr "מחק דיון"
+#~ msgid ""
+#~ "<a href=\"%(signup_url)s\">Sign up</a> and <a href=\"%(login_url)s\">log "
+#~ "in </a> to propose laws or support prposed laws."
+#~ msgstr ""
+#~ "<a href=\"%(signup_url)s\">הירשם</a> <a href=\"%(login_url)s\">התחבר </a> "
+#~ "להצטרפות לשבט"
 
-#: templates/tribes/tribe.html:79
-msgid "You are the creator of this tribe so can't leave (yet)."
-msgstr ""
+#~ msgid "Private"
+#~ msgstr "פרטי"
 
-#: templates/tribes/tribe.html:82
-msgid "leave"
-msgstr "עזוב"
-
-#: templates/tribes/tribe.html:86
-msgid "join tribe"
-msgstr "הצטרף לשבט"
-
-#: templates/tribes/tribe.html:93
-#, python-format
-msgid ""
-"<a href=\"%(signup_url)s\">Sign up</a> and <a href=\"%(login_url)s\">log in "
-"</a> to join this tribe."
-msgstr ""
-"<a href=\"%(signup_url)s\">הירשם</a> <a href=\"%(login_url)s\">התחבר </a> "
-"להצטרפות לשבט"
-
-#: templates/tribes/tribe.html:98
 #, fuzzy
-msgid "Discussion Topics"
-msgstr "רשימת דיון בשבט"
+#~ msgid "photo set"
+#~ msgstr "שלח"
 
-#: templates/tribes/tribe.html:107
-#, fuzzy, python-format
-msgid "None yet. <a href=\"%(new_tribe_url)s\">Start one...</a>"
-msgstr "את/ה עדיין לא חבר באף <a href=\"%(tribe_url)s\">שבט</a>."
-
-#: templates/tribes/tribe.html:112
-msgid "Wiki Articles"
-msgstr "מאמרים בוויקי"
-
-#: templates/tribes/tribe.html:138
-msgid "Upcoming Events"
-msgstr ""
-
-#: templates/tribes/tribes.html:11 templates/tribes/tribes.html.py:14
-msgid "Tribes"
-msgstr "שבטים"
-
-#: templates/tribes/tribes.html:19
 #, fuzzy
-msgid "Start your own tribe"
-msgstr "צור שבט  חדש"
+#~ msgid "Not Safe"
+#~ msgstr "הודעה"
 
-#: templates/tribes/your_tribes.html:13
-msgid "These are the tribes you participate in."
-msgstr ""
+#~ msgid "title"
+#~ msgstr "כותרת"
 
-#: templates/wiki/changeset.html:20
-msgid "Markup:"
-msgstr "סימול"
-
-#: templates/wiki/changeset.html:24
-msgid "Plain Text."
-msgstr "טקסט רגיל"
-
-#: templates/wiki/edit.html:13
-msgid "Edit Article"
-msgstr "ערוך מאמר"
-
-#: templates/wiki/edit.html:18
-msgid "Save Article"
-msgstr "שמור מאמר"
-
-#: templates/wiki/history.html:13
-msgid "History for article"
-msgstr "היסטוריה למאמר זה"
-
-#: templates/wiki/history.html:19
-msgid "Date"
-msgstr "תאריך"
-
-#: templates/wiki/history.html:20
-msgid "Editor"
-msgstr "עורך"
-
-#: templates/wiki/history.html:21
-msgid "Comment"
-msgstr "הערה"
-
-#: templates/wiki/history.html:22
 #, fuzzy
-msgid "Revert to..."
-msgstr "בטל"
+#~ msgid "caption"
+#~ msgstr "מיקום"
 
-#: templates/wiki/history.html:28
-msgid "DATETIME_FORMAT"
-msgstr "פורמט תאריך/שעה"
-
-#: templates/wiki/history.html:42
 #, fuzzy
-msgid "Current Revision"
-msgstr "סיסמא נוכחית"
+#~ msgid "date added"
+#~ msgstr "הוסף"
 
-#: templates/wiki/history.html:52
-msgid "Revert"
-msgstr "בטל"
+#, fuzzy
+#~ msgid "created_at"
+#~ msgstr "נוצר"
 
-#: templates/wiki/history.html:55
-msgid "No changes in this article"
-msgstr "אין שינויים במאמר זה"
+#, fuzzy
+#~ msgid "pools"
+#~ msgstr "שלח"
 
-#: templates/wiki/view.html:19
-msgid "Edit this article"
-msgstr "ערוך מאמר זה"
+#, fuzzy
+#~ msgid "Successfully updated photo '%s'"
+#~ msgstr "איזור זמן עודכן בהצלחה."
 
-#: templates/wiki/view.html:21
-msgid "Editing history"
-msgstr "ערוך היסטוריה"
+#, fuzzy
+#~ msgid ""
+#~ "a short version of the name consisting only of letters, numbers, "
+#~ "underscores or hyphens."
+#~ msgstr "גירסה מקוצרת של השם המכילה רק מספרים אותיות וקו תחתון"
 
-#: templates/wiki/view.html:25
-msgid "Create this article"
-msgstr "צור מאמר זה"
+#, fuzzy
+#~ msgid ""
+#~ "This value must contain only letters, numbers, underscores and hyphens."
+#~ msgstr "שדה זה חייב להכיל רק מספרים אותיות וקו תחתון"
 
-#: templates/wiki/view.html:38
-msgid "This article does not exist."
-msgstr "מאמר זה אינו קיים."
+#, fuzzy
+#~ msgid "A project already exists with that slug."
+#~ msgstr "קיים כבר שבט בשם קצר זה"
 
-#: templates/wiki/view.html:39
-msgid ">Create it now</a>?"
-msgstr ">צור עכשיו</a>?"
+#, fuzzy
+#~ msgid "A project already exists with that name."
+#~ msgstr "קיים כבר שבט בשם זה"
+
+#, fuzzy
+#~ msgid "User"
+#~ msgstr "משתמש"
+
+#, fuzzy
+#~ msgid "New Project Member"
+#~ msgstr "חבר שבט חדש"
+
+#, fuzzy
+#~ msgid "a project you are a member of has a new member"
+#~ msgstr "שבט שאת/ה חבר בו צרף חבר חדש"
+
+#, fuzzy
+#~ msgid "a project you are a member of has been deleted"
+#~ msgstr "שבט שאת/ה חבר בו צרף חבר חדש"
+
+#, fuzzy
+#~ msgid "New Project Topic Started"
+#~ msgstr "דיון חדש החל"
+
+#, fuzzy
+#~ msgid "a new topic has started in a project you're a member of"
+#~ msgstr "דיון חדש החל בשבט שאתה חבר בו"
+
+#, fuzzy
+#~ msgid "Response To Your Project Topic"
+#~ msgstr "תגובה לדיון שלך"
+
+#, fuzzy
+#~ msgid "someone has responded on a project topic you started"
+#~ msgstr "מישהו הגיב לדיון שיצרת"
+
+#, fuzzy
+#~ msgid "a new task been created in a project you're a member of"
+#~ msgstr "דיון חדש החל בשבט שאתה חבר בו"
+
+#, fuzzy
+#~ msgid ""
+#~ "a new comment has been made on a task in a project you're a member of"
+#~ msgstr "דיון חדש החל בשבט שאתה חבר בו"
+
+#, fuzzy
+#~ msgid ""
+#~ "there has been a change in the state of a task in a project you're a "
+#~ "member of"
+#~ msgstr "דיון חדש החל בשבט שאתה חבר בו"
+
+#, fuzzy
+#~ msgid "a task has been (re)assigned in a project you're a member of"
+#~ msgstr "דיון חדש החל בשבט שאתה חבר בו"
+
+#, fuzzy
+#~ msgid ""
+#~ "there has been a status update to a task in a project you're a member of"
+#~ msgstr "דיון חדש החל בשבט שאתה חבר בו"
+
+#~ msgid "creator"
+#~ msgstr "יצר"
+
+#~ msgid "body"
+#~ msgstr "גוף"
+
+#, fuzzy
+#~ msgid "detail"
+#~ msgstr "ערוך פרטים"
+
+#, fuzzy
+#~ msgid "state"
+#~ msgstr "תאריך"
+
+#, fuzzy
+#~ msgid "Members:"
+#~ msgstr "חברים"
+
+#, fuzzy
+#~ msgid "State"
+#~ msgstr "תאריך"
+
+#, fuzzy
+#~ msgid "Creator"
+#~ msgstr "יצר"
+
+#, fuzzy
+#~ msgid "Created"
+#~ msgstr "נוצר"
+
+#, fuzzy
+#~ msgid "Modified"
+#~ msgstr "השתנה"
+
+#, fuzzy
+#~ msgid "none"
+#~ msgstr "ללא"
+
+#, fuzzy
+#~ msgid "object id"
+#~ msgstr "נושא"
+
+#, fuzzy
+#~ msgid "change message"
+#~ msgstr "שלח הודעה"
+
+#, fuzzy
+#~ msgid "log entries"
+#~ msgstr "אין הודעות."
+
+#, fuzzy
+#~ msgid ""
+#~ "a short version of the name consisting only of letters, numbers, "
+#~ "underscores and hyphens."
+#~ msgstr "גירסה מקוצרת של השם המכילה רק מספרים אותיות וקו תחתון"
+
+#~ msgid "A tribe already exists with that slug."
+#~ msgstr "קיים כבר שבט בשם קצר זה"
+
+#~ msgid "A tribe already exists with that name."
+#~ msgstr "קיים כבר שבט בשם זה"
+
+#~ msgid "Friend Joined Tribe"
+#~ msgstr "חבר הצטרף לשבט"
+
+#~ msgid "a friend of yours joined a tribe"
+#~ msgstr "חבר שלך הצטרף לשבט"
+
+#~ msgid "New Tribe Member"
+#~ msgstr "חבר שבט חדש"
+
+#~ msgid "a tribe you are a member of has a new member"
+#~ msgstr "שבט שאת/ה חבר בו צרף חבר חדש"
+
+#~ msgid "New Member Of Tribe You Created"
+#~ msgstr "חבר חדש בשבט שיצרת"
+
+#~ msgid "a tribe you created has a new member"
+#~ msgstr "שבט שיצרת צירף חבר חדש"
+
+#~ msgid "New Tribe Created"
+#~ msgstr "שבט חדש נוצר"
+
+#~ msgid "a new tribe has been created"
+#~ msgstr "שבט חדש נוצר"
+
+#~ msgid "Friend Created Tribe"
+#~ msgstr "חברך יצר שבט"
+
+#~ msgid "a friend has created a new tribe"
+#~ msgstr "חברך יצר שבט"
+
+#~ msgid "New Topic Started"
+#~ msgstr "דיון חדש החל"
+
+#~ msgid "a new topic has started in a tribe you're a member of"
+#~ msgstr "דיון חדש החל בשבט שאתה חבר בו"
+
+#~ msgid "Response To Your Topic"
+#~ msgstr "תגובה לדיון שלך"
+
+#~ msgid "someone has responded on a topic you started"
+#~ msgstr "מישהו הגיב לדיון שיצרת"
+
+#~ msgid "members"
+#~ msgstr "חברים"
+
+#~ msgid "tribe"
+#~ msgstr "שבט"
+
+#, fuzzy
+#~ msgid ""
+#~ "A new tribe <a href=\"%(tribe_url)s\">%(tribe)s</a> has been created."
+#~ msgstr "את/ה עדיין לא חבר באף <a href=\"%(tribe_url)s\">שבט</a>."
+
+#, fuzzy
+#~ msgid "Your Tasks"
+#~ msgstr "השבטים שלך"
+
+#, fuzzy
+#~ msgid "Your Projects"
+#~ msgstr "הפרופיל שלך"
+
+#, fuzzy
+#~ msgid "All Projects"
+#~ msgstr "כל הפרופילים"
+
+#, fuzzy
+#~ msgid "Create Project"
+#~ msgstr "צור דיון חדש"
+
+#, fuzzy
+#~ msgid ""
+#~ "<a href=\"%(signup_url)s\">Sign up</a> and <a href=\"%(login_url)s\">log "
+#~ "in </a> to create your own project or join an existing one."
+#~ msgstr ""
+#~ "<a href=\"%(signup_url)s\">הירשם</a> <a href=\"%(login_url)s\">התחבר </a> "
+#~ "להצטרפות לשבט קיים או יצירת שבט חדש"
+
+#~ msgid "Edit details"
+#~ msgstr "ערוך פרטים"
+
+#, fuzzy
+#~ msgid "Delete project"
+#~ msgstr "מחק מאמר"
+
+#, fuzzy
+#~ msgid "Delete Project"
+#~ msgstr "מחק מאמר"
+
+#, fuzzy
+#~ msgid "Projects"
+#~ msgstr "פרופילים"
+
+#, fuzzy
+#~ msgid "Start your own project"
+#~ msgstr "צור שבט  חדש"
+
+#, fuzzy
+#~ msgid "Back to Task List for Project "
+#~ msgstr "חזרה לרשימת הדיונים בשבט"
+
+#, fuzzy
+#~ msgid "Reopen"
+#~ msgstr "אל"
+
+#, fuzzy
+#~ msgid "add task"
+#~ msgstr "הוסף למעודפים"
+
+#, fuzzy
+#~ msgid "Back to Topic List for Project "
+#~ msgstr "חזרה לרשימת הדיונים בשבט"
+
+#, fuzzy
+#~ msgid "Discussion Topics for Project"
+#~ msgstr "רשימת דיון בשבט"
+
+#~ msgid "Create New Topic"
+#~ msgstr "צור דיון חדש"
+
+#, fuzzy
+#~ msgid "Tasks for %(other_user)s"
+#~ msgstr "%(other_user)s פרופיל של"
+
+#~ msgid "All Tribes"
+#~ msgstr "כל השבטים"
+
+#, fuzzy
+#~ msgid "Create Tribe"
+#~ msgstr "חברך יצר שבט"
+
+#~ msgid ""
+#~ "<a href=\"%(signup_url)s\">Sign up</a> and <a href=\"%(login_url)s\">log "
+#~ "in </a> to create your own tribe or join an existing one."
+#~ msgstr ""
+#~ "<a href=\"%(signup_url)s\">הירשם</a> <a href=\"%(login_url)s\">התחבר </a> "
+#~ "להצטרפות לשבט קיים או יצירת שבט חדש"
+
+#~ msgid "Back to Topic List for Tribe "
+#~ msgstr "חזרה לרשימת הדיונים בשבט"
+
+#~ msgid "Delete Topic"
+#~ msgstr "מחק דיון"
+
+#~ msgid "Discussion Topics for Tribe"
+#~ msgstr "רשימת דיון בשבט"
+
+#, fuzzy
+#~ msgid "New Topic"
+#~ msgstr "צור דיון חדש"
+
+#~ msgid "Tribe"
+#~ msgstr "שבט"
+
+#, fuzzy
+#~ msgid "Slug:"
+#~ msgstr "שם מקוצר"
+
+#, fuzzy
+#~ msgid "Creator:"
+#~ msgstr "יצר"
+
+#, fuzzy
+#~ msgid "Created:"
+#~ msgstr "נוצר"
+
+#, fuzzy
+#~ msgid "Delete tribe"
+#~ msgstr "מחק מאמר"
+
+#, fuzzy
+#~ msgid "Delete Tribe"
+#~ msgstr "מחק דיון"
+
+#~ msgid "leave"
+#~ msgstr "עזוב"
+
+#~ msgid "join tribe"
+#~ msgstr "הצטרף לשבט"
+
+#~ msgid ""
+#~ "<a href=\"%(signup_url)s\">Sign up</a> and <a href=\"%(login_url)s\">log "
+#~ "in </a> to join this tribe."
+#~ msgstr ""
+#~ "<a href=\"%(signup_url)s\">הירשם</a> <a href=\"%(login_url)s\">התחבר </a> "
+#~ "להצטרפות לשבט"
+
+#, fuzzy
+#~ msgid "Discussion Topics"
+#~ msgstr "רשימת דיון בשבט"
+
+#, fuzzy
+#~ msgid "None yet. <a href=\"%(new_tribe_url)s\">Start one...</a>"
+#~ msgstr "את/ה עדיין לא חבר באף <a href=\"%(tribe_url)s\">שבט</a>."
+
+#~ msgid "Wiki Articles"
+#~ msgstr "מאמרים בוויקי"
+
+#~ msgid "Tribes"
+#~ msgstr "שבטים"
+
+#, fuzzy
+#~ msgid "Start your own tribe"
+#~ msgstr "צור שבט  חדש"
+
+#~ msgid "Markup:"
+#~ msgstr "סימול"
+
+#~ msgid "Plain Text."
+#~ msgstr "טקסט רגיל"
+
+#~ msgid "Edit Article"
+#~ msgstr "ערוך מאמר"
+
+#~ msgid "Save Article"
+#~ msgstr "שמור מאמר"
+
+#~ msgid "History for article"
+#~ msgstr "היסטוריה למאמר זה"
+
+#~ msgid "Date"
+#~ msgstr "תאריך"
+
+#~ msgid "Editor"
+#~ msgstr "עורך"
+
+#~ msgid "Comment"
+#~ msgstr "הערה"
+
+#, fuzzy
+#~ msgid "Revert to..."
+#~ msgstr "בטל"
+
+#~ msgid "DATETIME_FORMAT"
+#~ msgstr "פורמט תאריך/שעה"
+
+#, fuzzy
+#~ msgid "Current Revision"
+#~ msgstr "סיסמא נוכחית"
+
+#~ msgid "Revert"
+#~ msgstr "בטל"
+
+#~ msgid "No changes in this article"
+#~ msgstr "אין שינויים במאמר זה"
+
+#~ msgid "Edit this article"
+#~ msgstr "ערוך מאמר זה"
+
+#~ msgid "Editing history"
+#~ msgstr "ערוך היסטוריה"
+
+#~ msgid "Create this article"
+#~ msgstr "צור מאמר זה"
+
+#~ msgid "This article does not exist."
+#~ msgstr "מאמר זה אינו קיים."
+
+#~ msgid ">Create it now</a>?"
+#~ msgstr ">צור עכשיו</a>?"
 
 #~ msgid "No candidatess yet."
 #~ msgstr "עדיין אין מועמדים רשומים."
