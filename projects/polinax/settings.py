@@ -126,7 +126,7 @@ INSTALLED_APPS = (
     'ajax_validation',
     'threadedcomments',
     'photologue',
-    'microblogging',
+    #'microblogging',
     'voting',
     'wiki',
     # internal (for now)
@@ -142,7 +142,7 @@ INSTALLED_APPS = (
     'answers',
     
     'tagging',
-    'tag_app',
+    #'tag_app',
     'things',
     
     'django.contrib.admin',

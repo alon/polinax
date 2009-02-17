@@ -9,7 +9,7 @@ from django.contrib.contenttypes import generic
 from django.contrib.auth.models import User
 
 from tagging.fields import TagField
-from photos.models import Pool
+#from photos.models import Pool
 
 try:
     from notification import models as notification

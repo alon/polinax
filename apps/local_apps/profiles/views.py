@@ -8,9 +8,9 @@ from django.utils.translation import ugettext
 
 from friends.forms import InviteFriendForm
 from friends.models import FriendshipInvitation, Friendship
-from photos.models import Image
+#from photos.models import Image
 
-from microblogging.models import Following
+#from microblogging.models import Following
 
 from profiles.models import Profile
 from profiles.forms import ProfileForm
